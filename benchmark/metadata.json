@@ -1,0 +1,16 @@
+{
+  "repo": "PCBA_StepperController",
+  "title": "Quiet Stepper Motor Controller",
+  "category": "motor-control",
+  "difficulty": 3,
+  "detail": 3,
+  "layers": "4 preferred",
+  "stress": [
+    "motor-current routing",
+    "driver thermal pad",
+    "sense resistors",
+    "mixed-signal grounding"
+  ],
+  "benchmark_id": 8,
+  "brief_file": "BRIEF.md"
+}
