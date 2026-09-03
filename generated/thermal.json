@@ -1,0 +1,61 @@
+{
+  "context": {
+    "generated_by": "design/thermal.py"
+  },
+  "continuous_rating_ambient_c": 25.0,
+  "declared_max_ambient_c": 40.0,
+  "dissipation_w": {
+    "driver": {
+      "documents": [
+        "tmc2226_trinamic"
+      ],
+      "watts": 3.0436
+    },
+    "indicators": {
+      "documents": [
+        "kt0603r_kento"
+      ],
+      "watts": 0.00783890247933884
+    },
+    "logic_regulator": {
+      "documents": [
+        "lmr51430_ti"
+      ],
+      "watts": 0.00027774828512396694
+    },
+    "resistor_networks": {
+      "documents": [
+        "res_0603_uniroyal"
+      ],
+      "watts": 0.1916103312027269
+    },
+    "reverse_blocking_device": {
+      "documents": [
+        "si9407bdy_vishay"
+      ],
+      "watts": 0.6
+    },
+    "sense_resistors": {
+      "documents": [
+        "shunt_1206_milliohm"
+      ],
+      "watts": 0.9090000000000003
+    }
+  },
+  "driver": {
+    "conduction_w": 1.89,
+    "estimated_w": 3.0436,
+    "reference_board_ambient_ceiling_c": 45.8664,
+    "reference_board_rise_c": 79.1336,
+    "required_theta_ja_c_per_w": 32.855828623997894
+  },
+  "estimate_class": "a dissipation inventory and package-limit derating at declared ambients. No thermal solve, no copper spreading model, no airflow assumption, and therefore no board temperature and no junction temperature.",
+  "kind": "thermal-estimate",
+  "not_established": [
+    "board temperature rise above ambient",
+    "junction temperature of any part",
+    "airflow and mounting orientation",
+    "the temperature of the sense resistors at full phase current"
+  ],
+  "total_w": 4.75232698196719
+}

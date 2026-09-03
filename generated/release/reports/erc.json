@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.kicad.org/erc.v1.json",
+  "coordinate_units": "mm",
+  "date": "2026-09-02T21:18:39",
+  "ignored_checks": [],
+  "included_severities": [
+    "error",
+    "warning",
+    "exclusion"
+  ],
+  "kicad_version": "10.0.5",
+  "sheets": [
+    {
+      "path": "/",
+      "uuid_path": "/762846a7-56a7-5c2d-814a-4a8c19d9a94c",
+      "violations": []
+    }
+  ],
+  "source": "stepper_controller.kicad_sch",
+  "source_sha256": "7136250ca1fd09a9c4d82784cbdc515ca196c5179e9ec522f13a8b56ec8ce648",
+  "source_closure_sha256": "4085a705106e06fbead4b5728a287ca4536637e4bb26fa6daa8bbe6079d095fd"
+}

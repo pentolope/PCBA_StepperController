@@ -1,0 +1,702 @@
+(kicad_symbol_lib
+	(version 20251024)
+	(generator "stepper-controller-design-source")
+	(generator_version "10.0")
+	(symbol "LMR51430"
+		(pin_names
+			(offset 1.016)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "U"
+			(at 0 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "LMR51430"
+			(at 0 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-6"
+			(at 0 12.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr51430.pdf"
+			(at 0 10.16 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "SOT?23*"
+			(at 0 7.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "LMR51430_0_1"
+			(rectangle
+				(start -5.08 5.08)
+				(end 5.08 -5.08)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "LMR51430_1_1"
+			(pin power_in line
+				(at -7.62 2.54 0)
+				(length 2.54)
+				(name "VIN"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin input line
+				(at -7.62 0.00 0)
+				(length 2.54)
+				(name "EN"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "5"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin input line
+				(at -7.62 -2.54 0)
+				(length 2.54)
+				(name "FB"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin output line
+				(at 7.62 1.27 180)
+				(length 2.54)
+				(name "SW"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 7.62 -1.27 180)
+				(length 2.54)
+				(name "CB"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "6"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin power_in line
+				(at 0.00 -7.62 90)
+				(length 2.54)
+				(name "GND"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+		)
+	)
+	(symbol "TPD1E10B06"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 1.016)
+			(hide yes)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "D"
+			(at 0 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TPD1E10B06"
+			(at 0 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "StepperController:TI_X1SON-2_1.0x0.6mm_P0.65mm"
+			(at 0 12.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tpd1e10b06.pdf"
+			(at 0 10.16 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "TI_X1SON-2_1.0x0.6mm_P0.65mm"
+			(at 0 7.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "TPD1E10B06_0_1"
+			(rectangle
+				(start -1.27 1.27)
+				(end 1.27 -1.27)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "TPD1E10B06_1_1"
+			(pin passive line
+				(at 0.00 3.81 270)
+				(length 2.54)
+				(name "IO1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 0.00 -3.81 90)
+				(length 2.54)
+				(name "IO2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+		)
+	)
+	(symbol "Si9407BDY"
+		(pin_names
+			(offset 1.016)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "Q"
+			(at 0 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Si9407BDY"
+			(at 0 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+			(at 0 12.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "https://www.vishay.com/docs/69902/si9407bdy.pdf"
+			(at 0 10.16 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm*"
+			(at 0 7.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "Si9407BDY_0_1"
+			(rectangle
+				(start -5.08 6.35)
+				(end 5.08 -6.35)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "Si9407BDY_1_1"
+			(pin passive line
+				(at -7.62 2.54 0)
+				(length 2.54)
+				(name "S"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at -7.62 0.00 0)
+				(length 2.54)
+				(name "S"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at -7.62 -2.54 0)
+				(length 2.54)
+				(name "S"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "3"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin input line
+				(at 0.00 -8.89 90)
+				(length 2.54)
+				(name "G"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "4"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 7.62 3.81 180)
+				(length 2.54)
+				(name "D"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "5"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 7.62 1.27 180)
+				(length 2.54)
+				(name "D"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "6"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 7.62 -1.27 180)
+				(length 2.54)
+				(name "D"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "7"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 7.62 -3.81 180)
+				(length 2.54)
+				(name "D"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "8"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+		)
+	)
+	(symbol "ScrewTerminal_1x02"
+		(pin_names
+			(offset 1.016)
+		)
+		(exclude_from_sim yes)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "J"
+			(at 0 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "ScrewTerminal_1x02"
+			(at 0 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "StepperController:TerminalBlock_KF128-5.08_1x02_P5.08mm"
+			(at 0 12.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 10.16 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "TerminalBlock*"
+			(at 0 7.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "ScrewTerminal_1x02_0_1"
+			(rectangle
+				(start -2.54 3.81)
+				(end 2.54 -3.81)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "ScrewTerminal_1x02_1_1"
+			(pin passive line
+				(at -5.08 1.27 0)
+				(length 2.54)
+				(name "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at -5.08 -1.27 0)
+				(length 2.54)
+				(name "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+		)
+	)
+	(symbol "TVS_Unidirectional"
+		(pin_numbers
+			(hide yes)
+		)
+		(pin_names
+			(offset 1.016)
+		)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(property "Reference" "D"
+			(at 0 17.78 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "TVS_Unidirectional"
+			(at 0 15.24 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SMB"
+			(at 0 12.70 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 0 10.16 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "ki_fp_filters" "D?SMB*"
+			(at 0 7.62 0)
+			(hide yes)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(symbol "TVS_Unidirectional_0_1"
+			(rectangle
+				(start -1.27 1.27)
+				(end 1.27 -1.27)
+				(stroke
+					(width 0.254)
+					(type default)
+				)
+				(fill
+					(type background)
+				)
+			)
+		)
+		(symbol "TVS_Unidirectional_1_1"
+			(pin passive line
+				(at 0.00 3.81 270)
+				(length 2.54)
+				(name "K"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "1"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+			(pin passive line
+				(at 0.00 -3.81 90)
+				(length 2.54)
+				(name "A"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+				(number "2"
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+				)
+			)
+		)
+	)
+)

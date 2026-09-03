@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "StepperController")(type "KiCad")(uri "${KIPRJMOD}/library/StepperController.kicad_sym")(options "")(descr ""))
+)

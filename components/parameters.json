@@ -1,0 +1,1517 @@
+{
+  "parts": {
+    "0603WAF1000T5E": {
+      "resistor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 155.0
+        },
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "resistance_ohm": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 100.0
+        },
+        "tempco_per_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.0001
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      }
+    },
+    "0603WAF1001T5E": {
+      "resistor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 155.0
+        },
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "resistance_ohm": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 1000.0
+        },
+        "tempco_per_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.0001
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      }
+    },
+    "0603WAF1002T5E": {
+      "resistor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 155.0
+        },
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "resistance_ohm": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 10000.0
+        },
+        "tempco_per_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.0001
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      }
+    },
+    "0603WAF1003T5E": {
+      "resistor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 155.0
+        },
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "resistance_ohm": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 100000.0
+        },
+        "tempco_per_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.0001
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      }
+    },
+    "0603WAF1202T5E": {
+      "resistor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 155.0
+        },
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "resistance_ohm": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 12000.0
+        },
+        "tempco_per_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.0001
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      }
+    },
+    "0603WAF2202T5E": {
+      "resistor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 155.0
+        },
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "resistance_ohm": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 22000.0
+        },
+        "tempco_per_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.0001
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      }
+    },
+    "0603WAF4701T5E": {
+      "resistor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 155.0
+        },
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 70.0
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.1
+        },
+        "resistance_ohm": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 4700.0
+        },
+        "tempco_per_c": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.0001
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 0.01
+        },
+        "working_voltage_max_v": {
+          "basis": "direct",
+          "document": "res_0603_uniroyal",
+          "value": 75.0
+        }
+      }
+    },
+    "B4P-VH(LF)(SN)": {
+      "connector": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "conditions": "including the temperature rise from the applied current",
+          "document": "jst_vh_connector",
+          "value": 85.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "jst_vh_connector",
+          "value": -25.0
+        },
+        "current_max_a": {
+          "basis": "direct",
+          "conditions": "AWG #16, including the temperature rise from the applied current",
+          "document": "jst_vh_connector",
+          "value": 10.0
+        },
+        "keyed": {
+          "basis": "direct",
+          "conditions": "the housing is polarised against reversed mating",
+          "document": "jst_vh_connector",
+          "value": 1.0
+        },
+        "pitch_mm": {
+          "basis": "direct",
+          "document": "jst_vh_connector",
+          "value": 3.96
+        },
+        "positions": {
+          "basis": "direct",
+          "document": "jst_vh_connector",
+          "value": 4.0
+        },
+        "retained": {
+          "basis": "direct",
+          "conditions": "the housing latches to the header",
+          "document": "jst_vh_connector",
+          "value": 1.0
+        },
+        "voltage_max_v": {
+          "basis": "direct",
+          "document": "jst_vh_connector",
+          "value": 250.0
+        }
+      }
+    },
+    "CC0603KRX7R0BB104": {
+      "capacitor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "conditions": "X7R class 2 dielectric",
+          "document": "mlcc_yageo_cc",
+          "value": 125.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": -55.0
+        },
+        "capacitance_f": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 1e-07
+        },
+        "dielectric_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "X7R class 2",
+          "document": "mlcc_yageo_cc",
+          "value": 125.0
+        },
+        "dielectric_ambient_min_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": -55.0
+        },
+        "rated_voltage_v": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 100.0
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 0.1
+        }
+      }
+    },
+    "CC0603KRX7R9BB223": {
+      "capacitor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "conditions": "X7R class 2 dielectric",
+          "document": "mlcc_yageo_cc",
+          "value": 125.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": -55.0
+        },
+        "capacitance_f": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 2.2e-08
+        },
+        "dielectric_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "X7R class 2",
+          "document": "mlcc_yageo_cc",
+          "value": 125.0
+        },
+        "dielectric_ambient_min_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": -55.0
+        },
+        "rated_voltage_v": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 50.0
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 0.1
+        }
+      }
+    },
+    "CC0805KKX7R7BB106": {
+      "capacitor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "conditions": "X7R class 2 dielectric",
+          "document": "mlcc_yageo_cc",
+          "value": 125.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": -55.0
+        },
+        "capacitance_f": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 1e-05
+        },
+        "dielectric_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "X7R class 2",
+          "document": "mlcc_yageo_cc",
+          "value": 125.0
+        },
+        "dielectric_ambient_min_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": -55.0
+        },
+        "rated_voltage_v": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 16.0
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 0.1
+        }
+      }
+    },
+    "CC0805KKX7R8BB225": {
+      "capacitor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "conditions": "X7R class 2 dielectric",
+          "document": "mlcc_yageo_cc",
+          "value": 125.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": -55.0
+        },
+        "capacitance_f": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 2.2e-06
+        },
+        "dielectric_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "X7R class 2",
+          "document": "mlcc_yageo_cc",
+          "value": 125.0
+        },
+        "dielectric_ambient_min_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": -55.0
+        },
+        "rated_voltage_v": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 25.0
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 0.1
+        }
+      }
+    },
+    "CC1206KKX7R9BB475": {
+      "capacitor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "conditions": "X7R class 2 dielectric",
+          "document": "mlcc_yageo_cc",
+          "value": 125.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": -55.0
+        },
+        "capacitance_f": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 4.7e-06
+        },
+        "dielectric_ambient_max_c": {
+          "basis": "direct",
+          "conditions": "X7R class 2",
+          "document": "mlcc_yageo_cc",
+          "value": 125.0
+        },
+        "dielectric_ambient_min_c": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": -55.0
+        },
+        "rated_voltage_v": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 50.0
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "mlcc_yageo_cc",
+          "value": 0.1
+        }
+      }
+    },
+    "HHXC500ARA101MJA0G": {
+      "capacitor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "hybrid_ncc_hxc",
+          "value": 125.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "hybrid_ncc_hxc",
+          "value": -55.0
+        },
+        "capacitance_f": {
+          "basis": "direct",
+          "document": "hybrid_ncc_hxc",
+          "value": 0.0001
+        },
+        "dissipation_factor": {
+          "basis": "direct",
+          "conditions": "120 Hz, 20 degC",
+          "document": "hybrid_ncc_hxc",
+          "value": 0.1
+        },
+        "esr_max_ohm": {
+          "basis": "direct",
+          "conditions": "20 degC, 100 kHz",
+          "document": "hybrid_ncc_hxc",
+          "value": 0.025
+        },
+        "rated_voltage_v": {
+          "basis": "direct",
+          "document": "hybrid_ncc_hxc",
+          "value": 50.0
+        },
+        "ripple_current_max_a": {
+          "basis": "direct",
+          "conditions": "125 degC, 100 kHz",
+          "document": "hybrid_ncc_hxc",
+          "value": 1.6
+        },
+        "ripple_frequency_multiplier_20k": {
+          "basis": "direct",
+          "conditions": "47 to 150 uF row",
+          "document": "hybrid_ncc_hxc",
+          "value": 0.8
+        },
+        "ripple_frequency_multiplier_30k": {
+          "basis": "direct",
+          "conditions": "47 to 150 uF row",
+          "document": "hybrid_ncc_hxc",
+          "value": 0.8
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "hybrid_ncc_hxc",
+          "value": 0.2
+        }
+      }
+    },
+    "HoLRTX1206-1W-100mR-1%": {
+      "resistor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "shunt_1206_milliohm",
+          "value": 155.0
+        },
+        "current_max_a": {
+          "basis": "direct",
+          "document": "shunt_1206_milliohm",
+          "value": 3.16
+        },
+        "full_rating_ambient_max_c": {
+          "basis": "direct",
+          "document": "shunt_1206_milliohm",
+          "value": 70.0
+        },
+        "low_inductance": {
+          "basis": "direct",
+          "conditions": "the specification states low inductance as a product feature and gives no figure",
+          "document": "shunt_1206_milliohm",
+          "value": 1.0
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "conditions": "continuous at 70 degC ambient",
+          "document": "shunt_1206_milliohm",
+          "value": 1.0
+        },
+        "resistance_ohm": {
+          "basis": "direct",
+          "document": "shunt_1206_milliohm",
+          "value": 0.1
+        },
+        "tempco_per_c": {
+          "basis": "direct",
+          "document": "shunt_1206_milliohm",
+          "value": 5e-05
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "shunt_1206_milliohm",
+          "value": 0.01
+        },
+        "zero_power_ambient_c": {
+          "basis": "direct",
+          "document": "shunt_1206_milliohm",
+          "value": 155.0
+        }
+      }
+    },
+    "KF128-5.08-2P-AA": {
+      "connector": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "kf128_cixikefa",
+          "value": 105.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "kf128_cixikefa",
+          "value": -40.0
+        },
+        "current_max_a": {
+          "basis": "direct",
+          "conditions": "UL/CUL",
+          "document": "kf128_cixikefa",
+          "value": 10.0
+        },
+        "keyed": {
+          "basis": "direct",
+          "conditions": "a screw terminal has no mating key",
+          "document": "kf128_cixikefa",
+          "value": 0.0
+        },
+        "pitch_mm": {
+          "basis": "direct",
+          "document": "kf128_cixikefa",
+          "value": 5.08
+        },
+        "positions": {
+          "basis": "direct",
+          "document": "kf128_cixikefa",
+          "value": 2.0
+        },
+        "retained": {
+          "basis": "direct",
+          "conditions": "conductors are clamped by screws",
+          "document": "kf128_cixikefa",
+          "value": 1.0
+        },
+        "voltage_max_v": {
+          "basis": "direct",
+          "conditions": "UL/CUL",
+          "document": "kf128_cixikefa",
+          "value": 300.0
+        }
+      }
+    },
+    "KH-2.54PH180-1X3P-L11.5": {
+      "connector": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "header1x3_kinghelm",
+          "value": 105.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "header1x3_kinghelm",
+          "value": -40.0
+        },
+        "contact_resistance_max_ohm": {
+          "basis": "direct",
+          "document": "header1x3_kinghelm",
+          "value": 0.02
+        },
+        "current_max_a": {
+          "basis": "direct",
+          "document": "header1x3_kinghelm",
+          "value": 3.0
+        },
+        "keyed": {
+          "basis": "direct",
+          "conditions": "an unshrouded header has no mating key",
+          "document": "header1x3_kinghelm",
+          "value": 0.0
+        },
+        "pitch_mm": {
+          "basis": "direct",
+          "document": "header1x3_kinghelm",
+          "value": 2.54
+        },
+        "positions": {
+          "basis": "direct",
+          "document": "header1x3_kinghelm",
+          "value": 3.0
+        },
+        "retained": {
+          "basis": "direct",
+          "conditions": "a friction-fit socket is not latched",
+          "document": "header1x3_kinghelm",
+          "value": 0.0
+        },
+        "voltage_max_v": {
+          "basis": "direct",
+          "conditions": "AC withstanding",
+          "document": "header1x3_kinghelm",
+          "value": 1000.0
+        }
+      }
+    },
+    "KH-2.54PH180-1X5P-L11.5": {
+      "connector": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "header1x5_kinghelm",
+          "value": 105.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "header1x5_kinghelm",
+          "value": -40.0
+        },
+        "contact_resistance_max_ohm": {
+          "basis": "direct",
+          "document": "header1x5_kinghelm",
+          "value": 0.02
+        },
+        "current_max_a": {
+          "basis": "direct",
+          "document": "header1x5_kinghelm",
+          "value": 3.0
+        },
+        "keyed": {
+          "basis": "direct",
+          "conditions": "an unshrouded header has no mating key",
+          "document": "header1x5_kinghelm",
+          "value": 0.0
+        },
+        "pitch_mm": {
+          "basis": "direct",
+          "document": "header1x5_kinghelm",
+          "value": 2.54
+        },
+        "positions": {
+          "basis": "direct",
+          "document": "header1x5_kinghelm",
+          "value": 5.0
+        },
+        "retained": {
+          "basis": "direct",
+          "conditions": "a friction-fit socket is not latched",
+          "document": "header1x5_kinghelm",
+          "value": 0.0
+        },
+        "voltage_max_v": {
+          "basis": "direct",
+          "conditions": "AC withstanding",
+          "document": "header1x5_kinghelm",
+          "value": 1000.0
+        }
+      }
+    },
+    "KT-0603R": {
+      "led": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 85.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": -40.0
+        },
+        "forward_current_max_a": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 0.025
+        },
+        "forward_voltage_max_v": {
+          "basis": "direct",
+          "conditions": "20 mA",
+          "document": "kt0603r_kento",
+          "value": 2.4
+        },
+        "forward_voltage_min_v": {
+          "basis": "direct",
+          "conditions": "20 mA",
+          "document": "kt0603r_kento",
+          "value": 1.8
+        },
+        "power_max_w": {
+          "basis": "direct",
+          "document": "kt0603r_kento",
+          "value": 0.04
+        }
+      }
+    },
+    "LMR51430YFDDCR": {
+      "ground_pins": [
+        "1"
+      ],
+      "junction_max_c": {
+        "basis": "direct",
+        "document": "lmr51430_ti",
+        "value": 150.0
+      },
+      "regulator": {
+        "enable_falling_v": {
+          "max": {
+            "basis": "direct",
+            "document": "lmr51430_ti",
+            "value": 1.22
+          },
+          "min": {
+            "basis": "direct",
+            "document": "lmr51430_ti",
+            "value": 0.95
+          }
+        },
+        "enable_rising_v": {
+          "max": {
+            "basis": "direct",
+            "document": "lmr51430_ti",
+            "value": 1.36
+          },
+          "min": {
+            "basis": "direct",
+            "document": "lmr51430_ti",
+            "value": 1.1
+          }
+        },
+        "min_on_time_s": {
+          "basis": "direct",
+          "document": "lmr51430_ti",
+          "value": 7e-08
+        },
+        "output_current_max_a": {
+          "basis": "direct",
+          "document": "lmr51430_ti",
+          "value": 3.0
+        },
+        "rds_on_high_side_ohm": {
+          "basis": "direct",
+          "conditions": "typical at 25 degC",
+          "document": "lmr51430_ti",
+          "value": 0.12
+        },
+        "rds_on_low_side_ohm": {
+          "basis": "direct",
+          "conditions": "typical at 25 degC",
+          "document": "lmr51430_ti",
+          "value": 0.07
+        },
+        "reference_v": {
+          "max": {
+            "basis": "direct",
+            "document": "lmr51430_ti",
+            "value": 0.609
+          },
+          "min": {
+            "basis": "direct",
+            "document": "lmr51430_ti",
+            "value": 0.591
+          },
+          "nominal": {
+            "basis": "direct",
+            "document": "lmr51430_ti",
+            "value": 0.6
+          }
+        },
+        "switching_frequency_hz": {
+          "max": {
+            "basis": "direct",
+            "document": "lmr51430_ti",
+            "value": 1250000.0
+          },
+          "min": {
+            "basis": "direct",
+            "document": "lmr51430_ti",
+            "value": 950000.0
+          }
+        }
+      },
+      "supply": {
+        "max": {
+          "basis": "direct",
+          "document": "lmr51430_ti",
+          "value": 36.0
+        },
+        "min": {
+          "basis": "direct",
+          "document": "lmr51430_ti",
+          "value": 4.5
+        }
+      },
+      "supply_absolute_max_v": {
+        "basis": "direct",
+        "document": "lmr51430_ti",
+        "value": 38.0
+      },
+      "supply_current_max_a": {
+        "basis": "direct",
+        "conditions": "non-switching quiescent",
+        "document": "lmr51430_ti",
+        "value": 6.5e-05
+      },
+      "supply_pins": [
+        "3"
+      ],
+      "theta_ja_c_per_w": {
+        "basis": "direct",
+        "conditions": "JESD 51-7, simulated 4-layer JEDEC board; valid for package comparison only",
+        "document": "lmr51430_ti",
+        "value": 107.8
+      }
+    },
+    "SMBJ26A": {
+      "junction_max_c": {
+        "basis": "direct",
+        "document": "smbj_littelfuse",
+        "value": 150.0
+      },
+      "theta_ja_c_per_w": {
+        "basis": "direct",
+        "conditions": "typical junction to ambient",
+        "document": "smbj_littelfuse",
+        "value": 100.0
+      },
+      "tvs": {
+        "breakdown_max_v": {
+          "basis": "direct",
+          "conditions": "IT = 1 mA",
+          "document": "smbj_littelfuse",
+          "value": 31.9
+        },
+        "breakdown_min_v": {
+          "basis": "direct",
+          "conditions": "IT = 1 mA",
+          "document": "smbj_littelfuse",
+          "value": 28.9
+        },
+        "breakdown_tempco_per_c": {
+          "basis": "direct",
+          "document": "smbj_littelfuse",
+          "value": 0.00093
+        },
+        "clamping_current_a": {
+          "basis": "direct",
+          "document": "smbj_littelfuse",
+          "value": 14.3
+        },
+        "clamping_v": {
+          "basis": "direct",
+          "conditions": "IPP = 14.3 A",
+          "document": "smbj_littelfuse",
+          "value": 42.1
+        },
+        "reverse_leakage_max_a": {
+          "basis": "direct",
+          "conditions": "at the stand-off voltage",
+          "document": "smbj_littelfuse",
+          "value": 1e-06
+        },
+        "stand_off_v": {
+          "basis": "direct",
+          "document": "smbj_littelfuse",
+          "value": 26.0
+        }
+      }
+    },
+    "SRP4020TA-220M": {
+      "inductor": {
+        "ambient_max_c": {
+          "basis": "direct",
+          "conditions": "temperature rise included",
+          "document": "srp4020_bourns",
+          "value": 150.0
+        },
+        "ambient_min_c": {
+          "basis": "direct",
+          "document": "srp4020_bourns",
+          "value": -55.0
+        },
+        "dcr_max_ohm": {
+          "basis": "direct",
+          "document": "srp4020_bourns",
+          "value": 0.5
+        },
+        "inductance_h": {
+          "basis": "direct",
+          "document": "srp4020_bourns",
+          "value": 2.2e-05
+        },
+        "irms_a": {
+          "basis": "direct",
+          "conditions": "40 degC temperature rise",
+          "document": "srp4020_bourns",
+          "value": 1.2
+        },
+        "isat_a": {
+          "basis": "direct",
+          "conditions": "inductance drops 20 %",
+          "document": "srp4020_bourns",
+          "value": 1.4
+        },
+        "tolerance": {
+          "basis": "direct",
+          "document": "srp4020_bourns",
+          "value": 0.2
+        }
+      }
+    },
+    "STM32G030K8T6TR": {
+      "ambient_temperature_c": {
+        "max": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 85.0
+        },
+        "min": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": -40.0
+        }
+      },
+      "digital_inputs": {
+        "hysteresis_v": {
+          "basis": "direct",
+          "conditions": "typical",
+          "document": "stm32g030_st",
+          "value": 0.2
+        },
+        "vih_min": {
+          "fraction_of_supply": {
+            "basis": "direct",
+            "document": "stm32g030_st",
+            "value": 0.7
+          }
+        },
+        "vil_max": {
+          "fraction_of_supply": {
+            "basis": "direct",
+            "document": "stm32g030_st",
+            "value": 0.3
+          }
+        }
+      },
+      "ground_pins": [
+        "5"
+      ],
+      "input_leakage_max_a": {
+        "basis": "direct",
+        "conditions": "0 < VIN <= VDDIO1",
+        "document": "stm32g030_st",
+        "value": 7e-08
+      },
+      "negative_injection_max_a": {
+        "basis": "direct",
+        "conditions": "all pins except PA1, PA5, PA13, PB1, PB2 and PB8",
+        "document": "stm32g030_st",
+        "value": 0.005
+      },
+      "pin_capacitance_f": {
+        "basis": "direct",
+        "document": "stm32g030_st",
+        "value": 5e-12
+      },
+      "pull_resistor_ohm": {
+        "max": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 55000.0
+        },
+        "min": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 25000.0
+        }
+      },
+      "supply": {
+        "max": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 3.6
+        },
+        "min": {
+          "basis": "direct",
+          "document": "stm32g030_st",
+          "value": 2.0
+        }
+      },
+      "supply_current_max_a": {
+        "basis": "direct",
+        "conditions": "run mode, 16 MHz, range 2, flash memory, 85 degC",
+        "document": "stm32g030_st",
+        "value": 0.0024
+      },
+      "supply_pins": [
+        "4"
+      ]
+    },
+    "Si9407BDY-T1-GE3": {
+      "fet": {
+        "body_diode_forward_max_v": {
+          "basis": "direct",
+          "conditions": "IS = 2 A, VGS = 0",
+          "document": "si9407bdy_vishay",
+          "value": 1.2
+        },
+        "drain_current_max_a": {
+          "basis": "direct",
+          "conditions": "TA = 25 degC",
+          "document": "si9407bdy_vishay",
+          "value": 3.2
+        },
+        "drain_leakage_max_a": {
+          "basis": "direct",
+          "conditions": "VDS = -60 V, TJ = 55 degC",
+          "document": "si9407bdy_vishay",
+          "value": 1e-05
+        },
+        "input_capacitance_f": {
+          "basis": "direct",
+          "document": "si9407bdy_vishay",
+          "value": 6e-10
+        },
+        "junction_max_c": {
+          "basis": "direct",
+          "document": "si9407bdy_vishay",
+          "value": 150.0
+        },
+        "rds_on_ohm": {
+          "10": {
+            "basis": "direct",
+            "document": "si9407bdy_vishay",
+            "value": 0.12
+          },
+          "4.5": {
+            "basis": "direct",
+            "document": "si9407bdy_vishay",
+            "value": 0.15
+          }
+        },
+        "theta_ja_max_c_per_w": {
+          "basis": "direct",
+          "conditions": "the datasheet's own test board",
+          "document": "si9407bdy_vishay",
+          "value": 53.0
+        },
+        "vds_max_v": {
+          "basis": "direct",
+          "document": "si9407bdy_vishay",
+          "value": 60.0
+        },
+        "vgs_max_v": {
+          "basis": "direct",
+          "document": "si9407bdy_vishay",
+          "value": 20.0
+        },
+        "vgs_threshold_max_v": {
+          "basis": "direct",
+          "document": "si9407bdy_vishay",
+          "value": 3.0
+        },
+        "vgs_threshold_min_v": {
+          "basis": "direct",
+          "document": "si9407bdy_vishay",
+          "value": 1.0
+        }
+      }
+    },
+    "TMC2226-SA-T": {
+      "digital_inputs": {
+        "hysteresis": {
+          "fraction_of_supply": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 0.12
+          }
+        },
+        "vih_min": {
+          "fraction_of_supply": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 0.7
+          }
+        },
+        "vil_max": {
+          "fraction_of_supply": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 0.3
+          }
+        }
+      },
+      "digital_outputs": {
+        "voh_drop_max_v": {
+          "basis": "direct",
+          "conditions": "-2 mA",
+          "document": "tmc2226_trinamic",
+          "value": 0.2
+        },
+        "vol_max_v": {
+          "basis": "direct",
+          "conditions": "2 mA",
+          "document": "tmc2226_trinamic",
+          "value": 0.2
+        }
+      },
+      "driver": {
+        "clock_hz": {
+          "max": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 12500000.0
+          },
+          "min": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 11500000.0
+          }
+        },
+        "current_full_scale_tolerance": {
+          "basis": "direct",
+          "conditions": "i_scale_analog=0, vsense=0",
+          "document": "tmc2226_trinamic",
+          "value": 0.05
+        },
+        "diag_reset": {
+          "basis": "direct",
+          "conditions": "an error condition is reset only by driving ENN high",
+          "document": "tmc2226_trinamic",
+          "value": 1.0
+        },
+        "irms_continuous_max_a": {
+          "basis": "direct",
+          "conditions": "value for design guideline",
+          "document": "tmc2226_trinamic",
+          "value": 1.6
+        },
+        "irms_duty_limited_max_a": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 2.0
+        },
+        "overtemperature_prewarning_min_c": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 100.0
+        },
+        "overtemperature_shutdown_min_c": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 128.0
+        },
+        "peak_output_current_a": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 2.8
+        },
+        "rds_on_high_side_max_ohm": {
+          "basis": "direct",
+          "conditions": "200 mA, 25 degC, static",
+          "document": "tmc2226_trinamic",
+          "value": 0.21
+        },
+        "rds_on_low_side_max_ohm": {
+          "basis": "direct",
+          "conditions": "200 mA, 25 degC, static",
+          "document": "tmc2226_trinamic",
+          "value": 0.21
+        },
+        "sense_full_scale_high_sensitivity_v": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 0.18
+        },
+        "sense_full_scale_v": {
+          "basis": "direct",
+          "conditions": "vsense=0, csactual=31",
+          "document": "tmc2226_trinamic",
+          "value": 0.325
+        },
+        "sense_internal_resistance_ohm": {
+          "basis": "direct",
+          "conditions": "typical, pin BRxy to the sense comparator",
+          "document": "tmc2226_trinamic",
+          "value": 0.02
+        },
+        "step_filter_max_s": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 3e-08
+        },
+        "step_hold_min_s": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 2e-08
+        },
+        "step_setup_min_s": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 2e-08
+        },
+        "typical_dissipation_current_a": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 1.4
+        },
+        "typical_dissipation_w": {
+          "basis": "direct",
+          "conditions": "1.4 A RMS two-phase sine, 24 V, 20-40 kHz chopper",
+          "document": "tmc2226_trinamic",
+          "value": 2.8
+        }
+      },
+      "ground_pins": [
+        "6",
+        "22",
+        "29"
+      ],
+      "input_leakage_max_a": {
+        "basis": "direct",
+        "document": "tmc2226_trinamic",
+        "value": 1e-05
+      },
+      "io_current_max_a": {
+        "basis": "direct",
+        "document": "tmc2226_trinamic",
+        "value": 0.01
+      },
+      "io_supply_current_max_a": {
+        "basis": "direct",
+        "document": "tmc2226_trinamic",
+        "value": 3e-05
+      },
+      "junction_absolute_max_c": {
+        "basis": "direct",
+        "document": "tmc2226_trinamic",
+        "value": 150.0
+      },
+      "junction_max_c": {
+        "basis": "direct",
+        "conditions": "operational range",
+        "document": "tmc2226_trinamic",
+        "value": 125.0
+      },
+      "pin_capacitance_f": {
+        "basis": "direct",
+        "document": "tmc2226_trinamic",
+        "value": 3.5e-12
+      },
+      "pull_resistor_ohm": {
+        "max": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 200000.0
+        },
+        "min": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 132000.0
+        }
+      },
+      "regulator_5v": {
+        "dissipation_max_w": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 0.5
+        },
+        "external_load_max_a": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 0.025
+        },
+        "output_v": {
+          "max": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 5.25
+          },
+          "min": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 4.8
+          }
+        }
+      },
+      "supply": {
+        "vcc_io": {
+          "max": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 5.25
+          },
+          "min": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 3.0
+          }
+        },
+        "vcc_io_uvlo_rising_max": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 3.0
+        },
+        "vmax_absolute": {
+          "basis": "direct",
+          "document": "tmc2226_trinamic",
+          "value": 33.0
+        },
+        "vs": {
+          "max": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 29.0
+          },
+          "min": {
+            "basis": "direct",
+            "document": "tmc2226_trinamic",
+            "value": 5.5
+          }
+        },
+        "vs_absolute_max": {
+          "basis": "direct",
+          "conditions": "operating with inductive load",
+          "document": "tmc2226_trinamic",
+          "value": 32.0
+        }
+      },
+      "supply_current_max_a": {
+        "basis": "direct",
+        "conditions": "driver disabled, fCLK 12 MHz",
+        "document": "tmc2226_trinamic",
+        "value": 0.01
+      },
+      "supply_pins": [
+        "3",
+        "19",
+        "26"
+      ],
+      "theta_ja_c_per_w": {
+        "basis": "direct",
+        "conditions": "JEDEC 2s2p multilayer board, FR4, 35 um copper, 70 x 133 mm, d=1.5 mm",
+        "document": "tmc2226_trinamic",
+        "value": 26.0
+      },
+      "theta_jc_c_per_w": {
+        "basis": "direct",
+        "document": "tmc2226_trinamic",
+        "value": 6.0
+      }
+    },
+    "TPD1E10B06DPYR": {
+      "ambient_temperature_c": {
+        "max": {
+          "basis": "direct",
+          "document": "tpd1e10b06_ti",
+          "value": 125.0
+        },
+        "min": {
+          "basis": "direct",
+          "document": "tpd1e10b06_ti",
+          "value": -40.0
+        }
+      },
+      "tvs": {
+        "bidirectional": {
+          "basis": "direct",
+          "document": "tpd1e10b06_ti",
+          "value": 1.0
+        },
+        "capacitance_f": {
+          "basis": "direct",
+          "conditions": "VIO = 2.5 V, 1 MHz",
+          "document": "tpd1e10b06_ti",
+          "value": 1.2e-11
+        },
+        "stand_off_v": {
+          "basis": "direct",
+          "document": "tpd1e10b06_ti",
+          "value": 5.5
+        }
+      }
+    }
+  },
+  "schema_version": 1
+}

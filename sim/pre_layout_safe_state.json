@@ -1,0 +1,76 @@
+{
+  "analyses": [
+    {
+      "kind": "op"
+    }
+  ],
+  "assumptions": {
+    "RAIL": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the logic rail at the bottom of the regulator's stated accuracy, which is the worst case for reaching the driver's input high threshold"
+    },
+    "RLEAKDRV": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the driver's input leakage at its datasheet maximum, as the resistance that sinks it to the reference"
+    },
+    "RLEAKMCU": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the controller pin's input leakage at its datasheet maximum, as above"
+    },
+    "RPULLUP": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the enable pull-up at its nominal value"
+    }
+  },
+  "description": "the driver's enable input in the state a controller that has not started leaves it, held by its pull-up against both leakage paths at their maxima",
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "RAIL",
+      "nodes": [
+        "rail",
+        "0"
+      ],
+      "value": 3.2241683168316833
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLUP",
+      "nodes": [
+        "rail",
+        "enn"
+      ],
+      "value": 10000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RLEAKDRV",
+      "nodes": [
+        "enn",
+        "0"
+      ],
+      "value": 322416.8316831683
+    },
+    {
+      "kind": "resistor",
+      "name": "RLEAKMCU",
+      "nodes": [
+        "enn",
+        "0"
+      ],
+      "value": 46059547.38330976
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 2.256917821782178
+      },
+      "kind": "op_voltage",
+      "name": "enable_input_level",
+      "node": "enn"
+    }
+  ],
+  "name": "enable_input_held_off_with_nothing_driving_it"
+}

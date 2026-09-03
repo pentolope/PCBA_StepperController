@@ -1,0 +1,60 @@
+{
+  "feasible": true,
+  "fabricator": "jlcpcb",
+  "profile": {
+    "copper_layers": 4,
+    "board_thickness_mm": 1.6,
+    "impedance_control": false,
+    "outer_copper_oz": 1,
+    "inner_copper_oz": 0.5
+  },
+  "stackup": "JLC-4L-no-requirement",
+  "stackup_candidates": [
+    "JLC-4L-no-requirement"
+  ],
+  "rejections": [],
+  "explanations": [
+    "4 copper layers is among the discrete offered counts [capabilities]",
+    "1.6 mm is a stated standard FR-4 thickness with no stated restriction for 4 layers [capabilities]",
+    "1 oz outer copper is an offered option for this board class [capabilities, copper-weight, impedance]",
+    "0.5 oz inner copper is an offered option for this board class [capabilities, impedance]",
+    "trace/space 0.15/0.15 mm clears the strictest published 0.09/0.09 mm for 1 oz outer copper at 4 layers [trace_space 0.5-1.0oz >=4-layers-fr4 (copper-weight), trace_space 1.0oz multilayer (capabilities)]",
+    "trace/space 0.15/0.15 mm clears the strictest published 0.09/0.09 mm for 0.5 oz inner copper at 4 layers [trace_space 0.5-1.0oz >=4-layers-fr4 (copper-weight)]",
+    "the 0.25 mm minimum drill clears the stated 0.15-6.3 mm drilled-hole range for this board class [capabilities]",
+    "the 0.45 mm minimum via diameter clears the stated 0.25 mm minimum for this board class (via hole size and diameter minima for multilayer boards) [capabilities]",
+    "stackup JLC-4L-no-requirement is the fabricator's own published default when no impedance requirement is stated [impedance]",
+    "no impedance requirement is stated, so no impedance-grade process is selected: the least sophisticated process that satisfies the requirements is preferred"
+  ],
+  "requirements_checked": [
+    "board_thickness_mm",
+    "copper_layers",
+    "impedance_control",
+    "inner_copper_oz",
+    "material",
+    "min_drill_mm",
+    "min_space_mm",
+    "min_track_mm",
+    "min_via_diameter_mm",
+    "outer_copper_oz"
+  ],
+  "not_in_vocabulary": [
+    "board dimensions and outline",
+    "surface finish",
+    "annular ring",
+    "NPTH and slot geometry",
+    "plated slots",
+    "castellated edges",
+    "edge-to-copper clearance",
+    "solder-mask constraints",
+    "via covering (tented / plugged / filled)",
+    "via annular-ring and hole-to-diameter relationships",
+    "blind and buried via technology",
+    "gold fingers",
+    "controlled-depth routing",
+    "special materials beyond standard FR-4",
+    "panelization",
+    "assembly constraints"
+  ],
+  "vocabulary_note": "feasible means feasible against the checked requirements only; the properties under not_in_vocabulary were NOT inspected and must be judged separately",
+  "approved_normalized_sha256": "953f02eab19f914ef0017b2ebb614de43d16ebc857a424d6cce2afdc09e5da65"
+}

@@ -1,0 +1,214 @@
+{
+  "analyses": [
+    {
+      "kind": "tran",
+      "step_s": 1e-07,
+      "stop_s": 0.002
+    }
+  ],
+  "assumptions": {
+    "CBULK0": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "C1 at the bottom of its tolerance, which is the value that rings highest"
+    },
+    "CBULK1": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "C2 at the bottom of its tolerance, which is the value that rings highest"
+    },
+    "CBULK2": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "C20 at the bottom of its tolerance, which is the value that rings highest"
+    },
+    "CBULK3": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "C21 at the bottom of its tolerance, which is the value that rings highest"
+    },
+    "LLEAD": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the supply lead's inductance at the declared budget of 1.5 uH"
+    },
+    "RESR0": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the bulk capacitor C1 at its stated 100 kHz equivalent series resistance, which is a maximum; a part below it leaves the loop less damped, and the peak here is reported for that maximum with every other damping element removed"
+    },
+    "RESR1": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the bulk capacitor C2 at its stated 100 kHz equivalent series resistance, which is a maximum; a part below it leaves the loop less damped, and the peak here is reported for that maximum with every other damping element removed"
+    },
+    "RESR2": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the bulk capacitor C20 at its stated 100 kHz equivalent series resistance, which is a maximum; a part below it leaves the loop less damped, and the peak here is reported for that maximum with every other damping element removed"
+    },
+    "RESR3": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the bulk capacitor C21 at its stated 100 kHz equivalent series resistance, which is a maximum; a part below it leaves the loop less damped, and the peak here is reported for that maximum with every other damping element removed"
+    },
+    "RLEAD": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the supply lead's resistance at the declared budget of 0.05 ohm, which is a budget for the integrator's wiring rather than a measurement of it"
+    },
+    "RPASS": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the reverse-blocking device idealised to a short, which removes the damping its channel and its body diode both provide"
+    },
+    "SRC": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the supply at the top of the declared input range, as an ideal source connected in a nanosecond with no output impedance of its own"
+    }
+  },
+  "description": "the supply connector closing onto the board, with the declared supply-lead parasitics ringing against the bulk capacitance and the input clamp holding the motor rail",
+  "elements": [
+    {
+      "kind": "vsource_pulse",
+      "name": "SRC",
+      "nodes": [
+        "src",
+        "0"
+      ],
+      "pulse": {
+        "delay_s": 2e-05,
+        "fall_s": 4e-09,
+        "period_s": 0.004,
+        "rise_s": 4e-09,
+        "v1": 0.0,
+        "v2": 24.0,
+        "width_s": 0.002
+      }
+    },
+    {
+      "kind": "resistor",
+      "name": "RLEAD",
+      "nodes": [
+        "src",
+        "lead"
+      ],
+      "value": 0.05
+    },
+    {
+      "kind": "inductor",
+      "name": "LLEAD",
+      "nodes": [
+        "lead",
+        "in"
+      ],
+      "value": 1.5e-06
+    },
+    {
+      "kind": "resistor",
+      "name": "RPASS",
+      "nodes": [
+        "in",
+        "vm"
+      ],
+      "value": 0.001
+    },
+    {
+      "kind": "model_instance",
+      "model": "input_clamp_smbj26a",
+      "name": "DCLAMP",
+      "nodes": [
+        "0",
+        "vm"
+      ]
+    },
+    {
+      "kind": "resistor",
+      "name": "RESR0",
+      "nodes": [
+        "vm",
+        "c0"
+      ],
+      "value": 0.025
+    },
+    {
+      "kind": "capacitor",
+      "name": "CBULK0",
+      "nodes": [
+        "c0",
+        "0"
+      ],
+      "value": 8e-05
+    },
+    {
+      "kind": "resistor",
+      "name": "RESR1",
+      "nodes": [
+        "vm",
+        "c1"
+      ],
+      "value": 0.025
+    },
+    {
+      "kind": "capacitor",
+      "name": "CBULK1",
+      "nodes": [
+        "c1",
+        "0"
+      ],
+      "value": 8e-05
+    },
+    {
+      "kind": "resistor",
+      "name": "RESR2",
+      "nodes": [
+        "vm",
+        "c2"
+      ],
+      "value": 0.025
+    },
+    {
+      "kind": "capacitor",
+      "name": "CBULK2",
+      "nodes": [
+        "c2",
+        "0"
+      ],
+      "value": 8e-05
+    },
+    {
+      "kind": "resistor",
+      "name": "RESR3",
+      "nodes": [
+        "vm",
+        "c3"
+      ],
+      "value": 0.025
+    },
+    {
+      "kind": "capacitor",
+      "name": "CBULK3",
+      "nodes": [
+        "c3",
+        "0"
+      ],
+      "value": 8e-05
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 32.0
+      },
+      "kind": "tran_max_voltage",
+      "knowledge": {
+        "basis": {
+          "detail": "every damping element is at its least damping value or left out",
+          "kind": "assumed"
+        },
+        "kind": "upper_bound"
+      },
+      "name": "motor_rail_peak",
+      "node": "vm"
+    },
+    {
+      "kind": "tran_max_voltage",
+      "name": "input_node_peak",
+      "node": "in"
+    }
+  ],
+  "name": "hot_plug_into_the_bulk_capacitance",
+  "operating_conditions": {
+    "temperature_c": 25.0
+  }
+}

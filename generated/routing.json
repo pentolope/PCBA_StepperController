@@ -1,0 +1,177 @@
+{
+  "accepted_attempt": 1,
+  "adopted_sha256": "6db27265a3937968e21b91a9c324cf858c5c3d1fd77de85b44067ce17197e9c7",
+  "attempts": [
+    {
+      "accepted": true,
+      "attempt": 1,
+      "context": {
+        "adopted_metrics": {
+          "errors": 0,
+          "schematic_parity": 0,
+          "unconnected": 0,
+          "warnings": 0
+        },
+        "clearance_mm": 0.3,
+        "ordering": "inside_out",
+        "router_summary": {
+          "failed": 0,
+          "failed_single": [],
+          "finalize_excluded_nets": [
+            "GND",
+            "VM"
+          ],
+          "main_loop_time_s": 4.16,
+          "min_clearance_used": 0.15,
+          "multipoint_deficit": 0,
+          "open_single": [],
+          "pad_pairs_open": {
+            "count": 0,
+            "nets": []
+          },
+          "routed": 39,
+          "scope": "merged",
+          "terminal_restores_broken": [],
+          "vias": 116
+        }
+      },
+      "source_sha256": "fe6bb636ffdaef26af5ec628e790311218c88c876a6b636c34f429e145d49e52",
+      "stages": [
+        {
+          "produced_by": "router",
+          "sha256": "1c24b881210daa960d1eabfee7e964e7b8f1a085e5d6e74226831968c4dba2c7",
+          "stage": "routed"
+        },
+        {
+          "effects": {
+            "collapsed_tracks_removed": 31,
+            "dangling_tracks_removed": 0,
+            "endpoints_snapped": 104,
+            "endpoints_snapped_to_pads": 1,
+            "fragments_absorbed": 188,
+            "narrow_tracks_widened": 0,
+            "reserved_removed": 182,
+            "reserved_restored": 182,
+            "undersized_vias_restored": 0,
+            "zones_refilled": 3
+          },
+          "parameters": {
+            "snap_within_via_annulus": true,
+            "touch_tolerance_mm": 0.01
+          },
+          "produced_by": "transform",
+          "sha256": "6db27265a3937968e21b91a9c324cf858c5c3d1fd77de85b44067ce17197e9c7",
+          "stage": "tidied",
+          "transform": "snap a track end standing on a same-net via onto that via's centre; pull a track end that stopped inside a same-net pad's outline onto that pad's anchor; drop tracks the snap collapsed to a point; restore the declared width on any track and the declared size on any via the search narrowed below them; prune dangling track ends, keeping any removal only while connectivity is unchanged; refill the zones so the pours are knocked out around the copper the router added"
+        }
+      ]
+    }
+  ],
+  "context": {
+    "acceptance": "a candidate is adopted only when a fresh DRC over the adopted board reports no violation, nothing unconnected and no disagreement with the schematic",
+    "environment": {
+      "KICAD_RIP_PREEXISTING": "0"
+    },
+    "options": [
+      "--track-width",
+      "0.25",
+      "--via-size",
+      "0.6",
+      "--via-drill",
+      "0.3",
+      "--board-edge-clearance",
+      "0.45",
+      "--hole-to-hole-clearance",
+      "0.3",
+      "--same-net-pad-clearance",
+      "0.3",
+      "--grid-step",
+      "0.05",
+      "--no-power-tap-neckdown",
+      "--layers",
+      "F.Cu",
+      "B.Cu"
+    ],
+    "reproducibility": "the router is not bit-reproducible; candidates are generated until one is accepted and every attempt is recorded here",
+    "reserved_nets": [
+      "GND",
+      "VM",
+      "SENSE_A",
+      "SENSE_B",
+      "PHASE_A1",
+      "PHASE_A2",
+      "PHASE_B1",
+      "PHASE_B2"
+    ],
+    "resolution": {
+      "origin": "vendored submodule",
+      "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/toolkit/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools"
+    },
+    "routed_nets": [
+      "+3V3",
+      "BOOT",
+      "BUCK_EN",
+      "CFG_UART",
+      "CP_IN",
+      "CP_OUT",
+      "DIR_IN",
+      "DIR_IN_MCU",
+      "DRV_DIAG",
+      "DRV_DIR",
+      "DRV_ENN",
+      "DRV_INDEX",
+      "DRV_STEP",
+      "DRV_UART",
+      "DRV_VREF",
+      "FB",
+      "HOST_RX",
+      "HOST_RX_MCU",
+      "HOST_TX",
+      "HOST_TX_MCU",
+      "MCU_DIR",
+      "MCU_STEP",
+      "NRST",
+      "PFET_G",
+      "PWR_LED_A",
+      "STAT_LED_A",
+      "STAT_LED_D",
+      "STEP_IN",
+      "STEP_IN_MCU",
+      "SW",
+      "SWCLK",
+      "SWCLK_MCU",
+      "SWDIO",
+      "SWDIO_MCU",
+      "UART_TX_MCU",
+      "V5OUT",
+      "VCP",
+      "VM_IN",
+      "VM_SENSE"
+    ],
+    "router": {
+      "git": {
+        "dirty": false,
+        "sha": "3fb9c05f182db88fe1fccfaa515bc5c466169dd4",
+        "upstream_base": null
+      },
+      "grid_router": {
+        "kind": "native-binary",
+        "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/toolkit/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools/rust_router/grid_router.so",
+        "sha256": "bac20f431312bdf6ab2e585295cb320e2b634a9f28a0c6286b6ae170a51b3cf2",
+        "version": "0.21.4"
+      },
+      "kicad_cli": "/usr/bin/kicad-cli",
+      "kicad_version": "10.0.5",
+      "kind": "krt-provenance",
+      "meaning": "the routing implementation identity for this run; a different sha, dirty state or native hash is a different router, and downstream routing-derived artifacts must go stale with it",
+      "python": {
+        "executable": "/usr/bin/python3",
+        "version": "3.12.3"
+      },
+      "source_path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/toolkit/PCBA_AutoDesignAndTest/tooling/KiCadRoutingTools",
+      "version": "0.21.5"
+    }
+  },
+  "kind": "routing-run",
+  "source_sha256": "fe6bb636ffdaef26af5ec628e790311218c88c876a6b636c34f429e145d49e52"
+}

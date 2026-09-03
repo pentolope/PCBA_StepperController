@@ -1,0 +1,95 @@
+{
+  "analyses": [
+    {
+      "kind": "tran",
+      "step_s": 5e-10,
+      "stop_s": 3.0000000000000004e-05
+    }
+  ],
+  "assumptions": {
+    "CPIN": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the driver's stated input capacitance plus a declared 5 pF budget for the trace, which is a budget and not a measurement"
+    },
+    "RLEAK": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the driver's input leakage at its datasheet maximum"
+    },
+    "RSERIES": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the step output's series element at its nominal value"
+    },
+    "STEP": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the controller's timer output as an ideal switch between the reference and the logic rail at its lower tolerance"
+    }
+  },
+  "description": "one step pulse from the controller's timer through its series element into the driver's input capacitance and a declared trace budget",
+  "elements": [
+    {
+      "kind": "vsource_pulse",
+      "name": "STEP",
+      "nodes": [
+        "out",
+        "0"
+      ],
+      "pulse": {
+        "delay_s": 5.000000000000001e-07,
+        "fall_s": 1.0000000000000001e-11,
+        "period_s": 1e-05,
+        "rise_s": 1.0000000000000001e-11,
+        "v1": 0.0,
+        "v2": 3.2241683168316833,
+        "width_s": 5e-06
+      }
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIES",
+      "nodes": [
+        "out",
+        "pin"
+      ],
+      "value": 100.0
+    },
+    {
+      "kind": "capacitor",
+      "name": "CPIN",
+      "nodes": [
+        "pin",
+        "0"
+      ],
+      "value": 8.5e-12
+    },
+    {
+      "kind": "resistor",
+      "name": "RLEAK",
+      "nodes": [
+        "pin",
+        "0"
+      ],
+      "value": 322416.8316831683
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 2.256917821782178
+      },
+      "kind": "tran_max_voltage",
+      "name": "step_input_high_level",
+      "node": "pin"
+    },
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 0.9672504950495049
+      },
+      "kind": "tran_min_voltage",
+      "name": "step_input_low_level",
+      "node": "pin"
+    }
+  ],
+  "name": "step_edge_into_the_driver_input"
+}

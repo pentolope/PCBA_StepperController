@@ -1,0 +1,116 @@
+{
+  "analyses": [
+    {
+      "kind": "op"
+    }
+  ],
+  "assumptions": {
+    "RINTA": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the driver's own path from the sense pin to its comparator, at the typical value its datasheet states and with no tolerance"
+    },
+    "RINTB": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the driver's own path from the sense pin to its comparator, at the typical value its datasheet states and with no tolerance"
+    },
+    "RSHUNTA": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the shunt at its nominal value: this scenario asks what the copper costs, and the shunt's own tolerance is carried by the requirement report instead"
+    },
+    "RSHUNTB": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the shunt at its nominal value: this scenario asks what the copper costs, and the shunt's own tolerance is carried by the requirement report instead"
+    },
+    "TARGET": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the comparator threshold the driver regulates the sense voltage to at current scale 24, as an ideal source"
+    }
+  },
+  "description": "the driver's own current-setting divider with the sense conductor's measured resistance in it, at the current scale nearest the required phase current",
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "TARGET",
+      "nodes": [
+        "target",
+        "0"
+      ],
+      "value": 0.25390625
+    },
+    {
+      "kind": "resistor",
+      "name": "RINTA",
+      "nodes": [
+        "target",
+        "pinA"
+      ],
+      "value": 0.02
+    },
+    {
+      "kind": "model_instance",
+      "model": "sense_path_a",
+      "name": "RTRACEA",
+      "nodes": [
+        "pinA",
+        "shuntA"
+      ]
+    },
+    {
+      "kind": "resistor",
+      "name": "RSHUNTA",
+      "nodes": [
+        "shuntA",
+        "0"
+      ],
+      "value": 0.1
+    },
+    {
+      "kind": "resistor",
+      "name": "RINTB",
+      "nodes": [
+        "target",
+        "pinB"
+      ],
+      "value": 0.02
+    },
+    {
+      "kind": "model_instance",
+      "model": "sense_path_b",
+      "name": "RTRACEB",
+      "nodes": [
+        "pinB",
+        "shuntB"
+      ]
+    },
+    {
+      "kind": "resistor",
+      "name": "RSHUNTB",
+      "nodes": [
+        "shuntB",
+        "0"
+      ],
+      "value": 0.1
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 0.20100911458333331
+      },
+      "kind": "op_voltage",
+      "name": "shunt_voltage_phase_A",
+      "node": "shuntA"
+    },
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 0.20100911458333331
+      },
+      "kind": "op_voltage",
+      "name": "shunt_voltage_phase_B",
+      "node": "shuntB"
+    }
+  ],
+  "name": "delivered_current_with_the_routed_sense_conductor"
+}

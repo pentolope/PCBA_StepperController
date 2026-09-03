@@ -1,0 +1,66 @@
+[
+  {
+    "conditions": {
+      "temperature_c": {
+        "kind": "fixed-reference",
+        "source": "the ambient the datasheet states its breakdown and clamping limits at",
+        "units": "degC",
+        "value": 25.0
+      }
+    },
+    "derivation": {
+      "bound_argument": "a device that conducts its test current at or below the stated maximum breakdown voltage, and its peak pulse current at or below the stated clamping voltage, holds the rail at or below the line between those two points",
+      "bound_direction": "upper_bound",
+      "breakdown_voltage_v": 31.9,
+      "fitted_through": [
+        {
+          "current_a": 0.001,
+          "max_voltage_v": 31.9
+        },
+        {
+          "current_a": 14.3,
+          "max_voltage_v": 42.1
+        }
+      ],
+      "method": "two-point line between the datasheet's maximum breakdown voltage at its test current and its clamping voltage at its peak pulse current",
+      "series_resistance_ohm": 0.713336597,
+      "valid_current_range_a": [
+        0.001,
+        14.3
+      ]
+    },
+    "evidence": [
+      {
+        "applicability": {
+          "detail": "reverse breakdown between 0.001 A and 14.3 A, where the fitted line runs between the two limits the datasheet states and so lies at or above every conforming device",
+          "status": "applicable"
+        },
+        "assumptions": [
+          "the datasheet's maximum breakdown voltage and its clamping voltage at the stated peak pulse current are both limits a conforming device may not exceed",
+          "the device's reverse characteristic between those two currents is no steeper than the line joining them, so the line bounds the voltage from above"
+        ],
+        "evidence_class": "datasheet-behavioral",
+        "omitted_contributions": [
+          "the breakdown voltage's temperature coefficient, stated as 0.00093 per degC, so the model describes the part at 25 degC only",
+          "junction capacitance, which the datasheet states for the bidirectional variants only",
+          "the thermal limit on how long the device may hold the clamping current, which is a pulse rating rather than a continuous one"
+        ],
+        "phenomenon": "device_electrical",
+        "provenance": {
+          "documents": [
+            "smbj_littelfuse"
+          ],
+          "source": "components/parameters.json"
+        }
+      }
+    ],
+    "identity": "input_clamp_smbj26a",
+    "kind": "diode",
+    "notes": "not a vendor model: an upper-bound envelope of the two reverse limits the datasheet states. The series resistance it carries is a fit artefact, not a measured dynamic resistance.",
+    "ports": [
+      "a",
+      "k"
+    ],
+    "spice": ".subckt input_clamp_smbj26a a k\nD1 a k input_clamp_smbj26a_junction\n.model input_clamp_smbj26a_junction D(IS=1.000000e-14 N=1 RS=0.713337 BV=31.900000 IBV=1.000000e-03 TNOM=25)\n.ends input_clamp_smbj26a"
+  }
+]

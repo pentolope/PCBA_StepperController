@@ -1,0 +1,172 @@
+{
+  "analyses": [
+    {
+      "kind": "op"
+    }
+  ],
+  "assumptions": {
+    "MCULOW": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the controller's output low level taken as 0.4 V, which its datasheet states for a loaded output rather than for the current this network draws"
+    },
+    "RAIL": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the logic rail at the bottom of the regulator's stated accuracy, which is the worst case for every level here"
+    },
+    "RDRVOUT": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the driver's output as the resistance that produces its stated output low level at the one current the datasheet characterises, which treats the output as linear beyond that point"
+    },
+    "RLEAKIDLE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the driver's input leakage at its datasheet maximum, as the resistance that sinks it"
+    },
+    "RPULLIDLE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the line's pull-up at its nominal value"
+    },
+    "RPULLLOW": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the pull-up again, for the state where the controller drives the line"
+    },
+    "RPULLREPLY": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the pull-up again, for the state where the driver replies"
+    },
+    "RSERIESIDLE": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the controller's transmit output idling high through its series element"
+    },
+    "RSERIESLOW": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the controller's series element"
+    },
+    "RSERIESREPLY": {
+      "accepted_for_design_decision": true,
+      "stands_in_for": "the controller's transmit output idling high through its series element while the driver drives the line"
+    }
+  },
+  "description": "the configuration line idle, pulled low by the controller through its series element, and pulled low by the driver against that element idling high",
+  "elements": [
+    {
+      "kind": "vsource_dc",
+      "name": "RAIL",
+      "nodes": [
+        "rail",
+        "0"
+      ],
+      "value": 3.2241683168316833
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLIDLE",
+      "nodes": [
+        "rail",
+        "idle"
+      ],
+      "value": 22000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RLEAKIDLE",
+      "nodes": [
+        "idle",
+        "0"
+      ],
+      "value": 322416.8316831683
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIESIDLE",
+      "nodes": [
+        "idle",
+        "rail"
+      ],
+      "value": 1000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLLOW",
+      "nodes": [
+        "rail",
+        "low"
+      ],
+      "value": 22000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIESLOW",
+      "nodes": [
+        "low",
+        "mculow"
+      ],
+      "value": 1000.0
+    },
+    {
+      "kind": "vsource_dc",
+      "name": "MCULOW",
+      "nodes": [
+        "mculow",
+        "0"
+      ],
+      "value": 0.4
+    },
+    {
+      "kind": "resistor",
+      "name": "RPULLREPLY",
+      "nodes": [
+        "rail",
+        "reply"
+      ],
+      "value": 22000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RSERIESREPLY",
+      "nodes": [
+        "rail",
+        "reply"
+      ],
+      "value": 1000.0
+    },
+    {
+      "kind": "resistor",
+      "name": "RDRVOUT",
+      "nodes": [
+        "reply",
+        "0"
+      ],
+      "value": 100.0
+    }
+  ],
+  "measurements": [
+    {
+      "assertion": {
+        "op": ">=",
+        "value": 2.256917821782178
+      },
+      "kind": "op_voltage",
+      "name": "idle_level",
+      "node": "idle"
+    },
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 0.9672504950495049
+      },
+      "kind": "op_voltage",
+      "name": "controller_low_level",
+      "node": "low"
+    },
+    {
+      "assertion": {
+        "op": "<=",
+        "value": 0.9672504950495049
+      },
+      "kind": "op_voltage",
+      "name": "driver_reply_low_level",
+      "node": "reply"
+    }
+  ],
+  "name": "single_wire_configuration_line_levels"
+}

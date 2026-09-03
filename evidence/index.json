@@ -1,0 +1,211 @@
+{
+  "documents": {
+    "header1x3_kinghelm": {
+      "applies_to": [
+        "KH-2.54PH180-1X3P-L11.5"
+      ],
+      "bytes": 226216,
+      "file": "datasheets/header1x3_kinghelm.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "3931b4b542614285127260b4a492650972c3fd83d6ad2142520ee1a36f6c89f4",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2201121530_Shenzhen-Kinghelm-Elec-KH-2-54PH180-1X3P-L11-5_C2932698.pdf"
+    },
+    "header1x5_kinghelm": {
+      "applies_to": [
+        "KH-2.54PH180-1X5P-L11.5"
+      ],
+      "bytes": 226222,
+      "file": "datasheets/header1x5_kinghelm.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "3bc2ce00ab6d9dc8e45b2222ccf5677a092bb7c8f4e0a365a07104f958596a81",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2201121530_Shenzhen-Kinghelm-Elec-KH-2-54PH180-1X5P-L11-5_C2932699.pdf"
+    },
+    "hybrid_ncc_hxc": {
+      "applies_to": [
+        "HHXC500ARA101MJA0G"
+      ],
+      "bytes": 1805798,
+      "document_id": "Nippon Chemi-Con HXC series conductive polymer hybrid aluminium electrolytic capacitors",
+      "file": "datasheets/hybrid_ncc_hxc.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "2dfa398b9ad3955084cbbcd564da0d9d2106f36e0717704c6f3a4c7ae8e62c37",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2404021225_NCC-Nippon-Chemi-Con-HHXC500ARA101MJA0G_C3008515.pdf"
+    },
+    "jst_vh_connector": {
+      "applies_to": [
+        "B4P-VH(LF)(SN)"
+      ],
+      "bytes": 107050,
+      "document_id": "JST VH connector 3.96 mm pitch disconnectable crimp style connectors",
+      "file": "datasheets/jst_vh_connector.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "81749febb7219778f775bff9dd1f486f6ea31aaa0088500936e872308de94e25",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/f2527f0a1a0b17e099f1e5ddd7cdf9f3.pdf"
+    },
+    "kf128_cixikefa": {
+      "applies_to": [
+        "KF128-5.08-2P-AA"
+      ],
+      "bytes": 434784,
+      "document_id": "Cixi Kefa KF128-5.08 drawing",
+      "file": "datasheets/kf128_cixikefa.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "4781221a025b068464bce493173984ac1e90efb9db90c1433e1e448ea9bdaead",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/29da5b9f86f95d4ff856cbb6af0595a9.pdf"
+    },
+    "kt0603r_kento": {
+      "applies_to": [
+        "KT-0603R"
+      ],
+      "bytes": 610865,
+      "document_id": "Hubei KENTO KT-0603R specification",
+      "file": "datasheets/kt0603r_kento.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "a3bac1cc9c59cb306ad03512945cce12c87bb54252abc223b796e1d20d41d4a1",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/011ec3e8cb1e825f6961d29bc4db4c7a.pdf"
+    },
+    "lmr51430_ti": {
+      "applies_to": [
+        "LMR51430YFDDCR"
+      ],
+      "bytes": 1761123,
+      "document_id": "LMR51430 SLUSEF4A, June 2022, revised November 2022",
+      "file": "datasheets/lmr51430_ti.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "0bc90fc72e951cfa16c75a43c8b18071303c37f9498849644be1a3ecc20e6e18",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2302220300_Texas-Instruments-LMR51430YFDDCR_C5219261.pdf"
+    },
+    "mlcc_yageo_cc": {
+      "applies_to": [
+        "CC0603KRX7R0BB104",
+        "CC0603KRX7R9BB223",
+        "CC0805KKX7R8BB225",
+        "CC0805KKX7R7BB106",
+        "CC1206KKX7R9BB475"
+      ],
+      "bytes": 1131214,
+      "document_id": "YAGEO CC series multilayer ceramic capacitors specification",
+      "file": "datasheets/mlcc_yageo_cc.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "61a606825ab314ea318cfb5362848a62fdffb851efa9818d642e9a541c56a648",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/23ccee80ee542e7cf156a772bb589942.pdf"
+    },
+    "res_0603_uniroyal": {
+      "applies_to": [
+        "0603WAF1000T5E",
+        "0603WAF1001T5E",
+        "0603WAF4701T5E",
+        "0603WAF1002T5E",
+        "0603WAF1202T5E",
+        "0603WAF2202T5E",
+        "0603WAF1003T5E"
+      ],
+      "bytes": 467557,
+      "document_id": "Uniroyal 0603W chip resistor series specification",
+      "file": "datasheets/res_0603_uniroyal.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "11cd644d5d8a34a6d12775afb80bf58d8fc11f0c3b700dbd0f7a59942ceaa5ef",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/0a975aaa49b7c97f38a963127be4a823.pdf"
+    },
+    "shunt_1206_milliohm": {
+      "applies_to": [
+        "HoLRTX1206-1W-100mR-1%"
+      ],
+      "bytes": 2160547,
+      "document_id": "Milliohm HoLRTX1206 specification for approval Ho20220913-18, edition A0, 2022-09-13",
+      "file": "datasheets/shunt_1206_milliohm.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "79269a93a6bdd471d50ca25fd37fd33023b44910e0bc642761a31c4aa37f4ccd",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2209151200_Milliohm-HoLRTX1206-1W-100mR-1-_C5123673.pdf"
+    },
+    "si9407bdy_vishay": {
+      "applies_to": [
+        "Si9407BDY-T1-GE3"
+      ],
+      "bytes": 189598,
+      "document_id": "Vishay Siliconix Si9407BDY, document 69902, S09-0704-Rev. B, 27-Apr-09",
+      "file": "datasheets/si9407bdy_vishay.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "89808f236a14f4d4046573ea6c6626377d01db4b9f29bad2492480bbac2a38c5",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/6f58117dd5ae4abdac31a87ef526800b.pdf"
+    },
+    "smbj_littelfuse": {
+      "applies_to": [
+        "SMBJ26A"
+      ],
+      "bytes": 947504,
+      "document_id": "Littelfuse SMBJ series 600 W surface mount TVS diodes",
+      "file": "datasheets/smbj_littelfuse.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "d7df155be4b1f612085401e8c946f065e284d65a0e7de22b9225a7b73946e51b",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/4ab84a227fae39f9eac85241b8264ead.pdf"
+    },
+    "srp4020_bourns": {
+      "applies_to": [
+        "SRP4020TA-220M"
+      ],
+      "bytes": 590377,
+      "document_id": "Bourns SRP4020TA series shielded power inductors",
+      "file": "datasheets/srp4020_bourns.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "601b2bd60f01531d3dd98df00eab15635fa971ebc03cf7ae4ccb5679faf03485",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2304140030_BOURNS-SRP4020TA-220M_C1847949.pdf"
+    },
+    "stm32g030_st": {
+      "applies_to": [
+        "STM32G030K8T6TR"
+      ],
+      "bytes": 1495458,
+      "document_id": "STM32G030x6/x8 datasheet DS12991 Rev 3",
+      "file": "datasheets/stm32g030_st.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "bd4d70f72b2e82c5965a2b92ef3b9c96ad48c0ecdf195cf900d14cd47bff09f5",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/753f35401d4598e355b1dd55569495e1.pdf"
+    },
+    "tmc2209_trinamic": {
+      "applies_to": [
+        "TMC2209-LA-T"
+      ],
+      "bytes": 1933787,
+      "document_id": "TMC2209 Datasheet Rev. 1.03 / 2019-JUN-26",
+      "file": "datasheets/tmc2209_trinamic.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "db470428897cee14df3d1ac4ee48eea11962f9fbcfb94e92683886a7eff0bf00",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/8a6616d50887b5979774ccef79093f9e.pdf"
+    },
+    "tmc2226_trinamic": {
+      "applies_to": [
+        "TMC2226-SA-T"
+      ],
+      "bytes": 1942082,
+      "document_id": "TMC2226 Datasheet Rev. 1.06 / 2020-MAY-18",
+      "file": "datasheets/tmc2226_trinamic.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "4e87de84905405ddf2bc29ec2438ef57a7869ccc502218d3e7bba704a1dc0fed",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/52fcff4edff5277506a67bb46d8b3298.pdf"
+    },
+    "tmc2240_trinamic": {
+      "applies_to": [
+        "TMC2240ATJ+T"
+      ],
+      "bytes": 2325124,
+      "document_id": "TMC2240 36V 2Arms+ Smart Integrated Stepper Driver, Analog Devices 2022, preliminary",
+      "file": "datasheets/tmc2240_trinamic.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "721fb84529bbcb0af42c017fee1ec256224c9b5c10aa64d70c109e7e22c92259",
+      "url": "https://wmsc.lcsc.com/wmsc/upload/file/pdf/v2/lcsc/2306191621_TRINAMIC-Motion-Control-GmbH-TMC2240ATJ-T_C7429724.pdf"
+    },
+    "tpd1e10b06_ti": {
+      "applies_to": [
+        "TPD1E10B06DPYR"
+      ],
+      "bytes": 1221393,
+      "document_id": "TPD1E10B06 SLLSEB1G",
+      "file": "datasheets/tpd1e10b06_ti.pdf",
+      "retrieved": "2026-09-02",
+      "sha256": "ce2dfe05c5c9c49a01e53cfd1b55142de5b819e035c2a1210052dadb8f495d82",
+      "url": "https://datasheet.lcsc.com/datasheet/pdf/338eb197fbc247888eaf2230887550ac.pdf"
+    }
+  },
+  "schema_version": 1
+}
