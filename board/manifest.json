@@ -1157,8 +1157,7 @@
       "fabrication/jlc_orientation/raw/*.json"
     ],
     "source_field": "source",
-    "source_hash_field": "source_sha256",
-    "tolerance_seconds": 0
+    "source_hash_field": "source_sha256"
   },
   "routing": {
     "hygiene": {
@@ -1234,10 +1233,10 @@
     "kicad_cli": "kicad-cli"
   },
   "via_mask": {
-    "contact_semantics": "annulus_contacts counts zero-distance tangency as contact; annulus_strict_overlaps counts positive shared area only",
     "design_target_mm": 0.15,
     "mask_dam_rule": "contact",
     "metric": "annulus_to_opening_mm",
+    "note": "annulus_contacts counts zero-distance tangency as contact; annulus_strict_overlaps counts positive shared area only",
     "pad_contact": {
       "populated_pad_attributes": [
         "SMD"

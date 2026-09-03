@@ -212,7 +212,7 @@ def document():
             "pad_contact": {"populated_pad_attributes": ["SMD"],
                             "require_paste": True},
             "metric": "annulus_to_opening_mm",
-            "contact_semantics":
+            "note":
                 "annulus_contacts counts zero-distance tangency as contact; "
                 "annulus_strict_overlaps counts positive shared area only",
             "mask_dam_rule": "contact",
@@ -319,7 +319,6 @@ def document():
             "source_field": "source",
             "date_field": "date",
             "require_source_hash": True,
-            "tolerance_seconds": 0,
             "source_closure": ["*.kicad_sch", "*.kicad_pcb", "*.kicad_pro",
                                "*.kicad_dru", "constraints/*.json",
                                "sim/*.json", "fab/*.json",
