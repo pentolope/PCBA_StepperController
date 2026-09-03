@@ -1161,7 +1161,7 @@
     "tolerance_seconds": 0
   },
   "routing": {
-    "acceptance_gates": [
+    "x_acceptance_gates": [
       "ERC.AUTHORITATIVE",
       "DRC.AUTHORITATIVE",
       "DRC.NO_SUPPRESSED_RULES",
