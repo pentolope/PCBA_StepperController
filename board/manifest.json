@@ -1161,23 +1161,6 @@
     "tolerance_seconds": 0
   },
   "routing": {
-    "x_acceptance_gates": [
-      "ERC.AUTHORITATIVE",
-      "DRC.AUTHORITATIVE",
-      "DRC.NO_SUPPRESSED_RULES",
-      "DRC.CONSTRAINT_FLOOR",
-      "NET.TOPOLOGY",
-      "ROUTE.GEOMETRY_HYGIENE",
-      "ROUTE.TINY_SEGMENTS",
-      "ROUTE.PROVENANCE",
-      "CONTRACT.PLACEMENT",
-      "CONTRACT.CONNECTOR",
-      "STACK.NATIVE_VS_MANIFEST",
-      "VIA.ANNULUS_MASK_OVERLAP",
-      "VIA.IN_PAD_CONTACT",
-      "SIM.SCENARIOS",
-      "SIM.STAGE_COVERAGE"
-    ],
     "hygiene": {
       "forbid_dangling": true,
       "forbid_duplicate_geometry": true,

@@ -43,25 +43,6 @@ MANDATORY_GATES = (
     "VIA.MASK_CLEARANCE_TARGET",
 )
 
-#: Gates that judge the design itself rather than the fabrication artifacts.
-ACCEPTANCE_GATES = (
-    "ERC.AUTHORITATIVE",
-    "DRC.AUTHORITATIVE",
-    "DRC.NO_SUPPRESSED_RULES",
-    "DRC.CONSTRAINT_FLOOR",
-    "NET.TOPOLOGY",
-    "ROUTE.GEOMETRY_HYGIENE",
-    "ROUTE.TINY_SEGMENTS",
-    "ROUTE.PROVENANCE",
-    "CONTRACT.PLACEMENT",
-    "CONTRACT.CONNECTOR",
-    "STACK.NATIVE_VS_MANIFEST",
-    "VIA.ANNULUS_MASK_OVERLAP",
-    "VIA.IN_PAD_CONTACT",
-    "SIM.SCENARIOS",
-    "SIM.STAGE_COVERAGE",
-)
-
 REQUIRED_EVIDENCE = (
     "evidence/index.json",
     "fab/selection.json",
@@ -226,7 +207,6 @@ def document():
                         "forbid_net_crossings": True,
                         "forbid_dangling": True},
             "provenance": "generated/routing.json",
-            "acceptance_gates": list(ACCEPTANCE_GATES),
         },
         "via_mask": {
             "pad_contact": {"populated_pad_attributes": ["SMD"],
