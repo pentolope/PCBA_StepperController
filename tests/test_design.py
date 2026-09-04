@@ -25,6 +25,24 @@ from pcbqa.sim import scenario as sim_scenario  # noqa: E402
 
 
 class DesignSource(unittest.TestCase):
+    def test_no_board_code_calls_saveboard_directly(self):
+        """Every board write goes through `pcbqa.board.save`.
+
+        `pcbnew.SaveBoard` rewrites - or invents - the sibling project
+        documents beside whatever path it is given; the toolkit's save
+        restores them, and no call site here may have to remember that.
+        """
+        design_dir = os.path.dirname(os.path.abspath(layout.__file__))
+        offenders = []
+        for name in sorted(os.listdir(design_dir)):
+            if not name.endswith(".py"):
+                continue
+            path = os.path.join(design_dir, name)
+            with open(path, encoding="utf-8") as handle:
+                if "pcbnew.SaveBoard(" in handle.read():
+                    offenders.append(name)
+        self.assertEqual(offenders, [])
+
     def test_pin_assignment_is_unique(self):
         mapping = netlist.pin_to_net()
         self.assertEqual(len(mapping),

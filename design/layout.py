@@ -855,8 +855,15 @@ def write(path=None):
 
 
 def write_placement_board(path):
+    """The placement search's input: parts, outline and keepout, no copper.
+
+    Written through `pcbqa.board.save` like every other board write:
+    `pcbnew.SaveBoard` invents or rewrites sibling project documents
+    beside whatever path it is given, and no call site should have to
+    remember the restore.
+    """
     board, _ = build(with_copper=False)
-    pcbnew.SaveBoard(path, board)
+    pcbqa_board.save(board, path)
     return path
 
 

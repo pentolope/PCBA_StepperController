@@ -1,7 +1,7 @@
 {
   "schema_version": 2,
-  "generated_utc": "2026-09-04T21:25:24.151575+00:00",
-  "source_closure_sha256": "e7f25aa495a5376dbcad9d0eb996803c87bbdd90eba16cb476f614e0ce971991",
+  "generated_utc": "2026-09-04T23:33:43.715454+00:00",
+  "source_closure_sha256": "afe2be9c166124dbdd88f9e5d64f4588a993f29e0811f1187384543a8b2aa68f",
   "manifest": {
     "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/board/manifest.json",
     "sha256": "bffe2dcb2f3e4f6eb71e60a63416065db4bd54104a64c91bfad7cd0f8cafd89a",
@@ -13,7 +13,7 @@
     "kicad_cli": "/usr/bin/kicad-cli",
     "validation_implementation": {
       "toolkit_root": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/tooling/PCBA_AutoDesignAndTest",
-      "commit": "b929c435bdf933f9eee20d7587e1b3bf1238e27b",
+      "commit": "9761247ddddda9747ce717287ae2893e30498274",
       "working_tree_dirty": false,
       "detail": "git HEAD of the toolkit checkout that executed this validation"
     },
@@ -185,8 +185,8 @@
         "fabrication_manifest": "fabrication.json",
         "artifacts_recorded": 18,
         "artifacts_present": 18,
-        "source_closure_sha256": "e7f25aa495a5376dbcad9d0eb996803c87bbdd90eba16cb476f614e0ce971991",
-        "recorded_source_closure_sha256": "e7f25aa495a5376dbcad9d0eb996803c87bbdd90eba16cb476f614e0ce971991"
+        "source_closure_sha256": "afe2be9c166124dbdd88f9e5d64f4588a993f29e0811f1187384543a8b2aa68f",
+        "recorded_source_closure_sha256": "afe2be9c166124dbdd88f9e5d64f4588a993f29e0811f1187384543a8b2aa68f"
       },
       "limits": {},
       "finding_count": 0,
@@ -195,7 +195,7 @@
         {
           "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/generated/release/fabrication.json",
           "name": "fabrication.json",
-          "sha256": "90b93529359d155250096d0bde6f104f1981103e7b49c852b76bece0036548d3"
+          "sha256": "0bbc346fac0e7a37a1636d742a0a9ad62e5d0e10db2f5ec218e91c69c4ce6aca"
         }
       ]
     },
@@ -743,10 +743,10 @@
         "rules_sha256": "865139624222337eeabacee5591bd698cbdb4f41ca954b0c400214d0b7b2a090",
         "constraint_manifest_sha256": "bffe2dcb2f3e4f6eb71e60a63416065db4bd54104a64c91bfad7cd0f8cafd89a",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-04T21:25:08.586753+00:00",
+        "generated_utc": "2026-09-04T23:33:27.547972+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/drc.v1.json",
-          "date": "2026-09-04T15:25:08",
+          "date": "2026-09-04T17:33:27",
           "kicad_version": "10.0.5",
           "source": "stepper_controller.kicad_pcb",
           "ignored_checks": [],
@@ -780,9 +780,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/out/stepper_controller/20260904T212505Z-26342f1e/work/drc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/out/stepper_controller/20260904T233324Z-afe3d4dc/work/drc_authoritative.json",
           "name": "drc_authoritative.json",
-          "sha256": "8a066d2034d4ece9abab42776cb4911686d873d2598cb34594c3c14f0a27f37f"
+          "sha256": "8ab57908d909748b9fb1c295b6b7f062bd56e5449b8f1e099f1f2567d4b18b0c"
         }
       ]
     },
@@ -951,10 +951,10 @@
         "rules_sha256": "865139624222337eeabacee5591bd698cbdb4f41ca954b0c400214d0b7b2a090",
         "constraint_manifest_sha256": "bffe2dcb2f3e4f6eb71e60a63416065db4bd54104a64c91bfad7cd0f8cafd89a",
         "kicad_version": "10.0.5",
-        "generated_utc": "2026-09-04T21:25:11.151857+00:00",
+        "generated_utc": "2026-09-04T23:33:29.939624+00:00",
         "report_meta": {
           "schema": "https://schemas.kicad.org/erc.v1.json",
-          "date": "2026-09-04T15:25:11",
+          "date": "2026-09-04T17:33:29",
           "kicad_version": "10.0.5",
           "source": "stepper_controller.kicad_sch",
           "ignored_checks": [],
@@ -988,9 +988,9 @@
       "findings": [],
       "evidence": [
         {
-          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/out/stepper_controller/20260904T212505Z-26342f1e/work/erc_authoritative.json",
+          "path": "/home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/out/stepper_controller/20260904T233324Z-afe3d4dc/work/erc_authoritative.json",
           "name": "erc_authoritative.json",
-          "sha256": "96e273e07e1ea3bc88a76bd5cd8c09c71e8ea496f8f9bfaa56268a9e4af9c42d"
+          "sha256": "2fe51a538e7e7c801465e74ecda1e2668461cd95298882a2b4ba610f7311f045"
         }
       ]
     },
@@ -1226,7 +1226,7 @@
       "reason": "all 2 committed report(s) bind the canonical digest of all 78 source inputs, and every one still matches",
       "measurements": {
         "source_closure_files": 78,
-        "source_closure_sha256": "e7f25aa495a5376dbcad9d0eb996803c87bbdd90eba16cb476f614e0ce971991",
+        "source_closure_sha256": "afe2be9c166124dbdd88f9e5d64f4588a993f29e0811f1187384543a8b2aa68f",
         "source_sha256": {
           "pcb": "6db27265a3937968",
           "schematic": "7136250ca1fd09a9"
@@ -1376,7 +1376,7 @@
       "gate": "ROUTE.PROVENANCE",
       "title": "The routed board in the tree is the candidate that was accepted",
       "status": "PASS",
-      "reason": "the adopted board is the accepted candidate of 1 recorded attempt(s), every attempt started from the same declared source, and each of the 1 post-router transform(s) states what it changed",
+      "reason": "the adopted board is the accepted candidate of 1 recorded attempt(s), every attempt started from the same declared source, each of the 1 post-router transform(s) states what it changed; the record predates per-input design bindings, which the next owned routing run re-records",
       "measurements": {
         "record": "generated/routing.json",
         "board_sha256": "6db27265a3937968e21b91a9c324cf858c5c3d1fd77de85b44067ce17197e9c7",
@@ -1485,7 +1485,7 @@
       "status": "PASS",
       "reason": "4 shipped copper layers match a fresh export by geometric symmetric difference (limit 0.05 mm2)",
       "measurements": {
-        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/out/stepper_controller/20260904T212505Z-26342f1e/work/fresh_gerbers --layers F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/out/stepper_controller/20260904T212505Z-26342f1e/work/design/stepper_controller.kicad_pcb",
+        "fresh_export_command": "pcb export gerbers --output /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/out/stepper_controller/20260904T233324Z-afe3d4dc/work/fresh_gerbers --layers F.Cu,In1.Cu,In2.Cu,B.Cu,F.Paste,F.Silkscreen,B.Silkscreen,F.Mask,B.Mask,Edge.Cuts --no-protel-ext --use-drill-file-origin --subtract-soldermask /home/pentolope/github/PCBA_AutoDesignAndTest_Bench/boards/08_PCBA_StepperController/out/stepper_controller/20260904T233324Z-afe3d4dc/work/design/stepper_controller.kicad_pcb",
         "fresh_export_exit": 0,
         "shipped_copper_layers": [
           "copper,l1,top",
