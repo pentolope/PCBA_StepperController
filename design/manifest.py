@@ -135,6 +135,52 @@ def net_topology_rules():
     return rules
 
 
+def routing_search():
+    """What the toolkit's candidate search is told about this board.
+
+    The reserved nets are the ones the search may not draw: the reference
+    and the motor rail are planes with a via at every surface pad, the two
+    sense conductors run from one bridge return to their own resistor and
+    share copper with nothing, and the phase conductors' loops are the
+    requirement. The layer list confines the search to the outer copper,
+    so the two inner planes stay unbroken under everything it draws.
+    Acceptance counts warnings as well as errors, because the gate that
+    judges the routed board counts them too.
+    """
+    reserved = list(layout.PLANE_NETS) + [
+        "SENSE_%s" % phase for phase in netlist.PHASES] + [
+        "PHASE_%s" % function
+        for function in sorted(netlist.MOTOR_CONNECTOR_PINS)]
+    return {
+        "nets": {"reserved": reserved},
+        "layers": ["F.Cu", "B.Cu"],
+        "orderings": ["inside_out", "original", "mps", "bus"],
+        "clearances_mm": [0.30, 0.25, 0.20],
+        "attempts": 12,
+        "grid_step_mm": 0.05,
+        "options": {
+            "track_width_mm": layout.TRACK_WIDTH_MM,
+            "via_size_mm": layout.VIA_DIAMETER_MM,
+            "via_drill_mm": layout.VIA_DRILL_MM,
+            "board_edge_clearance_mm": 0.45,
+            "hole_to_hole_clearance_mm": 0.3,
+            "same_net_pad_clearance_mm": 0.3,
+            "no_power_tap_neckdown": True,
+        },
+        "acceptance": {
+            "require_zero": ["errors", "warnings", "unconnected",
+                             "schematic_parity"],
+        },
+    }
+
+
+def routing_transforms():
+    """The normalization passes a routed candidate is put through."""
+    return {"passes": ["snap_to_via", "snap_to_pad_anchor",
+                       "collapse_degenerate", "fold_subfloor",
+                       "restore_widths", "restore_vias", "prune"]}
+
+
 def stackup_expected():
     """What each copper layer is for, outer first."""
     expected = []
@@ -207,6 +253,8 @@ def document():
                         "forbid_net_crossings": True,
                         "forbid_dangling": True},
             "provenance": "generated/routing.json",
+            "search": routing_search(),
+            "transforms": routing_transforms(),
         },
         "via_mask": {
             "pad_contact": {"populated_pad_attributes": ["SMD"],

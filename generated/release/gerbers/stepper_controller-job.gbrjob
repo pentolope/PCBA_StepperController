@@ -4,8 +4,7 @@
       "Vendor": "KiCad",
       "Application": "Pcbnew",
       "Version": "10.0.5-10.0.5~ubuntu24.04.1"
-    },
-    "CreationDate": "2026-09-03T15:14:49-06:00"
+    }
   },
   "GeneralSpecs": {
     "ProjectId": {

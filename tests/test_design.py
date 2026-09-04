@@ -178,9 +178,12 @@ class Layout(unittest.TestCase):
         self.assertEqual(len(manifest.stackup_expected()), build.COPPER_LAYERS)
 
     def test_the_planes_are_the_nets_the_router_may_not_draw(self):
-        from design import route
+        with open(os.path.join(REPO_ROOT, "board", "manifest.json"),
+                  encoding="utf-8") as handle:
+            document = json.load(handle)
+        reserved = document["routing"]["search"]["nets"]["reserved"]
         for net in layout.PLANE_NETS:
-            self.assertIn(net, route.RESERVED_NETS)
+            self.assertIn(net, reserved)
 
     def test_the_marking_states_what_the_board_claims(self):
         text = layout.rating_text()

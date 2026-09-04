@@ -1167,8 +1167,67 @@
     },
     "min_segment_mm": 0.1,
     "provenance": "generated/routing.json",
+    "search": {
+      "acceptance": {
+        "require_zero": [
+          "errors",
+          "warnings",
+          "unconnected",
+          "schematic_parity"
+        ]
+      },
+      "attempts": 12,
+      "clearances_mm": [
+        0.3,
+        0.25,
+        0.2
+      ],
+      "grid_step_mm": 0.05,
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ],
+      "nets": {
+        "reserved": [
+          "GND",
+          "VM",
+          "SENSE_A",
+          "SENSE_B",
+          "PHASE_A1",
+          "PHASE_A2",
+          "PHASE_B1",
+          "PHASE_B2"
+        ]
+      },
+      "options": {
+        "board_edge_clearance_mm": 0.45,
+        "hole_to_hole_clearance_mm": 0.3,
+        "no_power_tap_neckdown": true,
+        "same_net_pad_clearance_mm": 0.3,
+        "track_width_mm": 0.25,
+        "via_drill_mm": 0.3,
+        "via_size_mm": 0.6
+      },
+      "orderings": [
+        "inside_out",
+        "original",
+        "mps",
+        "bus"
+      ]
+    },
     "short_segment_justification": {
       "allow_pad_or_via_entry": true
+    },
+    "transforms": {
+      "passes": [
+        "snap_to_via",
+        "snap_to_pad_anchor",
+        "collapse_degenerate",
+        "fold_subfloor",
+        "restore_widths",
+        "restore_vias",
+        "prune"
+      ]
     }
   },
   "schema_version": 2,

@@ -3,12 +3,12 @@
   "board_id": "stepper_controller",
   "constraint_version": "layout-stage-2026-09-02",
   "release_profile": "jlcpcb-4layer-assembled",
-  "generated_utc": "2026-09-03T21:14:55.579650+00:00",
-  "source_closure_sha256": "60de6f048bbdf5efe270f84674466a325b5f400ccea28611f27372cd559192f1",
+  "generated_utc": "2026-09-04T11:08:34.183594+00:00",
+  "source_closure_sha256": "38ba5744a5c0444e9c197f8da5021324840b2b2a5e3bb7bed7fd3a8610da45bb",
   "source_closure_files": 78,
   "source_closure": {
-    "<configuration>": "fcde8df4c6d8420145d75fee4be3a2fdc11c66487ad2d42b777ec59ffe86a061",
-    "<toolkit>": "7f51066b4095042726be2be3824c3b9ff2f5158a+clean",
+    "<configuration>": "8de2f4a31dcf5851ccc684fd5a7733c5d1773dcb921274b19efa91f93f850c97",
+    "<toolkit>": "bd0ad78d84983c4907944f30d31c1bc53897e4b5+clean",
     "components/jlcpcb.json": "a68fd1a45e8874d1a5b32fa1b83302847774d981d743ce327b48622129944519",
     "components/parameters.json": "f5109c6802f71ca5f366d7e35cc5f3a38ee3dcf931ea114f8beeeaccd08b46a2",
     "evidence/index.json": "6ffb15a0d9f563f55a63ac643e8a248b8fae7304e5f90930036475c86b75276d",
@@ -91,7 +91,7 @@
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "7f51066b4095042726be2be3824c3b9ff2f5158a",
+    "commit": "bd0ad78d84983c4907944f30d31c1bc53897e4b5",
     "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
@@ -102,6 +102,7 @@
     "kicad-cli pcb export drill --output export --format excellon --excellon-separate-th --drill-origin plot stepper_controller.kicad_pcb",
     "kicad-cli pcb export pos --output cpl.csv --format csv --units mm --side both --exclude-dnp stepper_controller.kicad_pcb",
     "kicad-cli sch export bom --output bom.csv --fields ${QUANTITY},Reference,Value,Footprint,LCSC --labels Quantity,Designator,Comment,Footprint,LCSC Part # --group-by Value,Footprint,LCSC --exclude-dnp --ref-range-delimiter  stepper_controller.kicad_sch",
+    "strip-volatile export",
     "orient 66 placement(s)",
     "relabel cpl.csv",
     "zip stepper_controller-fabrication.zip"
@@ -109,22 +110,22 @@
   "artifacts": {
     "bom.csv": "2ff470b70b482eecac467960a7fbfa32dc84155f374472c40b0ab98ec82dd13d",
     "cpl.csv": "d8e3c689af172a89a9ad32beda9dc49720a4ed29655985c6021a705f92086444",
-    "gerbers/stepper_controller-B_Cu.gbr": "cf3d575d81b03add0225ff1fbe50cf86f91d690a29e9c69c67b1b2139d94ac1b",
-    "gerbers/stepper_controller-B_Mask.gbr": "136a59f3d1677ff39cf585c78d80102e54297969fde85dbe53124e96c7afb8d1",
-    "gerbers/stepper_controller-B_Silkscreen.gbr": "2697d84291c280c18618d4e3db12fd43bfeef6d23cc115413b51e775d16a1d4d",
-    "gerbers/stepper_controller-Edge_Cuts.gbr": "70b80367896b42e0903dc9fcaa696192fec503de60f3d920ce020a634c67b9e2",
-    "gerbers/stepper_controller-F_Cu.gbr": "6bc730929d97e9e372f68fe2ad0f009a2183ff6f45e8318f214a2d1eebcc2855",
-    "gerbers/stepper_controller-F_Mask.gbr": "493d0c43b5d113520c3009222af814a7846ce234b69e05939462928dd07545b6",
-    "gerbers/stepper_controller-F_Paste.gbr": "a2fa089f26a706c8a26069dcc4b1d99859632c0c5c99ad864c61e022099c6dda",
-    "gerbers/stepper_controller-F_Silkscreen.gbr": "0b81255707523ace91e114dc8ee65f04f3856d2b143cb87680c63325dbdc2cac",
-    "gerbers/stepper_controller-In1_Cu.gbr": "2b97c10aa7c71d87a5d05fd21f4e622ad5fb7c35b69f0e5b19738f1d1d48ae54",
-    "gerbers/stepper_controller-In2_Cu.gbr": "4f03e4925abb3f57d4795498d58eec12beef9278e59a071133f9b186b988ed2d",
-    "gerbers/stepper_controller-NPTH.drl": "8e1f17b2d58077ece9186c935732d93772b29aa201e2fe5d7cf9c1432f9a6754",
-    "gerbers/stepper_controller-PTH.drl": "b570bd78d235fdaf9decdf58ef165468ae665c6982089c53a4693f23b61a9b5a",
-    "gerbers/stepper_controller-job.gbrjob": "a62aa42b364a2c3db19feb5a0a00b6988c7486a652db378a948cada985c0722b",
-    "reports/drc.json": "38b0e2c91844a198d158346f3c20e4db532dece2f28c50f45c649962144eada6",
-    "reports/erc.json": "0da640f32b929d72bcf7a00aca470971e12a347a904a115b7ffaa53f6b14c491",
-    "stepper_controller-fabrication.zip": "2c17fd8d8a00efaec81affced66fe6d9ee395a2812c343dd46ede44f8397702a"
+    "gerbers/stepper_controller-B_Cu.gbr": "ecfbc227b212eb824bf07b604fd2b0e19fc10559c68b84d30ccfee71ce243999",
+    "gerbers/stepper_controller-B_Mask.gbr": "abda8b928a42d241e3825c7310175c7b7a31d4cd0b94af157aef33c0cd35ed17",
+    "gerbers/stepper_controller-B_Silkscreen.gbr": "9d5240c4b9b3069c7641618d3dbf14a1800d199802dc2092bec49069238dc369",
+    "gerbers/stepper_controller-Edge_Cuts.gbr": "afb4fc82a90719553b6e3edc6f8f2ba2ec2c56601a514f99476f7d8973f258b6",
+    "gerbers/stepper_controller-F_Cu.gbr": "8f6a5890a917cd7f3f5e715db0df0a2daa7cd7c42c776dd3f838f0903e3479cb",
+    "gerbers/stepper_controller-F_Mask.gbr": "ce14ca68487aa8d27b250031503b284a5b63acb172590a3c26a36da00d556197",
+    "gerbers/stepper_controller-F_Paste.gbr": "a8b48e504d3c54016a52bb4cd803a0037dd1906fce8bfd2c930b7e46ade02b58",
+    "gerbers/stepper_controller-F_Silkscreen.gbr": "120267c9d7eb2a3992742ea9483f2c594ad25954053aa73aff082cef77d5234e",
+    "gerbers/stepper_controller-In1_Cu.gbr": "9a7859fb0e54e8f23f9ea1c0495b96a5e0e66dde7bcb94a1730b5b151ecdb812",
+    "gerbers/stepper_controller-In2_Cu.gbr": "1eba82209dbd6d843ae782f90a4abe3b3a22abc087194bf24854aaa1d8aaeb3c",
+    "gerbers/stepper_controller-NPTH.drl": "21be371d429f1a53372e8492b17d5a77795dc33d463d99e7fd4e1aa88174e597",
+    "gerbers/stepper_controller-PTH.drl": "e0840db8e2d0738224dd329026fd830c897cad13de093e8b2dcd344b3ba44efd",
+    "gerbers/stepper_controller-job.gbrjob": "97b6b188698e8ea33c5a548fa39c739949b318e4fec4daf15dfb701bfce01a10",
+    "reports/drc.json": "2f7b8a4271e79d22f45b91875a83e1d7392a63e195672624969564d79b0352bc",
+    "reports/erc.json": "19ef3c6db856b6663c99999c63119317b1f8983bfde7cc40b61c430d325a1e36",
+    "stepper_controller-fabrication.zip": "6bb2da7c66e649ba882f5d04e42d7a5003792b7df6b4a1c08c8668c878b39c3e"
   },
   "excluded_layers": []
 }
