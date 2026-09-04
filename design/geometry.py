@@ -212,12 +212,14 @@ def _read(path):
                 "diameter_mm": pcbnew.ToMM(item.GetWidth(pcbnew.F_Cu)),
                 "drill_mm": pcbnew.ToMM(item.GetDrill())})
             continue
+        from pcbqa.board import endpoints
+        item_start, item_end = endpoints(item)
         tracks.append({
             "net": net,
-            "start": (pcbnew.ToMM(item.GetStart().x),
-                      pcbnew.ToMM(item.GetStart().y)),
-            "end": (pcbnew.ToMM(item.GetEnd().x),
-                    pcbnew.ToMM(item.GetEnd().y)),
+            "start": (pcbnew.ToMM(item_start.x),
+                      pcbnew.ToMM(item_start.y)),
+            "end": (pcbnew.ToMM(item_end.x),
+                    pcbnew.ToMM(item_end.y)),
             "width_mm": pcbnew.ToMM(item.GetWidth()),
             "layer": board.GetLayerName(item.GetLayer())})
     pads = {}

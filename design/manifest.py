@@ -170,6 +170,9 @@ def routing_search():
         "acceptance": {
             "require_zero": ["errors", "warnings", "unconnected",
                              "schematic_parity"],
+            # The full design gate class, so routing accepts nothing
+            # release will reject.
+            "gates": ["design"],
         },
     }
 
@@ -246,6 +249,12 @@ def document():
         "stackup": {"expected": stackup_expected()},
         "placement_rules": placement_rules(),
         "net_topology": {"rules": net_topology_rules()},
+        # Both pads faces carry parts on some of these boards and the
+        # courtyard proof is cheap on either; the edge-clearance gate is
+        # NOT declared here deliberately - this board places connectors
+        # or mounting holes at the outline by design, so it cannot
+        # truthfully promise a courtyard-to-edge margin.
+        "placement": {"courtyard": {"sides": ["front", "back"]}},
         "routing": {
             "min_segment_mm": 0.1,
             "short_segment_justification": {"allow_pad_or_via_entry": True},
