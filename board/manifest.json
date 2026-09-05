@@ -1235,12 +1235,32 @@
   "release_profile": {
     "declined_domains": [
       {
-        "domain": "requirements",
-        "reason": "no requirement register is authored yet; every claim's requirement cites the brief or a frozen document directly, and the register lands with a later revision"
+        "domain": "current_capacity",
+        "reason": "the motor phase currents are judged as claims against the driver's stated rating; a conductor capacity basis has not been sourced for this board"
       },
       {
         "domain": "device_parameters",
         "reason": "device figures live in components/parameters.json with per-figure document citations; the figures with no stated allowance at all (the debug pin's negative injection) are enumerated in the claim policy instead"
+      },
+      {
+        "domain": "differential_pairs",
+        "reason": "this board routes no differential pair; every net on it is single-ended and there is no pair impedance to hold"
+      },
+      {
+        "domain": "power_integrity",
+        "reason": "the motor supply is judged as a claim over the declared decoupling and source impedance; no rail is poured as a plane whose IR drop a solve would decide"
+      },
+      {
+        "domain": "reference_continuity",
+        "reason": "no interface on this board declares a return-path requirement today"
+      },
+      {
+        "domain": "requirements",
+        "reason": "no requirement register is authored yet; every claim's requirement cites the brief or a frozen document directly, and the register lands with a later revision"
+      },
+      {
+        "domain": "thermal",
+        "reason": "the driver's dissipation is judged as a claim against its stated limit; no theta record has been frozen for it, so there is nothing for THERMAL.* to derate against"
       },
       {
         "domain": "timing",
