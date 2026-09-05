@@ -486,5 +486,12 @@ def write():
 
 
 if __name__ == "__main__":
-    for path in write():
-        sys.stdout.write(path + "\n")
+    if len(sys.argv) > 1:
+        # One declared document, honoring PCBQA_OUT: the form the
+        # manifest's derived_documents entries invoke.
+        name = sys.argv[1]
+        target = os.environ.get("PCBQA_OUT") or os.path.join(SIM_DIR, name)
+        sys.stdout.write(_write(target, documents()[name]) + "\n")
+    else:
+        for path in write():
+            sys.stdout.write(path + "\n")

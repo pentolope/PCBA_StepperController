@@ -1112,6 +1112,8 @@
       "ARCH.CONTENTS",
       "ARCH.PROVENANCE",
       "BOM.NATIVE_PARITY",
+      "CLAIM.MATRIX",
+      "CLAIM.POLICY",
       "CONTRACT.CONNECTOR",
       "CONTRACT.PLACEMENT",
       "CPL.NATIVE_PARITY",
@@ -1119,7 +1121,10 @@
       "DRC.CONSTRAINT_FLOOR",
       "DRC.NO_SUPPRESSED_RULES",
       "ERC.AUTHORITATIVE",
+      "EXT.DEPENDENCIES",
       "NET.TOPOLOGY",
+      "PROV.DERIVED_DOCUMENTS",
+      "PROV.EVIDENCE_INTEGRITY",
       "PROV.REPORT_FRESHNESS",
       "ROUTE.GEOMETRY_HYGIENE",
       "ROUTE.PROVENANCE",
@@ -1135,11 +1140,31 @@
     ],
     "required_evidence": [
       "evidence/index.json",
+      "fab/physical_inputs.json",
       "fab/selection.json",
       "generated/requirements.json",
       "generated/routing.json",
-      "generated/thermal.json",
-      "fab/physical_inputs.json"
+      "generated/thermal.json"
+    ],
+    "required_domains": [
+      "claims",
+      "simulation",
+      "external_dependencies",
+      "orientation"
+    ],
+    "declined_domains": [
+      {
+        "domain": "requirements",
+        "reason": "no requirement register is authored yet; every claim's requirement cites the brief or a frozen document directly, and the register lands with a later revision"
+      },
+      {
+        "domain": "device_parameters",
+        "reason": "device figures live in components/parameters.json with per-figure document citations; the figures with no stated allowance at all (the debug pin's negative injection) are enumerated in the claim policy instead"
+      },
+      {
+        "domain": "timing",
+        "reason": "no timing interfaces are declared"
+      }
     ]
   },
   "reports": {
@@ -1162,7 +1187,8 @@
       "evidence/index.json",
       "tools/jlc_orientation.py",
       "fabrication/jlc_orientation/*.json",
-      "fabrication/jlc_orientation/raw/*.json"
+      "fabrication/jlc_orientation/raw/*.json",
+      "evidence/datasheets/*"
     ],
     "source_field": "source",
     "source_hash_field": "source_sha256"
@@ -1314,5 +1340,129 @@
       "require_paste": true
     }
   },
-  "waivers": []
+  "waivers": [],
+  "claims": {
+    "document": "generated/requirements.json",
+    "unsupported": {
+      "default": "blocking",
+      "permitted": [
+        {
+          "id": "within_the_ambient_headroom",
+          "scope": "board",
+          "because": "the board's own temperature rise above ambient is a thermal-solve quantity; the toolkit's thermal capability (plan 3.3) or a bench measurement closes it, and every package-level dissipation is bounded meanwhile",
+          "accepted_by": "pentolope",
+          "review_by": "2027-03-01"
+        },
+        {
+          "id": "at_or_below_the_required_path",
+          "scope": "U1",
+          "because": "the driver's junction-to-ambient path on THIS board's copper is a thermal-solve quantity; the datasheet figure is quoted on its own test board, and the claim records the factor by which this board may be worse before the limit is reached",
+          "accepted_by": "pentolope",
+          "review_by": "2027-03-01"
+        },
+        {
+          "id": "within_the_pins_negative_injection_allowance",
+          "scope": "U2",
+          "because": "the debug bridge's datasheet states no negative-injection allowance for the pin at all; only a vendor figure or a bench characterisation closes it, and the series element bounds what the pin can see meanwhile",
+          "accepted_by": "pentolope",
+          "review_by": "2027-09-01"
+        }
+      ]
+    },
+    "approximate": {
+      "default": "permitted-with-label"
+    }
+  },
+  "external_dependencies": [
+    {
+      "id": "board-rise-bench",
+      "statement": "the assembled board's temperature rise above ambient at full phase current, measured at the driver and the sense resistors",
+      "method": "PHYSICAL_TEST",
+      "owner": "bench bring-up",
+      "status": "open",
+      "blocking": false
+    },
+    {
+      "id": "jlcpcb-assembly-preview",
+      "statement": "JLCPCB's own assembly preview shows every part at its intended position and rotation",
+      "method": "MANUFACTURING_CHECK",
+      "owner": "fabrication order review",
+      "status": "open",
+      "blocking": false
+    }
+  ],
+  "provenance": {
+    "evidence_index": "evidence/index.json"
+  },
+  "derived_documents": [
+    {
+      "path": "generated/requirements.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.rules"
+      ]
+    },
+    {
+      "path": "generated/thermal.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.thermal"
+      ]
+    },
+    {
+      "path": "sim/models.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.models"
+      ]
+    },
+    {
+      "path": "sim/post_layout_sense_path.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.simulation",
+        "post_layout_sense_path.json"
+      ]
+    },
+    {
+      "path": "sim/pre_layout_config_line.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.simulation",
+        "pre_layout_config_line.json"
+      ]
+    },
+    {
+      "path": "sim/pre_layout_hot_plug.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.simulation",
+        "pre_layout_hot_plug.json"
+      ]
+    },
+    {
+      "path": "sim/pre_layout_safe_state.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.simulation",
+        "pre_layout_safe_state.json"
+      ]
+    },
+    {
+      "path": "sim/pre_layout_step_edge.json",
+      "command": [
+        "python3",
+        "-m",
+        "design.simulation",
+        "pre_layout_step_edge.json"
+      ]
+    }
+  ]
 }

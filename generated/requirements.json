@@ -1447,7 +1447,6 @@
           "phenomenon": "device_electrical",
           "provenance": {
             "documents": [
-              "elcap_knscha_rvt",
               "hybrid_ncc_hxc",
               "tmc2226_trinamic"
             ],
@@ -5526,7 +5525,6 @@
           "phenomenon": "device_electrical",
           "provenance": {
             "documents": [
-              "elcap_knscha_rvt",
               "hybrid_ncc_hxc",
               "tmc2226_trinamic"
             ],
@@ -5570,6 +5568,7 @@
       }
     }
   ],
+  "schema": 1,
   "summary": {
     "PASS": 105,
     "UNKNOWN": 3

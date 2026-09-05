@@ -136,14 +136,15 @@ def check(parameters=None):
     return True
 
 
-def write():
+def write(path=None):
     parameters = rules.load_parameters()
     check(parameters)
-    os.makedirs(os.path.dirname(MODELS_PATH), exist_ok=True)
-    with open(MODELS_PATH, "w", encoding="utf-8", newline="\n") as handle:
+    target = path or os.environ.get("PCBQA_OUT") or MODELS_PATH
+    os.makedirs(os.path.dirname(target) or ".", exist_ok=True)
+    with open(target, "w", encoding="utf-8", newline="\n") as handle:
         json.dump(records(parameters), handle, indent=2, sort_keys=True)
         handle.write("\n")
-    return MODELS_PATH
+    return target
 
 
 if __name__ == "__main__":

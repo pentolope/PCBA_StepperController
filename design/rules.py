@@ -635,7 +635,11 @@ def evaluate_stored_energy(parameters):
     rotor_energy = 0.5 * netlist.MOTOR_ROTOR_INERTIA_MAX_KGM2 * speed ** 2
     regenerative_v = math.sqrt(start ** 2 + 2.0 * rotor_energy / bulk)
 
-    documents = ("hybrid_ncc_hxc", "elcap_knscha_rvt", "tmc2226_trinamic")
+    # elcap_knscha_rvt was cited here from an earlier bulk-capacitor
+    # choice; every capacitance figure these claims read is documented by
+    # hybrid_ncc_hxc, and PROV.EVIDENCE_INTEGRITY is what finally caught
+    # the leftover id pointing at nothing.
+    documents = ("hybrid_ncc_hxc", "tmc2226_trinamic")
     return [
         {"id": "unmating_the_motor_while_enabled_stays_inside_the_rail_limit",
          "identity": "VM",
@@ -1540,23 +1544,20 @@ def evaluate_all():
 REPORT_PATH = os.path.join(REPO_ROOT, "generated", "requirements.json")
 
 
-def write_report():
+def write_report(path=None):
+    """Built through the toolkit's claim-document constructor; see
+    PROV.DERIVED_DOCUMENTS, which re-runs this to prove the committed
+    copy fresh."""
+    from pcbqa import evidence as toolkit_evidence
+
     evaluated = evaluate_all()
-    document = {
-        "kind": "board-requirement-evidence",
-        "summary": summarise(evaluated),
-        "results": [
-            {"id": result["id"], "identity": result["identity"],
-             "claim": result["claim"], "verdict": result["verdict"]}
-            for result in sorted(evaluated,
-                                 key=lambda item: (item["id"],
-                                                   item["identity"]))],
-    }
-    os.makedirs(os.path.dirname(REPORT_PATH), exist_ok=True)
-    with open(REPORT_PATH, "w", encoding="utf-8", newline="\n") as handle:
-        json.dump(document, handle, indent=2, sort_keys=True)
-        handle.write("\n")
-    return REPORT_PATH
+    document = toolkit_evidence.claim_document(
+        [toolkit_evidence.claim_result(result["id"], result["identity"],
+                                       result["claim"])
+         for result in evaluated])
+    target = path or os.environ.get("PCBQA_OUT") or REPORT_PATH
+    os.makedirs(os.path.dirname(target) or ".", exist_ok=True)
+    return toolkit_evidence.write_document(target, document)
 
 
 def summarise(results):
