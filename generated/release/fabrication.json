@@ -3,12 +3,12 @@
   "board_id": "stepper_controller",
   "constraint_version": "layout-stage-2026-09-02",
   "release_profile": "jlcpcb-4layer-assembled",
-  "generated_utc": "2026-09-05T22:09:42.449627+00:00",
-  "source_closure_sha256": "7b1bf59fca32c09b4bb6f590d04a7ca924b5b72382245e356b27300ef0ec83dd",
+  "generated_utc": "2026-09-05T23:26:18.769530+00:00",
+  "source_closure_sha256": "e344cb1c83ee72d7160ef4e7727da93217df2f7c7a3fdfc9e4dad1f78d6d8cc9",
   "source_closure_files": 97,
   "source_closure": {
     "<configuration>": "6866330e838f71ac6760ea9d183757bb7e8f3ecf4e23ad2777c4fc60b2962453",
-    "<toolkit>": "4f371f6385932e68d10b6781dfc4ef5b0020ff40+clean",
+    "<toolkit>": "6abd6f87580261867bec59512bc9bd34ed4b92e8+clean",
     "components/jlcpcb.json": "a68fd1a45e8874d1a5b32fa1b83302847774d981d743ce327b48622129944519",
     "components/parameters.json": "f5109c6802f71ca5f366d7e35cc5f3a38ee3dcf931ea114f8beeeaccd08b46a2",
     "evidence/datasheets/header1x3_kinghelm.pdf": "3931b4b542614285127260b4a492650972c3fd83d6ad2142520ee1a36f6c89f4",
@@ -110,7 +110,7 @@
     "kicad_cli": "kicad-cli"
   },
   "toolkit": {
-    "commit": "4f371f6385932e68d10b6781dfc4ef5b0020ff40",
+    "commit": "6abd6f87580261867bec59512bc9bd34ed4b92e8",
     "working_tree_dirty": false,
     "detail": "git HEAD of the toolkit checkout that executed this validation"
   },
@@ -142,8 +142,8 @@
     "gerbers/stepper_controller-NPTH.drl": "21be371d429f1a53372e8492b17d5a77795dc33d463d99e7fd4e1aa88174e597",
     "gerbers/stepper_controller-PTH.drl": "e0840db8e2d0738224dd329026fd830c897cad13de093e8b2dcd344b3ba44efd",
     "gerbers/stepper_controller-job.gbrjob": "97b6b188698e8ea33c5a548fa39c739949b318e4fec4daf15dfb701bfce01a10",
-    "reports/drc.json": "bc376ab029d5ca21c5bf256646de1a51760cc49cac1bc26e43ab26f2da55e079",
-    "reports/erc.json": "4f810c501cfb3bcd580829fb40029f107274ece625ebf184a7f4cafaba22132e",
+    "reports/drc.json": "babc238385c63f5994f0b9951809b262717b09aaf7c42fdb564eb581970af525",
+    "reports/erc.json": "6919b3315d267702e6e0af48922db7b3bfcf2df93f0f8fbfa642f7a453a82b16",
     "stepper_controller-fabrication.zip": "6bb2da7c66e649ba882f5d04e42d7a5003792b7df6b4a1c08c8668c878b39c3e"
   },
   "excluded_layers": []
