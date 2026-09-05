@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.kicad.org/erc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-09-05T10:27:20",
+  "date": "2026-09-05T14:16:12",
   "ignored_checks": [],
   "included_severities": [
     "error",
@@ -18,10 +18,10 @@
   ],
   "source": "stepper_controller.kicad_sch",
   "source_sha256": "7136250ca1fd09a9c4d82784cbdc515ca196c5179e9ec522f13a8b56ec8ce648",
-  "source_closure_sha256": "1b8d00797ffeae2d1913b5c2de949ff617585d85d03131e50940b09de9ee010a",
+  "source_closure_sha256": "1f5470b69b2c2cbeb194ad108407e6490fe85e8811f4d5c4149954090815f85c",
   "source_closure": {
     "<configuration>": "99af17a927e0b18619bed7b60d8e44af4ef505986ddff6bf923991d85ffc9f9a",
-    "<toolkit>": "be3c718edb053353445e3296f6f2482aa8b9949e+clean",
+    "<toolkit>": "cb03fa0fc091cbd8af36a42e6b288d32f61ceeb2+clean",
     "components/jlcpcb.json": "a68fd1a45e8874d1a5b32fa1b83302847774d981d743ce327b48622129944519",
     "components/parameters.json": "f5109c6802f71ca5f366d7e35cc5f3a38ee3dcf931ea114f8beeeaccd08b46a2",
     "evidence/datasheets/header1x3_kinghelm.pdf": "3931b4b542614285127260b4a492650972c3fd83d6ad2142520ee1a36f6c89f4",
@@ -43,9 +43,9 @@
     "evidence/datasheets/tmc2240_trinamic.pdf": "721fb84529bbcb0af42c017fee1ec256224c9b5c10aa64d70c109e7e22c92259",
     "evidence/datasheets/tpd1e10b06_ti.pdf": "ce2dfe05c5c9c49a01e53cfd1b55142de5b819e035c2a1210052dadb8f495d82",
     "evidence/index.json": "6ffb15a0d9f563f55a63ac643e8a248b8fae7304e5f90930036475c86b75276d",
-    "fab/physical_inputs.json": "12820a90e70d27fa969dcd00a8210ca506e3a8ffb30d5fcdbd122bc5593d5c5b",
+    "fab/physical_inputs.json": "e362860bda6d9c27fe1ab59b1c78c3e4234ec80ec7eb964a9e4d45126e3c2a1d",
     "fab/requirements.json": "316d2ce177392ae3a54fdc5fc52fe4297d50bdfd96cc41793be3f9b1118b215c",
-    "fab/selection.json": "3027bf99345f0676e4d616ee8f6f532a208c6efde931a4b16bc23d45092a948f",
+    "fab/selection.json": "fd65ce3822043c4e768b70723b8b772d4b39a29ac4fc1fa8251a95bbcae23431",
     "fabrication/jlc_orientation/C106222.json": "1c3135856950c48ebd3134357600ec0099b4c5bf2f73c7f11f602e04894cf1c2",
     "fabrication/jlc_orientation/C113803.json": "7186ed995307c6134ae5853ad503283e03558d270e774e936e7310625d989995",
     "fabrication/jlc_orientation/C132170.json": "58d1f5ead0cef62cb6ae73ff50132b861ce4964bb6e64a74ad23cb4cef9cdc58",

@@ -56,5 +56,5 @@
     "assembly constraints"
   ],
   "vocabulary_note": "feasible means feasible against the checked requirements only; the properties under not_in_vocabulary were NOT inspected and must be judged separately",
-  "approved_normalized_sha256": "953f02eab19f914ef0017b2ebb614de43d16ebc857a424d6cce2afdc09e5da65"
+  "approved_normalized_sha256": "e504b0de30d419179ecef39b27a688fa09b89a8e83cdfeec4d4eec95dbe73258"
 }
