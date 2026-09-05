@@ -1314,7 +1314,8 @@
       "tools/jlc_orientation.py",
       "fabrication/jlc_orientation/*.json",
       "fabrication/jlc_orientation/raw/*.json",
-      "evidence/datasheets/*"
+      "evidence/datasheets/*",
+      "generated/requirements.json"
     ],
     "source_field": "source",
     "source_hash_field": "source_sha256"

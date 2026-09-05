@@ -22,7 +22,8 @@
  ],
  "extra_required_evidence": [],
  "extra_source_closure": [
-  "evidence/datasheets/*"
+  "evidence/datasheets/*",
+  "generated/requirements.json"
  ],
  "required_domains": [
   "claims",
