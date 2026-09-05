@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.kicad.org/erc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-09-04T17:33:19",
+  "date": "2026-09-04T20:04:28",
   "ignored_checks": [],
   "included_severities": [
     "error",
@@ -18,10 +18,10 @@
   ],
   "source": "stepper_controller.kicad_sch",
   "source_sha256": "7136250ca1fd09a9c4d82784cbdc515ca196c5179e9ec522f13a8b56ec8ce648",
-  "source_closure_sha256": "afe2be9c166124dbdd88f9e5d64f4588a993f29e0811f1187384543a8b2aa68f",
+  "source_closure_sha256": "131ac08c558f3fb033c0b52de06e9df105e59a05304a4187e43362a51b2f244f",
   "source_closure": {
     "<configuration>": "5f14332ddcbc4f462f03b2dae436c0a2d72ecaaa3c0f58628eef9fa0d7edb3d9",
-    "<toolkit>": "9761247ddddda9747ce717287ae2893e30498274+clean",
+    "<toolkit>": "0f1bf363be9676227f6a3fa42037ff78521463e0+clean",
     "components/jlcpcb.json": "a68fd1a45e8874d1a5b32fa1b83302847774d981d743ce327b48622129944519",
     "components/parameters.json": "f5109c6802f71ca5f366d7e35cc5f3a38ee3dcf931ea114f8beeeaccd08b46a2",
     "evidence/index.json": "6ffb15a0d9f563f55a63ac643e8a248b8fae7304e5f90930036475c86b75276d",
