@@ -1,0 +1,159 @@
+{
+ "declined_domains": [
+  {
+   "domain": "requirements",
+   "reason": "no requirement register is authored yet; every claim's requirement cites the brief or a frozen document directly, and the register lands with a later revision"
+  },
+  {
+   "domain": "device_parameters",
+   "reason": "device figures live in components/parameters.json with per-figure document citations; the figures with no stated allowance at all (the debug pin's negative injection) are enumerated in the claim policy instead"
+  },
+  {
+   "domain": "timing",
+   "reason": "no timing interfaces are declared"
+  }
+ ],
+ "extra_mandatory_gates": [
+  "CLAIM.MATRIX",
+  "CLAIM.POLICY",
+  "EXT.DEPENDENCIES",
+  "PROV.DERIVED_DOCUMENTS",
+  "PROV.EVIDENCE_INTEGRITY"
+ ],
+ "extra_required_evidence": [],
+ "extra_source_closure": [
+  "evidence/datasheets/*"
+ ],
+ "required_domains": [
+  "claims",
+  "simulation",
+  "external_dependencies",
+  "orientation"
+ ],
+ "top": {
+  "claims": {
+   "approximate": {
+    "default": "permitted-with-label"
+   },
+   "document": "generated/requirements.json",
+   "unsupported": {
+    "default": "blocking",
+    "permitted": [
+     {
+      "accepted_by": "pentolope",
+      "because": "the board's own temperature rise above ambient is a thermal-solve quantity; the toolkit's thermal capability (plan 3.3) or a bench measurement closes it, and every package-level dissipation is bounded meanwhile",
+      "id": "within_the_ambient_headroom",
+      "review_by": "2027-03-01",
+      "scope": "board"
+     },
+     {
+      "accepted_by": "pentolope",
+      "because": "the driver's junction-to-ambient path on THIS board's copper is a thermal-solve quantity; the datasheet figure is quoted on its own test board, and the claim records the factor by which this board may be worse before the limit is reached",
+      "id": "at_or_below_the_required_path",
+      "review_by": "2027-03-01",
+      "scope": "U1"
+     },
+     {
+      "accepted_by": "pentolope",
+      "because": "the debug bridge's datasheet states no negative-injection allowance for the pin at all; only a vendor figure or a bench characterisation closes it, and the series element bounds what the pin can see meanwhile",
+      "id": "within_the_pins_negative_injection_allowance",
+      "review_by": "2027-09-01",
+      "scope": "U2"
+     }
+    ]
+   }
+  },
+  "derived_documents": [
+   {
+    "command": [
+     "python3",
+     "-m",
+     "design.rules"
+    ],
+    "path": "generated/requirements.json"
+   },
+   {
+    "command": [
+     "python3",
+     "-m",
+     "design.thermal"
+    ],
+    "path": "generated/thermal.json"
+   },
+   {
+    "command": [
+     "python3",
+     "-m",
+     "design.models"
+    ],
+    "path": "sim/models.json"
+   },
+   {
+    "command": [
+     "python3",
+     "-m",
+     "design.simulation",
+     "post_layout_sense_path.json"
+    ],
+    "path": "sim/post_layout_sense_path.json"
+   },
+   {
+    "command": [
+     "python3",
+     "-m",
+     "design.simulation",
+     "pre_layout_config_line.json"
+    ],
+    "path": "sim/pre_layout_config_line.json"
+   },
+   {
+    "command": [
+     "python3",
+     "-m",
+     "design.simulation",
+     "pre_layout_hot_plug.json"
+    ],
+    "path": "sim/pre_layout_hot_plug.json"
+   },
+   {
+    "command": [
+     "python3",
+     "-m",
+     "design.simulation",
+     "pre_layout_safe_state.json"
+    ],
+    "path": "sim/pre_layout_safe_state.json"
+   },
+   {
+    "command": [
+     "python3",
+     "-m",
+     "design.simulation",
+     "pre_layout_step_edge.json"
+    ],
+    "path": "sim/pre_layout_step_edge.json"
+   }
+  ],
+  "external_dependencies": [
+   {
+    "blocking": false,
+    "id": "board-rise-bench",
+    "method": "PHYSICAL_TEST",
+    "owner": "bench bring-up",
+    "statement": "the assembled board's temperature rise above ambient at full phase current, measured at the driver and the sense resistors",
+    "status": "open"
+   },
+   {
+    "blocking": false,
+    "id": "jlcpcb-assembly-preview",
+    "method": "MANUFACTURING_CHECK",
+    "owner": "fabrication order review",
+    "statement": "JLCPCB's own assembly preview shows every part at its intended position and rotation",
+    "status": "open"
+   }
+  ],
+  "provenance": {
+   "evidence_index": "evidence/index.json"
+  }
+ }
+}

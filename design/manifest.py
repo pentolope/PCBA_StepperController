@@ -199,7 +199,7 @@ def simulation_stages():
     return simulation.stages()
 
 
-def document():
+def _base_document():
     project = netlist.PROJECT_NAME
     classes = {entry["name"]: {key: value
                                for key, value in entry.items()
@@ -432,6 +432,11 @@ def archive_allow():
                       "require_payload": function != "Legend,Bot",
                       "min_count": 1})
     return allow
+
+
+def document():
+    from . import governance
+    return governance.merged(_base_document())
 
 
 def write():
