@@ -409,6 +409,7 @@
       "id": "board-rise-bench",
       "method": "PHYSICAL_TEST",
       "owner": "bench bring-up",
+      "review_by": "2027-03-01",
       "statement": "the assembled board's temperature rise above ambient at full phase current, measured at the driver and the sense resistors",
       "status": "open"
     },
@@ -417,6 +418,7 @@
       "id": "jlcpcb-assembly-preview",
       "method": "MANUFACTURING_CHECK",
       "owner": "fabrication order review",
+      "review_by": "2027-03-01",
       "statement": "JLCPCB's own assembly preview shows every part at its intended position and rotation",
       "status": "open"
     }

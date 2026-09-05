@@ -433,38 +433,24 @@ def stages():
 
 
 def extracted_records():
-    """The models the validator builds, built here the same way.
+    """The models the validator builds - built by the validator's own
+    assembly.
 
-    A local run and the gate must see the same numbers, so both extract
-    from the board rather than from a stored file.
+    A local run and the gate must see the same numbers; both now call
+    `pcbqa.sim.assemble.extracted_models`, so they agree by construction
+    rather than by a reimplementation staying in step. (geom.configure
+    comes from the manifest's declared tolerance inside the shared
+    assembly, not a local constant.)
     """
-    import pcbnew
-
     sys.path.insert(0, rules.TOOLKIT_ROOT)
-    from pcbqa import extract, geom, headless
-    from pcbqa.core import sha256_file
+    from pcbqa.core import load_manifest
+    from pcbqa.sim import assemble
+    from pcbqa import headless
 
     headless.suppress_blocking_ui()
-    geom.configure(0.001)
-    with open(os.path.join(REPO_ROOT, "fab", "physical_inputs.json"),
-              encoding="utf-8") as handle:
-        physical = json.load(handle)
-    copper = {layer: extract.validate_parameter(record, layer)
-              for layer, record in physical["copper_thickness_mm"].items()}
-    extract.validate_parameter(physical["board_thickness_mm"], "thickness")
-    from . import layout
-    board = pcbnew.LoadBoard(layout.BOARD_PATH)
-    digest = sha256_file(layout.BOARD_PATH)
-    records = []
-    for alias, declared in sorted(extracted_paths().items()):
-        traced = extract.path_resistance(
-            board, declared["net"], declared["from_pad"], declared["to_pad"],
-            copper)
-        records.append(extract.aliased(
-            extract.interconnect_model_from_path(traced, digest, physical),
-            alias))
-    return records
-
+    manifest = load_manifest(os.path.join(REPO_ROOT, "board",
+                                          "manifest.json"))
+    return assemble.extracted_models(manifest)
 
 def documents():
     parameters = _parameters()

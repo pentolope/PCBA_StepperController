@@ -303,9 +303,11 @@ class Thermal(unittest.TestCase):
 
 class Simulation(unittest.TestCase):
     def setUp(self):
-        records = list(models.records())
-        records.extend(simulation.extracted_records())
-        self.registry = model_registry.ModelRegistry(records)
+        from pcbqa import core
+        from pcbqa.sim import assemble
+        self.registry = assemble.registry_for(
+            core.load_manifest(os.path.join(REPO_ROOT, "board",
+                                            "manifest.json")))
         self.documents = simulation.documents()
 
     def test_every_scenario_validates(self):
