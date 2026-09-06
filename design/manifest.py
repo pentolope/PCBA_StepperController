@@ -11,7 +11,7 @@ import json
 import os
 import sys
 
-from . import build, layout, netlist, orientation, simulation
+from . import build, layout, netlist, orientation, simulation, thermal
 
 MANIFEST_PATH = os.path.join(layout.REPO_ROOT, "board", "manifest.json")
 
@@ -249,12 +249,13 @@ def _base_document():
         "stackup": {"expected": stackup_expected()},
         "placement_rules": placement_rules(),
         "net_topology": {"rules": net_topology_rules()},
-        # Both pads faces carry parts on some of these boards and the
-        # courtyard proof is cheap on either; the edge-clearance gate is
-        # NOT declared here deliberately - this board places connectors
-        # or mounting holes at the outline by design, so it cannot
-        # truthfully promise a courtyard-to-edge margin.
-        "placement": {"courtyard": {"sides": ["front", "back"]}},
+        # The floor is set by the four mounting holes, whose courtyards
+        # sit closest to the outline by design; every other part clears
+        # by more than a millimetre. What it holds is that no courtyard
+        # reaches the edge.
+        "placement": {"courtyard": {"sides": ["front", "back"]},
+                      "edge_clearance": {"min_mm": 0.05,
+                                         "basis": "courtyard"}},
         "routing": {
             "min_segment_mm": 0.1,
             "short_segment_justification": {"allow_pad_or_via_entry": True},
@@ -274,6 +275,14 @@ def _base_document():
                 "annulus_strict_overlaps counts positive shared area only",
             "mask_dam_rule": "contact",
             "design_target_mm": 0.15,
+        },
+        "thermal": thermal.manifest_block(),
+        "timing": {
+            "physical_stackup": {
+                "reference_nets": ["GND", "VM"],
+                "require_complete": True,
+                "supplement": "generated/stackup.json",
+            },
         },
         "artifacts": {
             "gerber_dir": "generated/release/gerbers",

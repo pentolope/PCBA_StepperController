@@ -119,6 +119,144 @@ def required_theta_ja_c_per_w(parameters):
 
 
 # ---------------------------------------------------------------------------
+# what the toolkit's thermal domain is told
+
+#: Copper's thermal conductivity, the only material property the spreading
+#: solve reads that no catalogue on this board publishes.
+COPPER_CONDUCTIVITY_W_PER_MK = 385.0
+
+#: Still air, board mounted with no enclosure and no forced flow. It is an
+#: environment statement, not a measurement, and the solve it feeds says so.
+NATURAL_CONVECTION_W_PER_M2K = 10.0
+
+#: Cells about 2 mm across on this outline.
+BOARD_RISE_GRID = {"columns": 40, "rows": 32}
+
+
+def _theta_record(spec, key, conditions_key=None):
+    record = spec[key]
+    entry = {"value": record["value"], "units": "C/W",
+             "source": record.get("document") or "datasheet"}
+    document = record.get("document")
+    if document:
+        entry["document"] = document
+    conditions = record.get("conditions")
+    if conditions:
+        entry["conditions"] = conditions
+    return entry
+
+
+def junction_parts(parameters=None):
+    """Every part whose junction path this board's evidence can judge.
+
+    A dissipating part with no stated junction-to-ambient resistance is
+    not on this list: the toolkit reports an undeclared junction path as
+    unjudged rather than as passing, and none of the passives' frozen
+    datasheets state one. What they dissipate is therefore outside the
+    spreading solve, and `omitted_dissipation_w` says how much.
+    """
+    parameters = parameters or rules.load_parameters()
+    driver = rules._spec(parameters, "U1")
+    regulator = rules._spec(parameters, "U3")
+    blocking = rules._spec(parameters, "Q1")["fet"]
+    clamp = rules._spec(parameters, "D1")
+    clamp_w = (clamp["tvs"]["reverse_leakage_max_a"]["value"]
+               * netlist.INPUT_SURVIVAL_MAX_V)
+    return {
+        "U1": {
+            "dissipation_w": driver_dissipation_w(parameters),
+            "junction_max_c": driver["junction_max_c"]["value"],
+            "theta_ja": _theta_record(driver, "theta_ja_c_per_w"),
+            "documents": ["tmc2226_trinamic"],
+        },
+        "U3": {
+            "dissipation_w": regulator_dissipation_w(parameters),
+            "junction_max_c": regulator["junction_max_c"]["value"],
+            "theta_ja": _theta_record(regulator, "theta_ja_c_per_w"),
+            "documents": ["lmr51430_ti"],
+        },
+        "Q1": {
+            "dissipation_w": blocking_dissipation_w(parameters),
+            "junction_max_c": blocking["junction_max_c"]["value"],
+            "theta_ja": _theta_record(blocking, "theta_ja_max_c_per_w"),
+            "documents": ["si9407bdy_vishay"],
+        },
+        "D1": {
+            "dissipation_w": clamp_w,
+            "junction_max_c": clamp["junction_max_c"]["value"],
+            "theta_ja": _theta_record(clamp, "theta_ja_c_per_w"),
+            "documents": ["smbj_littelfuse"],
+        },
+    }
+
+
+def omitted_dissipation_w(parameters=None):
+    """Heat the spreading solve is not given, because it has no junction."""
+    parameters = parameters or rules.load_parameters()
+    return total_w(parameters) - sum(
+        entry["dissipation_w"]
+        for entry in junction_parts(parameters).values())
+
+
+def lowest_stated_ambient_rating_c(parameters=None):
+    """The least tolerant part's own stated ambient ceiling."""
+    parameters = parameters or rules.load_parameters()
+    ceilings = []
+    for reference, part in sorted(netlist.PARTS.items()):
+        mpn = part["mpn"]
+        if mpn is None:
+            continue
+        spec = parameters["parts"][mpn]
+        for holder in (spec, spec.get("connector") or {},
+                       spec.get("led") or {}, spec.get("capacitor") or {},
+                       spec.get("resistor") or {},
+                       spec.get("inductor") or {}, spec.get("tvs") or {}):
+            record = holder.get("ambient_max_c")
+            if record is not None:
+                ceilings.append(record["value"])
+                break
+    return min(ceilings)
+
+
+def board_rise_budget_c(parameters=None):
+    """What the copper may rise before a part sits above its own rating.
+
+    Not a target chosen for the answer: it is the headroom the least
+    tolerant part on this board has above the declared maximum ambient.
+    """
+    return lowest_stated_ambient_rating_c(parameters) - netlist.AMBIENT_MAX_C
+
+
+def manifest_block(parameters=None):
+    parameters = parameters or rules.load_parameters()
+    return {
+        "ambient_c": netlist.AMBIENT_MAX_C,
+        "conductivity_w_per_mk": COPPER_CONDUCTIVITY_W_PER_MK,
+        "parts": junction_parts(parameters),
+        "board_rise": {
+            "grid": dict(BOARD_RISE_GRID),
+            "convection_w_per_m2k": NATURAL_CONVECTION_W_PER_M2K,
+            "copper_thickness_mm": layout_copper_thickness_mm(),
+            "budget_c": board_rise_budget_c(parameters),
+        },
+    }
+
+
+def layout_copper_thickness_mm():
+    """The per-layer thickness the solve's one node should carry.
+
+    The spreading solve is one node deep and multiplies what it is given
+    by the copper layer count, so the figure that reproduces this board's
+    real copper is the mean of the four finished thicknesses, not the
+    outer foil: the inner layers are less than half the outer ones and
+    quoting the outer figure would give the board copper it does not have.
+    """
+    from . import geometry
+    thicknesses = list(geometry.copper_thickness_mm().values())
+    return sum(thicknesses) / len(thicknesses)
+
+
+# ---------------------------------------------------------------------------
 
 def evaluate_driver_junction(parameters):
     driver = rules._spec(parameters, "U1")
@@ -215,11 +353,11 @@ def evaluate_driver_junction(parameters):
                  "through a via array; none of that is a number until it is "
                  "solved or measured"),
              omissions=(
-                 "the junction-to-ambient resistance of this board: no "
-                 "thermal solve over this copper and no measurement on an "
-                 "assembled board exists, so the junction temperature at "
-                 "the required phase current is not established and "
-                 "physical test is what would establish it",
+                 "the junction-to-ambient resistance of this board: "
+                 "THERMAL.BOARD_RISE solves the copper's own spreading and "
+                 "not the package's path into it, so the junction "
+                 "temperature at the required phase current is still not "
+                 "established and physical test is what would establish it",
                  "airflow: still air is neither assumed nor established, "
                  "and the mounting orientation is not specified"))},
     ]
@@ -318,38 +456,10 @@ def evaluate_junction_paths(parameters):
     return results
 
 
-def evaluate_board_rise(parameters):
-    driver = rules._spec(parameters, "U1")
-    headroom_c = (driver["junction_max_c"]["value"]
-                  - netlist.AMBIENT_MAX_C)
-    return [
-        {"id": "board_temperature_rise_above_ambient",
-         "identity": "board",
-         "measured_c": None,
-         "claim": rules._claim(
-             "board", "degC", "thermal", None, rules.ASSUMED, (),
-             rules._requirement("within_the_ambient_headroom", "<=",
-                                headroom_c),
-             scope_level="board",
-             assumptions=(
-                 "the board dissipates at most %.3f W with both phases at "
-                 "the required RMS current, each term at its own worst case, "
-                 "so the total bounds any single operating point from above"
-                 % total_w(parameters),),
-             omissions=(
-                 "the board's thermal resistance to ambient: no thermal "
-                 "solve over this copper and no measurement on an assembled "
-                 "board exists",
-                 "airflow, which the brief names as one of the three "
-                 "mechanisms that must hold the junction under its limit "
-                 "and which this board neither assumes nor establishes"))},
-    ]
-
-
 def evaluate_all(parameters):
     results = []
     for producer in (evaluate_driver_junction, evaluate_ambient_coverage,
-                     evaluate_junction_paths, evaluate_board_rise):
+                     evaluate_junction_paths):
         results.extend(producer(parameters))
     return results
 

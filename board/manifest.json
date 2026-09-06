@@ -203,13 +203,6 @@
       "permitted": [
         {
           "accepted_by": "pentolope",
-          "because": "the board's own temperature rise above ambient is a thermal-solve quantity; the toolkit's thermal capability (plan 3.3) or a bench measurement closes it, and every package-level dissipation is bounded meanwhile",
-          "id": "within_the_ambient_headroom",
-          "review_by": "2027-03-01",
-          "scope": "board"
-        },
-        {
-          "accepted_by": "pentolope",
           "because": "the driver's junction-to-ambient path on THIS board's copper is a thermal-solve quantity; the datasheet figure is quoted on its own test board, and the claim records the factor by which this board may be worse before the limit is reached",
           "id": "at_or_below_the_required_path",
           "review_by": "2027-03-01",
@@ -337,6 +330,14 @@
         "design.rules"
       ],
       "path": "generated/requirements.json"
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "design.stackup"
+      ],
+      "path": "generated/stackup.json"
     },
     {
       "command": [
@@ -537,6 +538,10 @@
         "front",
         "back"
       ]
+    },
+    "edge_clearance": {
+      "basis": "courtyard",
+      "min_mm": 0.05
     }
   },
   "placement_rules": [
@@ -1257,14 +1262,6 @@
       {
         "domain": "requirements",
         "reason": "no requirement register is authored yet; every claim's requirement cites the brief or a frozen document directly, and the register lands with a later revision"
-      },
-      {
-        "domain": "thermal",
-        "reason": "the driver's dissipation is judged as a claim against its stated limit; no theta record has been frozen for it, so there is nothing for THERMAL.* to derate against"
-      },
-      {
-        "domain": "timing",
-        "reason": "no timing interfaces are declared"
       }
     ],
     "id": "jlcpcb-4layer-assembled",
@@ -1302,7 +1299,9 @@
       "claims",
       "simulation",
       "external_dependencies",
-      "orientation"
+      "orientation",
+      "timing",
+      "thermal"
     ],
     "required_evidence": [
       "evidence/index.json",
@@ -1335,7 +1334,8 @@
       "fabrication/jlc_orientation/*.json",
       "fabrication/jlc_orientation/raw/*.json",
       "evidence/datasheets/*",
-      "generated/requirements.json"
+      "generated/requirements.json",
+      "generated/stackup.json"
     ],
     "source_field": "source",
     "source_hash_field": "source_sha256"
@@ -1471,6 +1471,87 @@
         "role": "plane"
       }
     ]
+  },
+  "thermal": {
+    "ambient_c": 40.0,
+    "board_rise": {
+      "budget_c": 45.0,
+      "convection_w_per_m2k": 10.0,
+      "copper_thickness_mm": 0.02794,
+      "grid": {
+        "columns": 40,
+        "rows": 32
+      }
+    },
+    "conductivity_w_per_mk": 385.0,
+    "parts": {
+      "D1": {
+        "dissipation_w": 2.6e-05,
+        "documents": [
+          "smbj_littelfuse"
+        ],
+        "junction_max_c": 150.0,
+        "theta_ja": {
+          "conditions": "typical junction to ambient",
+          "document": "smbj_littelfuse",
+          "source": "smbj_littelfuse",
+          "units": "C/W",
+          "value": 100.0
+        }
+      },
+      "Q1": {
+        "dissipation_w": 0.6,
+        "documents": [
+          "si9407bdy_vishay"
+        ],
+        "junction_max_c": 150.0,
+        "theta_ja": {
+          "conditions": "the datasheet's own test board",
+          "document": "si9407bdy_vishay",
+          "source": "si9407bdy_vishay",
+          "units": "C/W",
+          "value": 53.0
+        }
+      },
+      "U1": {
+        "dissipation_w": 3.0436,
+        "documents": [
+          "tmc2226_trinamic"
+        ],
+        "junction_max_c": 125.0,
+        "theta_ja": {
+          "conditions": "JEDEC 2s2p multilayer board, FR4, 35 um copper, 70 x 133 mm, d=1.5 mm",
+          "document": "tmc2226_trinamic",
+          "source": "tmc2226_trinamic",
+          "units": "C/W",
+          "value": 26.0
+        }
+      },
+      "U3": {
+        "dissipation_w": 0.00027774828512396694,
+        "documents": [
+          "lmr51430_ti"
+        ],
+        "junction_max_c": 150.0,
+        "theta_ja": {
+          "conditions": "JESD 51-7, simulated 4-layer JEDEC board; valid for package comparison only",
+          "document": "lmr51430_ti",
+          "source": "lmr51430_ti",
+          "units": "C/W",
+          "value": 107.8
+        }
+      }
+    }
+  },
+  "timing": {
+    "physical_stackup": {
+      "reference_nets": [
+        "GND",
+        "VM"
+      ],
+      "require_complete": true,
+      "supplement": "generated/stackup.json"
+    }
   },
   "tools": {
     "kicad_cli": "kicad-cli"

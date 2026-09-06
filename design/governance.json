@@ -23,14 +23,6 @@
     {
       "domain": "requirements",
       "reason": "no requirement register is authored yet; every claim's requirement cites the brief or a frozen document directly, and the register lands with a later revision"
-    },
-    {
-      "domain": "thermal",
-      "reason": "the driver's dissipation is judged as a claim against its stated limit; no theta record has been frozen for it, so there is nothing for THERMAL.* to derate against"
-    },
-    {
-      "domain": "timing",
-      "reason": "no timing interfaces are declared"
     }
   ],
   "extra_mandatory_gates": [
@@ -43,13 +35,16 @@
   "extra_required_evidence": [],
   "extra_source_closure": [
     "evidence/datasheets/*",
-    "generated/requirements.json"
+    "generated/requirements.json",
+    "generated/stackup.json"
   ],
   "required_domains": [
     "claims",
     "simulation",
     "external_dependencies",
-    "orientation"
+    "orientation",
+    "timing",
+    "thermal"
   ],
   "top": {
     "claims": {
@@ -60,13 +55,6 @@
       "unsupported": {
         "default": "blocking",
         "permitted": [
-          {
-            "accepted_by": "pentolope",
-            "because": "the board's own temperature rise above ambient is a thermal-solve quantity; the toolkit's thermal capability (plan 3.3) or a bench measurement closes it, and every package-level dissipation is bounded meanwhile",
-            "id": "within_the_ambient_headroom",
-            "review_by": "2027-03-01",
-            "scope": "board"
-          },
           {
             "accepted_by": "pentolope",
             "because": "the driver's junction-to-ambient path on THIS board's copper is a thermal-solve quantity; the datasheet figure is quoted on its own test board, and the claim records the factor by which this board may be worse before the limit is reached",
@@ -92,6 +80,14 @@
           "design.rules"
         ],
         "path": "generated/requirements.json"
+      },
+      {
+        "command": [
+          "python3",
+          "-m",
+          "design.stackup"
+        ],
+        "path": "generated/stackup.json"
       },
       {
         "command": [

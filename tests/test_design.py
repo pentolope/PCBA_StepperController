@@ -13,7 +13,7 @@ if REPO_ROOT not in sys.path:
 
 from design import (build, cost, evidence, geometry, ksym,  # noqa: E402
                     layout, libraries, manifest, models, netlist, orientation,
-                    physical, rules, simulation, thermal)
+                    physical, rules, simulation, stackup, thermal)
 
 TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
 if TOOLKIT_ROOT not in sys.path:
@@ -299,6 +299,80 @@ class Thermal(unittest.TestCase):
         with open(thermal.REPORT_PATH, "r", encoding="utf-8") as handle:
             self.assertEqual(json.load(handle),
                              thermal.document(self.parameters))
+
+    def test_every_declared_part_states_a_judgeable_junction_path(self):
+        # The toolkit reports a part with no steady-state resistance as
+        # unjudged, never as passing, so a part without one may not be
+        # declared here at all.
+        for reference, part in thermal.junction_parts(
+                self.parameters).items():
+            self.assertIn("junction_max_c", part, reference)
+            self.assertGreater(part["theta_ja"]["value"], 0.0, reference)
+            self.assertTrue(part["theta_ja"]["document"], reference)
+
+    def test_the_heat_left_out_of_the_solve_is_counted(self):
+        omitted = thermal.omitted_dissipation_w(self.parameters)
+        declared = sum(part["dissipation_w"] for part
+                       in thermal.junction_parts(self.parameters).values())
+        self.assertGreater(omitted, 0.0)
+        self.assertAlmostEqual(declared + omitted,
+                               thermal.total_w(self.parameters), places=9)
+
+    def test_the_rise_budget_is_the_least_tolerant_parts_headroom(self):
+        self.assertEqual(
+            thermal.board_rise_budget_c(self.parameters),
+            thermal.lowest_stated_ambient_rating_c(self.parameters)
+            - netlist.AMBIENT_MAX_C)
+
+    def test_the_solve_is_given_this_boards_copper_not_its_outer_foil(self):
+        # One node deep and multiplied by the layer count, so the figure
+        # that reproduces the real copper is the mean of the four
+        # finished thicknesses.
+        thicknesses = geometry.copper_thickness_mm()
+        self.assertAlmostEqual(
+            thermal.layout_copper_thickness_mm() * len(thicknesses),
+            sum(thicknesses.values()), places=9)
+        self.assertLess(thermal.layout_copper_thickness_mm(),
+                        max(thicknesses.values()))
+
+
+class Stackup(unittest.TestCase):
+    def setUp(self):
+        self.document = stackup.document()
+
+    def test_the_copper_layers_are_this_boards_layers_outer_first(self):
+        copper = [entry["name"] for entry in self.document["layers"]
+                  if entry["kind"] == "copper"]
+        self.assertEqual(copper, [name for name, _ in build.LAYER_ROLES])
+
+    def test_every_dielectric_states_a_thickness_and_a_permittivity(self):
+        dielectrics = [entry for entry in self.document["layers"]
+                       if entry["kind"] == "dielectric"]
+        self.assertEqual(len(dielectrics), len(build.LAYER_ROLES) - 1)
+        for entry in dielectrics:
+            self.assertGreater(entry["thickness_mm"], 0.0)
+            self.assertGreater(entry["epsilon_r"], 1.0)
+
+    def test_the_layer_names_are_unique(self):
+        names = [entry["name"] for entry in self.document["layers"]]
+        self.assertEqual(len(names), len(set(names)))
+
+    def test_it_does_not_restate_the_boards_overall_thickness(self):
+        # A supplement fills in what the design file omits; the board file
+        # states 1.6 mm and a second, different total would contradict it.
+        self.assertNotIn("total_thickness_mm", self.document)
+
+    def test_the_numbers_are_the_catalogue_this_board_was_selected_under(self):
+        with open(geometry.SELECTION_PATH, "r", encoding="utf-8") as handle:
+            selection = json.load(handle)
+        self.assertEqual(self.document["stackup"], selection["stackup"])
+        self.assertEqual(
+            self.document["provenance"]["catalog_normalized_sha256"],
+            selection["approved_normalized_sha256"])
+
+    def test_the_committed_document_is_the_generated_one(self):
+        with open(stackup.DOCUMENT_PATH, "r", encoding="utf-8") as handle:
+            self.assertEqual(json.load(handle), self.document)
 
 
 class Simulation(unittest.TestCase):

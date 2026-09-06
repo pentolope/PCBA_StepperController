@@ -59,61 +59,12 @@
             "status": "applicable"
           },
           "assumptions": [
-            "the board dissipates at most 4.752 W with both phases at the required RMS current, each term at its own worst case, so the total bounds any single operating point from above"
-          ],
-          "evidence_class": "assumed-behavioral",
-          "omitted_contributions": [
-            "the board's thermal resistance to ambient: no thermal solve over this copper and no measurement on an assembled board exists",
-            "airflow, which the brief names as one of the three mechanisms that must hold the junction under its limit and which this board neither assumes nor establishes"
-          ],
-          "phenomenon": "device_electrical",
-          "provenance": {
-            "documents": [],
-            "source": "components/parameters.json"
-          }
-        },
-        "kind": "claim",
-        "knowledge": "unknown",
-        "knowledge_basis": null,
-        "quantity": {},
-        "requirement": {
-          "assertion": {
-            "op": "<=",
-            "value": 85.0
-          },
-          "name": "within_the_ambient_headroom",
-          "source": "BRIEF.md"
-        },
-        "scope": {
-          "identity": "board",
-          "level": "board"
-        },
-        "significance": "thermal",
-        "units": "degC"
-      },
-      "id": "board_temperature_rise_above_ambient",
-      "identity": "board",
-      "verdict": {
-        "basis": "unknown",
-        "exact": false,
-        "knowledge_basis": null,
-        "result": "UNKNOWN"
-      }
-    },
-    {
-      "claim": {
-        "evidence": {
-          "applicability": {
-            "detail": "model applies to this scope",
-            "status": "applicable"
-          },
-          "assumptions": [
             "the requirement is the junction headroom above the declared continuous-rating ambient divided by the estimated dissipation",
             "the board carries four copper layers, two of them unbroken reference, and the exposed pad reaches them through a via array; none of that is a number until it is solved or measured"
           ],
           "evidence_class": "assumed-behavioral",
           "omitted_contributions": [
-            "the junction-to-ambient resistance of this board: no thermal solve over this copper and no measurement on an assembled board exists, so the junction temperature at the required phase current is not established and physical test is what would establish it",
+            "the junction-to-ambient resistance of this board: THERMAL.BOARD_RISE solves the copper's own spreading and not the package's path into it, so the junction temperature at the required phase current is still not established and physical test is what would establish it",
             "airflow: still air is neither assumed nor established, and the mounting orientation is not specified"
           ],
           "phenomenon": "device_electrical",
@@ -5571,6 +5522,6 @@
   "schema": 1,
   "summary": {
     "PASS": 105,
-    "UNKNOWN": 3
+    "UNKNOWN": 2
   }
 }

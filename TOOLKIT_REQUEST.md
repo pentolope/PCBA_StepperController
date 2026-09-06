@@ -372,3 +372,63 @@ is this pad really"), because the module names do not suggest their contents.
 Items 3, 4 and 7 do not close an unknown on this board, but each converts a
 claim that currently rests on an assumption or an analytic argument into one
 that rests on evidence or on simulation.
+
+---
+
+# Second pass, 2026-09-05: adopting Phase 3
+
+Items 5 and 6 have landed and this board now declares them. Two things
+blocked adoption of a third, and both are board-agnostic.
+
+## 12. A heat source is not always a junction
+
+`thermal.parts` is one dictionary serving two consumers with different
+needs. `THERMAL.DERATING` and `THERMAL.JUNCTION` fail — correctly — for any
+entry with no `theta_ja` and `junction_max_c`, while `THERMAL.BOARD_RISE`
+places the heat of every entry into the spreading solve.
+
+On this board the two 100 mΩ 1206 shunts dissipate 0.909 W, the 0603
+networks 0.192 W and the indicators 0.008 W, and none of those datasheets
+states a thermal resistance — passives are rated by ambient and by a
+derating curve, not by a junction. Declaring them makes two gates fail on
+parts that are fine; omitting them leaves 1.108 W of 4.752 W, 23%, out of
+the solve. This board omits them and counts the omission in
+`design/thermal.py:omitted_dissipation_w`, which is the honest option but
+not a good one: an omitted contribution is not zero, and here it is
+understating a rise that is already over budget.
+
+**Ask.** Separate the two roles. Either a second key —
+`thermal.sources`, dissipation and reference only, added to the solve and
+outside the junction gates — or a per-part `judge: "ambient"` that routes
+an entry to its ambient rating rather than to a junction path. Either way
+the solve gets all the board's heat and the junction gates keep their
+refusal to pass an unjudged path.
+
+## 13. Pad identity in the export-parity survey
+
+`VIA.NATIVE_GERBER_AGREEMENT` reports 6 per-object disagreements on this
+board. All 6 are thermal vias under U1's exposed pad, and the cause is that
+the native opening table in `pcbqa/gates/g_export_parity.py`
+(`_native_opening_polygon`) is keyed on `f"{ref}.{pad.GetNumber()}"`. The
+TMC2226 footprint carries eight unnumbered paste sub-pads over the exposed
+pad, so all eight collapse to the key `"U1."` and the table keeps whichever
+came last — the one at y = 88.7 mm. Every via near one of the other seven is
+then compared against an opening 4.5 mm away and reported as disagreeing
+with an export that had named the right object all along.
+
+**Ask.** Key the table on the pad's KIID rather than its number. A pad
+number is not unique: shield tabs, mounting holes and thermal-pad paste
+segments routinely share one, and unnumbered pads share the empty string.
+Until then this board cannot declare `via_mask.process`, which costs it
+`VIA.MASK_CLEARANCE_PROCESS` as well — the two share one declaration key.
+
+## What adopting Phase 3 established
+
+`THERMAL.BOARD_RISE` answers what item 5 was asked for, and the answer is
+that this board does not pass: the coarse solve puts the hottest copper
+90.8 °C above ambient against a 45 °C budget, with only 3.644 W of the
+board's 4.752 W in the solve. The TMC2226 datasheet reaches the same place
+independently — 3.044 W into its stated 26 K/W is a 79 K junction rise, and
+that figure is measured on a 70 × 133 mm board, not this 80 × 65 mm one.
+Two models, one conclusion: 1.5 A RMS per phase is not a continuous
+still-air rating for this design.

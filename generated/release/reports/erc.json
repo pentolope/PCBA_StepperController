@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.kicad.org/erc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-09-05T19:15:01",
+  "date": "2026-09-05T20:25:16",
   "ignored_checks": [],
   "included_severities": [
     "error",
@@ -18,9 +18,9 @@
   ],
   "source": "stepper_controller.kicad_sch",
   "source_sha256": "7136250ca1fd09a9c4d82784cbdc515ca196c5179e9ec522f13a8b56ec8ce648",
-  "source_closure_sha256": "20168209af8edb9c070679b8eea5fadfa23a514e1ef12b9de810bf7fb06017ff",
+  "source_closure_sha256": "26957f2ea71114250c768e4b6b7096fa128ee52f9362570f1dc66e89762ee807",
   "source_closure": {
-    "<configuration>": "6866330e838f71ac6760ea9d183757bb7e8f3ecf4e23ad2777c4fc60b2962453",
+    "<configuration>": "4b91a886921213634ca925a544d4d509dcc487d51b3f4493e2f5bd770459a70c",
     "<toolkit>": "c17ebb505b5dc98c445b68b9d743047e7b1d59eb+clean",
     "components/jlcpcb.json": "a68fd1a45e8874d1a5b32fa1b83302847774d981d743ce327b48622129944519",
     "components/parameters.json": "f5109c6802f71ca5f366d7e35cc5f3a38ee3dcf931ea114f8beeeaccd08b46a2",
@@ -99,7 +99,8 @@
     "fabrication/jlc_orientation/raw/C705366.json": "62da3906a89aec1070060b50be0ff1591283b66dfdd186f45aa55901af8a8424",
     "fabrication/jlc_orientation/raw/C724044.json": "c014a0cdbc780c7a02224aec510a8817eb8b40f376d7640a83fdbaa11c97f3f8",
     "fp-lib-table": "42bab0f79bd24a4bd273c7b585d01c4571d4df203d908105702b6bc5b501c0df",
-    "generated/requirements.json": "96558bd11310b919e89f54d596164ef35f0513f97f8578c80e7789fd8361082e",
+    "generated/requirements.json": "6e0811d77d4093d038676ea5a8be39d7c43cca53f777ce44c4c34d0da4caa5d0",
+    "generated/stackup.json": "34e10bc843c74107e6c0be53a64fc5f0ff24d05c6cb971cf00a5ad8211680244",
     "library/StepperController.kicad_sym": "943be9858c400da950b9d2a21fc87cebff1ede9bcda2f6cc80112dcb1b43bfe0",
     "library/StepperController.pretty/HTSSOP-28-1EP_4.4x9.7mm_P0.65mm_EP2.75x6.2mm_SegmentedMask.kicad_mod": "02c7209e07392efacb766efa0da817b0792d9c1ceee4c974737fd53aa7d011a3",
     "library/StepperController.pretty/L_Bourns_SRP4020TA.kicad_mod": "3ec632c4eb31457c65ade63edb368641e99c0f382acc817a47d34419cdedbbbb",

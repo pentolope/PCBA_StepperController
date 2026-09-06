@@ -1,0 +1,63 @@
+{
+  "layers": [
+    {
+      "kind": "copper",
+      "name": "F.Cu",
+      "source": "stackups.JLC-4L-no-requirement.layers[0]",
+      "thickness_mm": 0.035
+    },
+    {
+      "epsilon_r": 4.4,
+      "kind": "dielectric",
+      "material": "7628",
+      "name": "prepreg 7628 F.Cu-In1.Cu",
+      "source": "stackups.JLC-4L-no-requirement.layers[1]",
+      "thickness_mm": 0.2104,
+      "type": "prepreg"
+    },
+    {
+      "kind": "copper",
+      "name": "In1.Cu",
+      "source": "stackups.JLC-4L-no-requirement.layers[2]",
+      "thickness_mm": 0.0152
+    },
+    {
+      "epsilon_r": 4.6,
+      "kind": "dielectric",
+      "material": "core",
+      "name": "core In1.Cu-In2.Cu",
+      "source": "stackups.JLC-4L-no-requirement.layers[3]",
+      "thickness_mm": 1.065,
+      "type": "core"
+    },
+    {
+      "kind": "copper",
+      "name": "In2.Cu",
+      "source": "stackups.JLC-4L-no-requirement.layers[4]",
+      "thickness_mm": 0.0152
+    },
+    {
+      "epsilon_r": 4.4,
+      "kind": "dielectric",
+      "material": "7628",
+      "name": "prepreg 7628 In2.Cu-B.Cu",
+      "source": "stackups.JLC-4L-no-requirement.layers[5]",
+      "thickness_mm": 0.2104,
+      "type": "prepreg"
+    },
+    {
+      "kind": "copper",
+      "name": "B.Cu",
+      "source": "stackups.JLC-4L-no-requirement.layers[6]",
+      "thickness_mm": 0.035
+    }
+  ],
+  "provenance": {
+    "catalog_normalized_sha256": "e504b0de30d419179ecef39b27a688fa09b89a8e83cdfeec4d4eec95dbe73258",
+    "permittivity_basis": "the lowest dk the catalogue states for the material, so every impedance derived from it is an upper bound",
+    "selected_by": "fab/selection.json",
+    "source": "JLCPCB approved catalogue"
+  },
+  "schema": 1,
+  "stackup": "JLC-4L-no-requirement"
+}
