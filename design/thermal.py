@@ -135,7 +135,13 @@ BOARD_RISE_GRID = {"columns": 40, "rows": 32}
 
 def _theta_record(spec, key, conditions_key=None):
     record = spec[key]
+    # regime is stated, not assumed: every figure this board records
+    # under a theta_ja key is a junction-to-ambient thermal RESISTANCE,
+    # which is defined at thermal equilibrium; a transient figure would
+    # be a Zth curve and lives under no such key in the frozen
+    # parameters. The toolkit refuses a record that does not say.
     entry = {"value": record["value"], "units": "C/W",
+             "regime": "steady_state",
              "source": record.get("document") or "datasheet"}
     document = record.get("document")
     if document:

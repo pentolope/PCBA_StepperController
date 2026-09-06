@@ -1494,6 +1494,7 @@
         "theta_ja": {
           "conditions": "typical junction to ambient",
           "document": "smbj_littelfuse",
+          "regime": "steady_state",
           "source": "smbj_littelfuse",
           "units": "C/W",
           "value": 100.0
@@ -1508,6 +1509,7 @@
         "theta_ja": {
           "conditions": "the datasheet's own test board",
           "document": "si9407bdy_vishay",
+          "regime": "steady_state",
           "source": "si9407bdy_vishay",
           "units": "C/W",
           "value": 53.0
@@ -1522,6 +1524,7 @@
         "theta_ja": {
           "conditions": "JEDEC 2s2p multilayer board, FR4, 35 um copper, 70 x 133 mm, d=1.5 mm",
           "document": "tmc2226_trinamic",
+          "regime": "steady_state",
           "source": "tmc2226_trinamic",
           "units": "C/W",
           "value": 26.0
@@ -1536,6 +1539,7 @@
         "theta_ja": {
           "conditions": "JESD 51-7, simulated 4-layer JEDEC board; valid for package comparison only",
           "document": "lmr51430_ti",
+          "regime": "steady_state",
           "source": "lmr51430_ti",
           "units": "C/W",
           "value": 107.8
