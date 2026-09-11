@@ -105,6 +105,11 @@ def thermal_via_positions_mm():
                  for x in HTSSOP_VIA_COLUMNS_MM)
 
 
+#: The share of the exposed pad the stencil must still print after
+#: the windows are cut out of it.
+MIN_PASTE_COVERAGE = 0.50
+
+
 def paste_coverage_fraction():
     area = (HTSSOP_EP_MM[0] * mask_window_height_mm() * HTSSOP_MASK_WINDOWS)
     return area / (HTSSOP_EP_MM[0] * HTSSOP_EP_MM[1])

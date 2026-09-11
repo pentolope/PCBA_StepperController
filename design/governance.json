@@ -13,6 +13,10 @@
       "reason": "this board routes no differential pair; every net on it is single-ended and there is no pair impedance to hold"
     },
     {
+      "domain": "lifecycle",
+      "reason": "no lifecycle source has been frozen for this board; the committed JLCPCB library responses carry stock and an on-sale flag, which the toolkit's own freeze distinguishes from a lifecycle statement, and establishing a status is a reviewer's act on evidence nobody has retrieved yet - tracked as the jlcpcb-lifecycle-snapshot dependency"
+    },
+    {
       "domain": "power_integrity",
       "reason": "the motor supply is judged as a claim over the declared decoupling and source impedance; no rail is poured as a plane whose IR drop a solve would decide"
     },
@@ -44,7 +48,8 @@
     "external_dependencies",
     "orientation",
     "timing",
-    "thermal"
+    "thermal",
+    "assembly_process"
   ],
   "top": {
     "claims": {
@@ -168,6 +173,15 @@
         "owner": "fabrication order review",
         "review_by": "2027-03-01",
         "statement": "JLCPCB's own assembly preview shows every part at its intended position and rotation",
+        "status": "open"
+      },
+      {
+        "blocking": false,
+        "id": "jlcpcb-lifecycle-snapshot",
+        "method": "DOCUMENTATION",
+        "owner": "procurement review",
+        "review_by": "2027-03-01",
+        "statement": "a lifecycle and stock snapshot for every fitted part, frozen from the fabricator and reviewed into an established status, so a discontinued part is a gate failure rather than a discovery",
         "status": "open"
       }
     ],

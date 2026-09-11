@@ -1428,7 +1428,8 @@ def evaluate_thermal_pad(parameters):
          "claim": _claim(
              "U1", "fraction", "thermal",
              libraries.paste_coverage_fraction(), DERIVED, (),
-             _requirement("at_or_above_half_the_pad_area", ">=", 0.50),
+             _requirement("at_or_above_half_the_pad_area", ">=",
+                          libraries.MIN_PASTE_COVERAGE),
              scope_level="group", phenomenon="interconnect_geometry")},
     ]
 

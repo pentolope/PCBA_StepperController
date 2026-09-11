@@ -1,25 +1,25 @@
 {
   "$schema": "https://schemas.kicad.org/drc.v1.json",
   "coordinate_units": "mm",
-  "date": "2026-09-06T20:42:35",
+  "date": "2026-09-10T20:29:41",
   "ignored_checks": [],
   "included_severities": [
     "error",
     "warning",
     "exclusion"
   ],
-  "kicad_version": "10.0.5",
+  "kicad_version": "10.0.6",
   "schematic_parity": [],
   "source": "stepper_controller.kicad_pcb",
   "unconnected_items": [],
   "violations": [],
   "source_sha256": "6db27265a3937968e21b91a9c324cf858c5c3d1fd77de85b44067ce17197e9c7",
-  "source_closure_sha256": "c8d75a93834db4de0508b8fa26979940ce3a4f0b53ec79b53482caa8d8e23b5b",
+  "source_closure_sha256": "30ee41b17eb63c83b692524e417e626521e601b2a83aa0191f6ffeec1c9f18f2",
   "source_closure": {
-    "<configuration>": "0f37e94fbb16d5b0582ca36d9e359a2d747f4b549186f115bc84f4d4fdc14009",
-    "<toolkit>": "7e75b0c8f0e7fd09376e1b71b223a8b8efdffc08+clean",
+    "<configuration>": "23bf52ee09cee02cf90d8540e845bccbca07a936015c0313d588903a2ed2dbb9",
+    "<toolkit>": "225152338acde8ebaf2b7272c3a47d6a660342fa+clean",
     "components/jlcpcb.json": "a68fd1a45e8874d1a5b32fa1b83302847774d981d743ce327b48622129944519",
-    "components/parameters.json": "f5109c6802f71ca5f366d7e35cc5f3a38ee3dcf931ea114f8beeeaccd08b46a2",
+    "components/parameters.json": "56a61812440faefae6a87d5f7ce088c3614d5a500f336acddc7322e8e7d49bce",
     "evidence/datasheets/header1x3_kinghelm.pdf": "3931b4b542614285127260b4a492650972c3fd83d6ad2142520ee1a36f6c89f4",
     "evidence/datasheets/header1x5_kinghelm.pdf": "3bc2ce00ab6d9dc8e45b2222ccf5677a092bb7c8f4e0a365a07104f958596a81",
     "evidence/datasheets/hybrid_ncc_hxc.pdf": "2dfa398b9ad3955084cbbcd564da0d9d2106f36e0717704c6f3a4c7ae8e62c37",
@@ -112,7 +112,6 @@
     "stepper_controller.kicad_prl": "89180c10295f695bd9a96fcd6bdc1a7163aea31eaa734f080fb244ddb9c95de5",
     "stepper_controller.kicad_pro": "865139624222337eeabacee5591bd698cbdb4f41ca954b0c400214d0b7b2a090",
     "stepper_controller.kicad_sch": "7136250ca1fd09a9c4d82784cbdc515ca196c5179e9ec522f13a8b56ec8ce648",
-    "sym-lib-table": "6df1c896b01329340cc34090f3d2e11bdc5d599a9fe8beb644c645b41210d8cb",
-    "tools/jlc_orientation.py": "fe13a50700876507da5a706ce8af827955a68bd1c6512798aaeb7f4504569150"
+    "sym-lib-table": "6df1c896b01329340cc34090f3d2e11bdc5d599a9fe8beb644c645b41210d8cb"
   }
 }

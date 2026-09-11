@@ -112,6 +112,126 @@
       "MPN",
       "Manufacturer"
     ],
+    "furniture": {
+      "H1": {},
+      "H2": {},
+      "H3": {},
+      "H4": {},
+      "TP1": {},
+      "TP10": {},
+      "TP11": {},
+      "TP12": {},
+      "TP13": {},
+      "TP2": {},
+      "TP3": {},
+      "TP4": {},
+      "TP5": {},
+      "TP6": {},
+      "TP7": {},
+      "TP8": {},
+      "TP9": {}
+    },
+    "part_number_field": "LCSC",
+    "parts": {
+      "C106222": {
+        "peak_temp_max_c": 260.0
+      },
+      "C113803": {
+        "peak_temp_max_c": 260.0
+      },
+      "C132170": {
+        "peak_temp_max_c": 260.0
+      },
+      "C141567": {},
+      "C160317": {
+        "process": "hand_solder_only"
+      },
+      "C1847949": {
+        "max_reflow_passes": 3,
+        "peak_temp_max_c": 260.0
+      },
+      "C21190": {
+        "peak_temp_max_c": 260.0
+      },
+      "C22775": {
+        "peak_temp_max_c": 260.0
+      },
+      "C22790": {
+        "peak_temp_max_c": 260.0
+      },
+      "C2286": {
+        "max_reflow_passes": 2,
+        "peak_temp_max_c": 260.0
+      },
+      "C23162": {
+        "peak_temp_max_c": 260.0
+      },
+      "C25803": {
+        "peak_temp_max_c": 260.0
+      },
+      "C25804": {
+        "peak_temp_max_c": 260.0
+      },
+      "C277470": {
+        "peak_temp_max_c": 260.0
+      },
+      "C2932698": {
+        "process": "hand_solder_only"
+      },
+      "C2932699": {
+        "process": "hand_solder_only"
+      },
+      "C3008515": {},
+      "C315992": {
+        "max_reflow_passes": 3,
+        "peak_temp_max_c": 260.0
+      },
+      "C31850": {
+        "peak_temp_max_c": 260.0
+      },
+      "C326595": {
+        "peak_temp_max_c": 260.0
+      },
+      "C474952": {
+        "process": "hand_solder_only"
+      },
+      "C48260": {
+        "peak_temp_max_c": 260.0
+      },
+      "C5123673": {},
+      "C5219261": {
+        "peak_temp_max_c": 260.0
+      },
+      "C705366": {},
+      "C724044": {}
+    },
+    "paste": {
+      "pads": [
+        {
+          "coverage": [
+            0.5,
+            1.0
+          ],
+          "pad": "29",
+          "reference": "U1"
+        }
+      ]
+    },
+    "process": {
+      "cleaning": "no_clean",
+      "hand_solder": [
+        "J1",
+        "J2",
+        "J3",
+        "J4",
+        "J5"
+      ],
+      "peak_temp_c": 250.0,
+      "reflow_passes": 1,
+      "sides": [
+        "top"
+      ]
+    },
     "required_part_fields": [
       "LCSC"
     ],
@@ -422,6 +542,15 @@
       "review_by": "2027-03-01",
       "statement": "JLCPCB's own assembly preview shows every part at its intended position and rotation",
       "status": "open"
+    },
+    {
+      "blocking": false,
+      "id": "jlcpcb-lifecycle-snapshot",
+      "method": "DOCUMENTATION",
+      "owner": "procurement review",
+      "review_by": "2027-03-01",
+      "statement": "a lifecycle and stock snapshot for every fitted part, frozen from the fabricator and reviewed into an established status, so a discontinued part is a gate failure rather than a discovery",
+      "status": "open"
     }
   ],
   "fixture": {
@@ -646,6 +775,10 @@
     },
     "cpl_orientation": {
       "angle_decimals": 4,
+      "deriver": {
+        "id": "jlc-pad-pairing-v1",
+        "sha256": "58c93007981ad5e0522f2b3a1d29f20caf36c2720757ebc6c76d11bf91bb1a57"
+      },
       "evidence": {
         "fixtures": "fabrication/jlc_orientation/*.json",
         "note": "the raw library response and a normalised extract of it are both committed; the extract is re-derived from the body whenever it is read, and the offsets are scored from the body rather than from the extract"
@@ -665,13 +798,13 @@
           "offset_deg": 0.0,
           "package": "C0603",
           "raw_file": "fabrication/jlc_orientation/raw/C106222.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "C7"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -683,6 +816,7 @@
           "offset_deg": 0.0,
           "package": "C0603",
           "raw_file": "fabrication/jlc_orientation/raw/C113803.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -698,7 +832,6 @@
             "C6",
             "C8"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -710,6 +843,7 @@
           "offset_deg": 0.0,
           "package": "C1206",
           "raw_file": "fabrication/jlc_orientation/raw/C132170.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -718,7 +852,6 @@
             "C3",
             "C4"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -730,13 +863,13 @@
           "offset_deg": 270.0,
           "package": "SOIC-8_L4.9-W3.9-P1.27-LS6.0-BL",
           "raw_file": "fabrication/jlc_orientation/raw/C141567.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "Q1"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 1.3548
         },
         {
@@ -748,13 +881,13 @@
           "offset_deg": 0.0,
           "package": "CONN-TH_B4P-VH-LF-SN",
           "raw_file": "fabrication/jlc_orientation/raw/C160317.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "J2"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -766,13 +899,13 @@
           "offset_deg": 0.0,
           "package": "IND-SMD_L4.5-W4.1_TMPA0402SP",
           "raw_file": "fabrication/jlc_orientation/raw/C1847949.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "L1"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -784,6 +917,7 @@
           "offset_deg": 0.0,
           "package": "R0603",
           "raw_file": "fabrication/jlc_orientation/raw/C21190.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -793,7 +927,6 @@
             "R22",
             "R9"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -805,6 +938,7 @@
           "offset_deg": 0.0,
           "package": "R0603",
           "raw_file": "fabrication/jlc_orientation/raw/C22775.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -816,7 +950,6 @@
             "R18",
             "R19"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -828,13 +961,13 @@
           "offset_deg": 0.0,
           "package": "R0603",
           "raw_file": "fabrication/jlc_orientation/raw/C22790.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "R8"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -846,6 +979,7 @@
           "offset_deg": 180.0,
           "package": "LED-SMD_L1.6-W0.8-R-RD",
           "raw_file": "fabrication/jlc_orientation/raw/C2286.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -853,7 +987,6 @@
             "D10",
             "D11"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -865,6 +998,7 @@
           "offset_deg": 0.0,
           "package": "R0603",
           "raw_file": "fabrication/jlc_orientation/raw/C23162.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -872,7 +1006,6 @@
             "R14",
             "R15"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -884,6 +1017,7 @@
           "offset_deg": 0.0,
           "package": "R0603",
           "raw_file": "fabrication/jlc_orientation/raw/C25803.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -894,7 +1028,6 @@
             "R5",
             "R7"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -906,13 +1039,13 @@
           "offset_deg": 0.0,
           "package": "R0603",
           "raw_file": "fabrication/jlc_orientation/raw/C25804.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "R13"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -924,13 +1057,13 @@
           "offset_deg": 0.0,
           "package": "C0805",
           "raw_file": "fabrication/jlc_orientation/raw/C277470.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "C9"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -942,13 +1075,13 @@
           "offset_deg": 270.0,
           "package": "HDR-TH_3P-P2.54-V-M",
           "raw_file": "fabrication/jlc_orientation/raw/C2932698.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "J5"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -960,6 +1093,7 @@
           "offset_deg": 270.0,
           "package": "HDR-TH_5P-P2.54-V-M",
           "raw_file": "fabrication/jlc_orientation/raw/C2932699.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -967,7 +1101,6 @@
             "J3",
             "J4"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -979,6 +1112,7 @@
           "offset_deg": 0.0,
           "package": "CAP-SMD_BD10.0-L10.3-W10.3-LS11.0-FD-1",
           "raw_file": "fabrication/jlc_orientation/raw/C3008515.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -988,7 +1122,6 @@
             "C20",
             "C21"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -1000,13 +1133,13 @@
           "offset_deg": 0.0,
           "package": "SMB_L4.4-W3.6-LS5.3-L-RD",
           "raw_file": "fabrication/jlc_orientation/raw/C315992.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "D1"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -1018,6 +1151,7 @@
           "offset_deg": 0.0,
           "package": "R0603",
           "raw_file": "fabrication/jlc_orientation/raw/C31850.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -1026,7 +1160,6 @@
             "R4",
             "R6"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -1038,6 +1171,7 @@
           "offset_deg": 0.0,
           "package": "C0805",
           "raw_file": "fabrication/jlc_orientation/raw/C326595.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -1045,7 +1179,6 @@
             "C15",
             "C16"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -1057,13 +1190,13 @@
           "offset_deg": 0.0,
           "package": "CONN-TH_P5.08_KF128-5.08-2P",
           "raw_file": "fabrication/jlc_orientation/raw/C474952.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "J1"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -1075,6 +1208,7 @@
           "offset_deg": 0.0,
           "package": "X1SON-2_L1.0-W0.6-P0.65-BI-1",
           "raw_file": "fabrication/jlc_orientation/raw/C48260.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -1088,7 +1222,6 @@
             "D8",
             "D9"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -1100,6 +1233,7 @@
           "offset_deg": 0.0,
           "package": "R1206",
           "raw_file": "fabrication/jlc_orientation/raw/C5123673.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
@@ -1107,7 +1241,6 @@
             "RS1",
             "RS2"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0
         },
         {
@@ -1119,13 +1252,13 @@
           "offset_deg": 270.0,
           "package": "SOT-23-6_L2.9-W1.6-P0.95-LS2.9-BL",
           "raw_file": "fabrication/jlc_orientation/raw/C5219261.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "U3"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.2868
         },
         {
@@ -1137,13 +1270,13 @@
           "offset_deg": 270.0,
           "package": "HTSSOP-28_L9.8-W4.5-P0.65-LS6.6-BL-EP",
           "raw_file": "fabrication/jlc_orientation/raw/C705366.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 44.9999,
           "x_pairing": "pad number",
           "x_references": [
             "U1"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.0931
         },
         {
@@ -1155,19 +1288,18 @@
           "offset_deg": 270.0,
           "package": "LQFP-32_L7.0-W7.0-P0.80-LS9.0-BL",
           "raw_file": "fabrication/jlc_orientation/raw/C724044.json",
+          "review_basis": "evidence_rederivation",
           "review_status": "reviewed",
           "x_margin_over_runner_up_deg": 45.0,
           "x_pairing": "pad number",
           "x_references": [
             "U2"
           ],
-          "x_review_basis": "derived from the frozen library response by tools/jlc_orientation.py, which pairs the library's pads with the footprint's and requires every pad to agree on one rotation; re-derived from the same committed evidence on every release and compared against this entry",
           "x_worst_pad_disagreement_deg": 0.4201
         }
       ],
       "reproduction_inputs": {
         "required_globs": [
-          "tools/jlc_orientation.py",
           "fabrication/jlc_orientation/*.json",
           "fabrication/jlc_orientation/raw/*.json"
         ]
@@ -1252,6 +1384,10 @@
         "reason": "this board routes no differential pair; every net on it is single-ended and there is no pair impedance to hold"
       },
       {
+        "domain": "lifecycle",
+        "reason": "no lifecycle source has been frozen for this board; the committed JLCPCB library responses carry stock and an on-sale flag, which the toolkit's own freeze distinguishes from a lifecycle statement, and establishing a status is a reviewer's act on evidence nobody has retrieved yet - tracked as the jlcpcb-lifecycle-snapshot dependency"
+      },
+      {
         "domain": "power_integrity",
         "reason": "the motor supply is judged as a claim over the declared decoupling and source impedance; no rail is poured as a plane whose IR drop a solve would decide"
       },
@@ -1301,7 +1437,8 @@
       "external_dependencies",
       "orientation",
       "timing",
-      "thermal"
+      "thermal",
+      "assembly_process"
     ],
     "required_evidence": [
       "evidence/index.json",
@@ -1330,7 +1467,6 @@
       "fab/*.json",
       "components/*.json",
       "evidence/index.json",
-      "tools/jlc_orientation.py",
       "fabrication/jlc_orientation/*.json",
       "fabrication/jlc_orientation/raw/*.json",
       "evidence/datasheets/*",

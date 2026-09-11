@@ -1,6 +1,14 @@
 {
   "parts": {
     "0603WAF1000T5E": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "soldering heat, solder bath 260 +/- 5 C held 10 +/- 1 s",
+          "document": "res_0603_uniroyal",
+          "value": 260.0
+        }
+      },
       "resistor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -40,6 +48,14 @@
       }
     },
     "0603WAF1001T5E": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "soldering heat, solder bath 260 +/- 5 C held 10 +/- 1 s",
+          "document": "res_0603_uniroyal",
+          "value": 260.0
+        }
+      },
       "resistor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -79,6 +95,14 @@
       }
     },
     "0603WAF1002T5E": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "soldering heat, solder bath 260 +/- 5 C held 10 +/- 1 s",
+          "document": "res_0603_uniroyal",
+          "value": 260.0
+        }
+      },
       "resistor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -118,6 +142,14 @@
       }
     },
     "0603WAF1003T5E": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "soldering heat, solder bath 260 +/- 5 C held 10 +/- 1 s",
+          "document": "res_0603_uniroyal",
+          "value": 260.0
+        }
+      },
       "resistor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -157,6 +189,14 @@
       }
     },
     "0603WAF1202T5E": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "soldering heat, solder bath 260 +/- 5 C held 10 +/- 1 s",
+          "document": "res_0603_uniroyal",
+          "value": 260.0
+        }
+      },
       "resistor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -196,6 +236,14 @@
       }
     },
     "0603WAF2202T5E": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "soldering heat, solder bath 260 +/- 5 C held 10 +/- 1 s",
+          "document": "res_0603_uniroyal",
+          "value": 260.0
+        }
+      },
       "resistor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -235,6 +283,14 @@
       }
     },
     "0603WAF4701T5E": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "soldering heat, solder bath 260 +/- 5 C held 10 +/- 1 s",
+          "document": "res_0603_uniroyal",
+          "value": 260.0
+        }
+      },
       "resistor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -274,6 +330,7 @@
       }
     },
     "B4P-VH(LF)(SN)": {
+      "assembly": {},
       "connector": {
         "ambient_max_c": {
           "basis": "direct",
@@ -322,6 +379,14 @@
       }
     },
     "CC0603KRX7R0BB104": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "resistance to soldering heat, solder bath 260 +/- 5 C, dipping time 10 +/- 0.5 s",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -363,6 +428,14 @@
       }
     },
     "CC0603KRX7R9BB223": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "resistance to soldering heat, solder bath 260 +/- 5 C, dipping time 10 +/- 0.5 s",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -404,6 +477,14 @@
       }
     },
     "CC0805KKX7R7BB106": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "resistance to soldering heat, solder bath 260 +/- 5 C, dipping time 10 +/- 0.5 s",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -445,6 +526,14 @@
       }
     },
     "CC0805KKX7R8BB225": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "resistance to soldering heat, solder bath 260 +/- 5 C, dipping time 10 +/- 0.5 s",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -486,6 +575,14 @@
       }
     },
     "CC1206KKX7R9BB475": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "resistance to soldering heat, solder bath 260 +/- 5 C, dipping time 10 +/- 0.5 s",
+          "document": "mlcc_yageo_cc",
+          "value": 260.0
+        }
+      },
       "capacitor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -527,6 +624,7 @@
       }
     },
     "HHXC500ARA101MJA0G": {
+      "assembly": {},
       "capacitor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -586,6 +684,7 @@
       }
     },
     "HoLRTX1206-1W-100mR-1%": {
+      "assembly": {},
       "resistor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -637,6 +736,7 @@
       }
     },
     "KF128-5.08-2P-AA": {
+      "assembly": {},
       "connector": {
         "ambient_max_c": {
           "basis": "direct",
@@ -685,6 +785,14 @@
       }
     },
     "KH-2.54PH180-1X3P-L11.5": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "maximum processing temperature 200 C for 30-60 s, 220 C for 5 s; PBT insulator",
+          "document": "header1x3_kinghelm",
+          "value": 220.0
+        }
+      },
       "connector": {
         "ambient_max_c": {
           "basis": "direct",
@@ -737,6 +845,14 @@
       }
     },
     "KH-2.54PH180-1X5P-L11.5": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "maximum processing temperature 200 C for 30-60 s, 220 C for 5 s; PBT insulator",
+          "document": "header1x5_kinghelm",
+          "value": 220.0
+        }
+      },
       "connector": {
         "ambient_max_c": {
           "basis": "direct",
@@ -789,6 +905,20 @@
       }
     },
     "KT-0603R": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "reflow soldering, 260 C for 10 s",
+          "document": "kt0603r_kento",
+          "value": 260.0
+        },
+        "reflow_passes_max": {
+          "basis": "direct",
+          "conditions": "reflow twice at most",
+          "document": "kt0603r_kento",
+          "value": 2.0
+        }
+      },
       "led": {
         "ambient_max_c": {
           "basis": "direct",
@@ -825,6 +955,14 @@
       }
     },
     "LMR51430YFDDCR": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "packaging information, MSL Level-1-260C-UNLIM",
+          "document": "lmr51430_ti",
+          "value": 260.0
+        }
+      },
       "ground_pins": [
         "1"
       ],
@@ -944,6 +1082,20 @@
       }
     },
     "SMBJ26A": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "reflow peak temperature 260 +0/-5 C, do not exceed 260 C",
+          "document": "smbj_littelfuse",
+          "value": 260.0
+        },
+        "reflow_passes_max": {
+          "basis": "direct",
+          "conditions": "J-STD-020 level 1 preconditioning, 3 reflow cycles at 260 C peak",
+          "document": "smbj_littelfuse",
+          "value": 3.0
+        }
+      },
       "junction_max_c": {
         "basis": "direct",
         "document": "smbj_littelfuse",
@@ -998,6 +1150,20 @@
       }
     },
     "SRP4020TA-220M": {
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "soldering profile TP 260 C for 10 s max",
+          "document": "srp4020_bourns",
+          "value": 260.0
+        },
+        "reflow_passes_max": {
+          "basis": "direct",
+          "conditions": "reflow times 3 max",
+          "document": "srp4020_bourns",
+          "value": 3.0
+        }
+      },
       "inductor": {
         "ambient_max_c": {
           "basis": "direct",
@@ -1052,6 +1218,7 @@
           "value": -40.0
         }
       },
+      "assembly": {},
       "digital_inputs": {
         "hysteresis_v": {
           "basis": "direct",
@@ -1129,6 +1296,7 @@
       ]
     },
     "Si9407BDY-T1-GE3": {
+      "assembly": {},
       "fet": {
         "body_diode_forward_max_v": {
           "basis": "direct",
@@ -1199,6 +1367,7 @@
       }
     },
     "TMC2226-SA-T": {
+      "assembly": {},
       "digital_inputs": {
         "hysteresis": {
           "fraction_of_supply": {
@@ -1491,6 +1660,14 @@
           "basis": "direct",
           "document": "tpd1e10b06_ti",
           "value": -40.0
+        }
+      },
+      "assembly": {
+        "peak_solder_temp_max_c": {
+          "basis": "direct",
+          "conditions": "packaging information, MSL Level-1-260C-UNLIM",
+          "document": "tpd1e10b06_ti",
+          "value": 260.0
         }
       },
       "tvs": {

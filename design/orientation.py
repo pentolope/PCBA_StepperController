@@ -5,17 +5,17 @@ correction that belongs to the part number rather than to the board: where the
 assembly library's zero orientation differs from the footprint's, every
 instance is fitted turned by the difference.
 
-The corrections are not written here. They are derived by tools/jlc_orientation
-from the library responses frozen in fabrication/jlc_orientation, and this
-module only assembles what that derivation produced into the registry the
-manifest carries - refusing any part whose evidence did not decide an offset,
-because an entry with a number nothing established is exactly what a registry
-is supposed to make impossible.
+The corrections are not written here. They are derived from the library
+responses frozen in fabrication/jlc_orientation by the toolkit deriver this
+board pins by digest, and this module only assembles what that derivation
+produced into the registry the manifest carries - refusing any part whose
+evidence did not decide an offset, because an entry with a number nothing
+established is exactly what a registry is supposed to make impossible.
 
-The derivation runs again during validation, from the same committed files,
-and the gate fails if it disagrees with what the manifest records. So the
-manifest block is a cache of a computation, not a table of opinions, and it
-is regenerated rather than edited.
+The derivation runs again during validation, from the same committed files and
+the same pinned bytes, and the gate fails if it disagrees with what the
+manifest records. So the manifest block is a cache of a computation, not a
+table of opinions, and it is regenerated rather than edited.
 """
 from __future__ import annotations
 
@@ -23,34 +23,39 @@ import json
 import os
 import sys
 
-from . import netlist
+from . import netlist, rules
 
-REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TOOL_DIR = os.path.join(REPO_ROOT, "tools")
+sys.path.insert(0, rules.TOOLKIT_ROOT)
+
+from pcbqa import derivers  # noqa: E402
+
+REPO_ROOT = rules.REPO_ROOT
 FIXTURE_DIR = os.path.join(REPO_ROOT, "fabrication", "jlc_orientation")
+BOARD_PATH = os.path.join(REPO_ROOT, "stepper_controller.kicad_pcb")
 
 PART_NUMBER_FIELD = "LCSC"
 
-#: What the registry's review status is claiming, recorded per entry so a
-#: reader can see what "reviewed" was allowed to mean here.
-REVIEW_BASIS = (
-    "derived from the frozen library response by tools/jlc_orientation.py, "
-    "which pairs the library's pads with the footprint's and requires every "
-    "pad to agree on one rotation; re-derived from the same committed "
-    "evidence on every release and compared against this entry"
-)
+#: The scoring algorithm, pinned to the bytes that produced this registry.
+#: The digest is the pin: the gate refuses to run anything else, so an
+#: edited or replaced deriver cannot silently re-score the evidence, and
+#: a new version is adopted here deliberately or not at all.
+DERIVER_ID = "jlc-pad-pairing-v1"
+DERIVER_SHA256 = \
+    "58c93007981ad5e0522f2b3a1d29f20caf36c2720757ebc6c76d11bf91bb1a57"
+
+#: What this registry's review status is allowed to mean: a script
+#: re-deriving each offset from the frozen response on every release,
+#: not a person comparing parts by eye.
+REVIEW_BASIS = "evidence_rederivation"
 
 
-def _tool():
-    if TOOL_DIR not in sys.path:
-        sys.path.insert(0, TOOL_DIR)
-    import jlc_orientation
-    return jlc_orientation
+def _deriver():
+    return derivers.load(DERIVER_ID, DERIVER_SHA256)
 
 
 def _package_name(tool, lcsc):
     """The library's own name for the package, from the frozen response."""
-    with open(tool.raw_path(lcsc), "rb") as handle:
+    with open(tool.raw_path(FIXTURE_DIR, lcsc), "rb") as handle:
         document = json.loads(handle.read().decode("utf-8"))
     head = document["result"]["packageDetail"]["dataStr"]["head"]
     return head.get("c_para", {}).get("package", "")
@@ -61,10 +66,14 @@ def _mpn_by_part_number():
             for part in netlist.PARTS.values() if part.get("lcsc")}
 
 
+def _relative(path):
+    return os.path.relpath(path, REPO_ROOT).replace("\\", "/")
+
+
 def registry():
     """One row per part number, or a refusal naming what is not established."""
-    tool = _tool()
-    derived = tool.derive(PART_NUMBER_FIELD)
+    tool = _deriver()
+    derived = tool.derive(PART_NUMBER_FIELD, BOARD_PATH, FIXTURE_DIR)
     mpn = _mpn_by_part_number()
     rows, refused = [], []
     for lcsc, record in sorted(derived.items()):
@@ -90,11 +99,9 @@ def registry():
             "kicad_footprint": record["kicad_footprint"],
             "offset_deg": record["best_offset_deg"],
             "review_status": "reviewed",
-            "x_review_basis": REVIEW_BASIS,
-            "evidence_file": os.path.relpath(tool.extract_path(lcsc),
-                                             REPO_ROOT).replace("\\", "/"),
-            "raw_file": os.path.relpath(tool.raw_path(lcsc),
-                                        REPO_ROOT).replace("\\", "/"),
+            "review_basis": REVIEW_BASIS,
+            "evidence_file": _relative(tool.extract_path(FIXTURE_DIR, lcsc)),
+            "raw_file": _relative(tool.raw_path(FIXTURE_DIR, lcsc)),
             "evidence_sha256": record["evidence_sha256"],
             "x_pairing": record["pairing"],
             "x_worst_pad_disagreement_deg": record["best_worst_deg"],
@@ -112,6 +119,7 @@ def specification():
             "part number(s): %s"
             % (len(refused), json.dumps(refused, indent=2)))
     return {
+        "deriver": {"id": DERIVER_ID, "sha256": DERIVER_SHA256},
         "part_number_field": PART_NUMBER_FIELD,
         "normalize_range_deg": [0, 360],
         "angle_decimals": 4,
@@ -124,7 +132,6 @@ def specification():
         },
         "reproduction_inputs": {
             "required_globs": [
-                "tools/jlc_orientation.py",
                 "fabrication/jlc_orientation/*.json",
                 "fabrication/jlc_orientation/raw/*.json",
             ],

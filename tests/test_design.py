@@ -11,9 +11,10 @@ REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
-from design import (build, cost, evidence, geometry, ksym,  # noqa: E402
-                    layout, libraries, manifest, models, netlist, orientation,
-                    physical, rules, simulation, stackup, thermal)
+from design import (assembly, build, cost, evidence,  # noqa: E402
+                    geometry, ksym, layout, libraries, manifest, models,
+                    netlist, orientation, physical, rules, simulation,
+                    stackup, thermal)
 
 TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
 if TOOLKIT_ROOT not in sys.path:
@@ -556,6 +557,120 @@ class BoardGeometry(unittest.TestCase):
                              netlist.PROBE_GROUND_REACH_MM)
 
 
+class Assembly(unittest.TestCase):
+    def _spec(self):
+        with open(os.path.join(REPO_ROOT, "board", "manifest.json"),
+                  encoding="utf-8") as handle:
+            return json.load(handle)["assembly"]
+
+    def _placed(self):
+        """{reference: part number} from the board file itself."""
+        import pcbnew
+        board = pcbnew.LoadBoard(layout.BOARD_PATH)
+        placed = {}
+        for footprint in board.GetFootprints():
+            if footprint.IsDNP():
+                continue
+            number = ""
+            for field in footprint.GetFields():
+                if field.GetName() == assembly.PART_NUMBER_FIELD:
+                    number = field.GetText().strip()
+            placed[footprint.GetReference()] = number
+        return placed
+
+    def test_every_placed_footprint_is_a_part_or_declared_furniture(self):
+        placed = self._placed()
+        declared = set(self._spec()["furniture"])
+        self.assertEqual(sorted(declared),
+                         sorted(ref for ref, number in placed.items()
+                                if not number))
+
+    def test_no_declared_furniture_is_something_procurement_buys(self):
+        placed = self._placed()
+        for reference in self._spec()["furniture"]:
+            self.assertEqual(placed.get(reference), "", reference)
+
+    def test_the_hand_fitted_parts_are_the_through_hole_ones(self):
+        import pcbnew
+        board = pcbnew.LoadBoard(layout.BOARD_PATH)
+        through_hole = set()
+        for footprint in board.GetFootprints():
+            number = ""
+            for field in footprint.GetFields():
+                if field.GetName() == assembly.PART_NUMBER_FIELD:
+                    number = field.GetText().strip()
+            if not number:
+                continue
+            if any(pad.GetAttribute() == pcbnew.PAD_ATTRIB_PTH
+                   for pad in footprint.Pads()):
+                through_hole.add(number)
+        self.assertEqual(sorted(assembly.HAND_FITTED), sorted(through_hole))
+
+    def test_every_part_the_board_places_has_a_record(self):
+        """An explicit record - even an empty one - says the datasheet was
+        read. Absence says nobody looked, and the two must not be the
+        same statement."""
+        records = self._spec()["parts"]
+        self.assertEqual(sorted(records), sorted(assembly.census()))
+        parameters = rules.load_parameters()["parts"]
+        for part in netlist.PARTS.values():
+            if part.get("on_board") and part.get("lcsc"):
+                self.assertIn("assembly", parameters[part["mpn"]],
+                              part["mpn"])
+
+    def test_every_stated_figure_names_a_document_that_covers_the_part(self):
+        index = evidence.load_index()["documents"]
+        parameters = rules.load_parameters()["parts"]
+        stated = 0
+        for part in netlist.PARTS.values():
+            if not (part.get("on_board") and part.get("lcsc")):
+                continue
+            for figure in parameters[part["mpn"]]["assembly"].values():
+                document = index[figure["document"]]
+                self.assertIn(part["mpn"], document["applies_to"])
+                stated += 1
+        self.assertGreater(stated, 0)
+
+    def test_a_hand_fitted_part_states_no_tolerance_of_a_pass_it_skips(self):
+        """The headers are rated below the reflow peak, which is why they
+        are fitted afterwards. The figure stays on the part; what the
+        record states is the requirement - keep this out of the oven."""
+        parameters = rules.load_parameters()["parts"]
+        mpn = {part["lcsc"]: part["mpn"] for part in netlist.PARTS.values()
+               if part.get("lcsc")}
+        records = self._spec()["parts"]
+        peak = self._spec()["process"]["peak_temp_c"]
+        rated_below = 0
+        for number in assembly.HAND_FITTED:
+            self.assertEqual(records[number], {"process": "hand_solder_only"})
+            figures = parameters[mpn[number]]["assembly"]
+            if "peak_solder_temp_max_c" in figures:
+                self.assertLess(figures["peak_solder_temp_max_c"]["value"],
+                                peak)
+                rated_below += 1
+        self.assertEqual(rated_below, 2)
+
+    def test_every_reflowed_part_tolerates_the_declared_peak(self):
+        records = self._spec()["parts"]
+        process = self._spec()["process"]
+        for number, record in records.items():
+            if record.get("process") == "hand_solder_only":
+                continue
+            if "peak_temp_max_c" in record:
+                self.assertGreaterEqual(record["peak_temp_max_c"],
+                                        process["peak_temp_c"], number)
+            if "max_reflow_passes" in record:
+                self.assertGreaterEqual(record["max_reflow_passes"],
+                                        process["reflow_passes"], number)
+
+    def test_the_declared_paste_floor_is_the_one_the_claim_holds(self):
+        pads = self._spec()["paste"]["pads"]
+        self.assertEqual(len(pads), 1)
+        self.assertEqual(pads[0]["coverage"][0], libraries.MIN_PASTE_COVERAGE)
+        self.assertGreaterEqual(libraries.paste_coverage_fraction(),
+                                libraries.MIN_PASTE_COVERAGE)
+
+
 class Orientation(unittest.TestCase):
     """The library-zero offsets, and what would happen if they moved."""
 
@@ -576,10 +691,14 @@ class Orientation(unittest.TestCase):
 
     @classmethod
     def setUpClass(cls):
-        sys.path.insert(0, os.path.join(REPO_ROOT, "tools"))
-        import jlc_orientation
-        cls.tool = jlc_orientation
-        cls.derived = jlc_orientation.derive(orientation.PART_NUMBER_FIELD)
+        cls.tool = orientation._deriver()
+        cls.fixtures = orientation.FIXTURE_DIR
+        cls.derived = cls._derive()
+
+    @classmethod
+    def _derive(cls):
+        return cls.tool.derive(orientation.PART_NUMBER_FIELD,
+                               orientation.BOARD_PATH, cls.fixtures)
 
     def _spec(self):
         with open(os.path.join(REPO_ROOT, "board", "manifest.json"),
@@ -600,7 +719,7 @@ class Orientation(unittest.TestCase):
         self.assertEqual(self._spec()["registry"], rows)
 
     def test_every_part_number_on_the_board_has_an_entry(self):
-        board = self.tool.footprint_pads(self.tool.BOARD,
+        board = self.tool.footprint_pads(orientation.BOARD_PATH,
                                          orientation.PART_NUMBER_FIELD)
         covered = {row["lcsc"] for row in self._spec()["registry"]}
         self.assertEqual(sorted(board), sorted(covered))
@@ -612,14 +731,33 @@ class Orientation(unittest.TestCase):
         self.assertNotEqual(self.EXPECTED_OFFSETS["C2286"],
                             self.EXPECTED_OFFSETS["C315992"])
 
+    def test_the_pinned_deriver_is_the_one_the_toolkit_ships(self):
+        from pcbqa import derivers
+
+        self.assertEqual(
+            derivers.file_sha256(derivers.resolve(orientation.DERIVER_ID)),
+            orientation.DERIVER_SHA256)
+        self.assertEqual(self._spec()["deriver"],
+                         {"id": orientation.DERIVER_ID,
+                          "sha256": orientation.DERIVER_SHA256})
+
+    def test_a_moved_pin_is_refused_rather_than_run(self):
+        """The pin is the claim. A digest that does not match the bytes
+        on disk must refuse, because running something else would score
+        this evidence with an algorithm nobody reviewed."""
+        from pcbqa import derivers
+
+        with self.assertRaises(derivers.DeriverError):
+            derivers.load(orientation.DERIVER_ID, "0" * 64)
+
     def test_editing_the_raw_body_is_caught(self):
-        raw = self.tool.raw_path("C2286")
+        raw = self.tool.raw_path(self.fixtures, "C2286")
         with open(raw, "rb") as handle:
             body = handle.read()
         try:
             with open(raw, "wb") as handle:
                 handle.write(body + b" ")
-            problems, _pads = self.tool.verify("C2286")
+            problems, _pads = self.tool.verify(self.fixtures, "C2286")
             self.assertTrue(problems)
             self.assertIn("digest", " ".join(p["issue"] for p in problems))
         finally:
@@ -627,7 +765,7 @@ class Orientation(unittest.TestCase):
                 handle.write(body)
 
     def test_editing_the_extract_cannot_move_an_offset(self):
-        path = self.tool.extract_path("C2286")
+        path = self.tool.extract_path(self.fixtures, "C2286")
         with open(path, "rb") as handle:
             original = handle.read()
         try:
@@ -636,7 +774,7 @@ class Orientation(unittest.TestCase):
                               for number, points in record["pads"].items()}
             with open(path, "w", encoding="utf-8") as handle:
                 json.dump(record, handle, indent=2)
-            derived = self.tool.derive(orientation.PART_NUMBER_FIELD)
+            derived = self._derive()
             self.assertAlmostEqual(derived["C2286"]["best_offset_deg"], 180.0,
                                    places=3)
             self.assertTrue(derived["C2286"]["evidence_problems"])
@@ -645,15 +783,10 @@ class Orientation(unittest.TestCase):
                 handle.write(original)
 
     def test_deriving_never_reaches_the_network(self):
-        def refuse(*_args, **_kwargs):
-            raise AssertionError("the offline path reached the network")
-
-        saved = self.tool.fetch
-        self.tool.fetch = refuse
-        try:
-            derived = self.tool.derive(orientation.PART_NUMBER_FIELD)
-        finally:
-            self.tool.fetch = saved
+        """Retrieval left the deriver when it became toolkit code: the
+        module a validation run imports carries no fetch at all."""
+        self.assertFalse(hasattr(self.tool, "fetch"))
+        derived = self.derived
         self.assertEqual(len(derived), len(self.EXPECTED_OFFSETS))
         for lcsc, record in derived.items():
             self.assertEqual(record["evidence_problems"], [], lcsc)

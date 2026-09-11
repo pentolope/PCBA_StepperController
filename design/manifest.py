@@ -11,7 +11,8 @@ import json
 import os
 import sys
 
-from . import build, layout, netlist, orientation, simulation, thermal
+from . import (assembly, build, layout, netlist, orientation,
+               simulation, thermal)
 
 MANIFEST_PATH = os.path.join(layout.REPO_ROOT, "board", "manifest.json")
 
@@ -329,6 +330,7 @@ def _base_document():
                 "true_tokens": ["1", "true", "yes", "x", "dnp"],
             },
             "compared_part_fields": ["LCSC", "MPN", "Manufacturer"],
+            **assembly.specification(),
         },
         "release_generation": {
             "lock_file_globs": ["*.lck", "~*.lck", ".#*", "*-lock",
@@ -389,7 +391,6 @@ def _base_document():
                                "*.kicad_dru", "constraints/*.json",
                                "sim/*.json", "fab/*.json",
                                "components/*.json", "evidence/index.json",
-                               "tools/jlc_orientation.py",
                                "fabrication/jlc_orientation/*.json",
                                "fabrication/jlc_orientation/raw/*.json"],
             "source_hash_field": "source_sha256",
