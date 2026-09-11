@@ -341,6 +341,10 @@
   "connector_contracts": [
     {
       "id": "supply_input",
+      "mating_keepout": {
+        "direction": "-x",
+        "extent_mm": 10.7
+      },
       "pin_map": {
         "1": "VM_IN",
         "2": "GND"
@@ -357,6 +361,10 @@
     },
     {
       "id": "motor_output",
+      "mating_keepout": {
+        "direction": "+y",
+        "extent_mm": 1.0
+      },
       "pin_map": {
         "1": "PHASE_A1",
         "2": "PHASE_A2",
@@ -375,6 +383,10 @@
     },
     {
       "id": "control_header",
+      "mating_keepout": {
+        "direction": "-y",
+        "extent_mm": 2.5
+      },
       "pin_map": {
         "1": "GND",
         "2": "HOST_RX",
@@ -394,6 +406,10 @@
     },
     {
       "id": "debug_header",
+      "mating_keepout": {
+        "direction": "-y",
+        "extent_mm": 2.5
+      },
       "pin_map": {
         "1": "GND",
         "2": "+3V3",
@@ -413,6 +429,10 @@
     },
     {
       "id": "configuration_header",
+      "mating_keepout": {
+        "direction": "-y",
+        "extent_mm": 2.5
+      },
       "pin_map": {
         "1": "GND",
         "2": "CFG_UART",

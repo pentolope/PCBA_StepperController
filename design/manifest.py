@@ -82,6 +82,9 @@ def connector_contracts():
             "pin_map": {number: pins[number]
                         for number in sorted(pins, key=int)},
         })
+        keepout = assembly.mating_keepout(reference)
+        if keepout:
+            contracts[-1]["mating_keepout"] = keepout
     return contracts
 
 

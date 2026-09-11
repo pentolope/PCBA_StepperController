@@ -44,6 +44,34 @@ FURNITURE_LIB_IDS = ("Mechanical:MountingHole", "Connector:TestPoint")
 FIGURE_FIELDS = (("peak_solder_temp_max_c", "peak_temp_max_c", float),
                  ("reflow_passes_max", "max_reflow_passes", int))
 
+#: JST VH dimension tables, both from the connector's own datasheet: the
+#: B4P-VH top-entry locking header's wafer, and the VHR-4N housing that
+#: locks onto it. The housing is the deeper of the two, so half the
+#: difference is what it overhangs on each side of the header it covers.
+VH_HEADER_DEPTH_MM = 8.5
+VH_HOUSING_DEPTH_MM = 10.5
+
+#: Kinghelm KH-2.54PH180 drawing: the insulator the pins stand in is
+#: 2.50 mm across. The socket that covers those pins is at least that
+#: deep, so it is the smallest reserve in front of a header that means
+#: anything physical.
+HEADER_INSULATOR_MM = 2.50
+
+#: Where each connector's mating half reaches beyond the courtyard, in
+#: the board file's own frame (x right, y down), with what fixes the
+#: number. The direction is the one the layout sends that connector's
+#: wiring: the terminal block faces the left edge, the three headers sit
+#: along the top edge, and the motor connector is interior - it is
+#: mated from above, and what has to stay clear is the overhang of the
+#: housing that drops onto it, on the side something is nearest.
+MATING_KEEPOUT = {
+    "J1": ("-x", libraries.KF128_BODY_DEPTH_MM),
+    "J2": ("+y", (VH_HOUSING_DEPTH_MM - VH_HEADER_DEPTH_MM) / 2.0),
+    "J3": ("-y", HEADER_INSULATOR_MM),
+    "J4": ("-y", HEADER_INSULATOR_MM),
+    "J5": ("-y", HEADER_INSULATOR_MM),
+}
+
 
 def _placed():
     return {reference: part for reference, part in netlist.PARTS.items()
@@ -89,6 +117,14 @@ def records(parameters=None):
             record["process"] = "hand_solder_only"
         out[number] = record
     return out
+
+
+def mating_keepout(reference):
+    """The envelope a connector's mating half needs, or None."""
+    if reference not in MATING_KEEPOUT:
+        return None
+    direction, extent = MATING_KEEPOUT[reference]
+    return {"direction": direction, "extent_mm": round(extent, 4)}
 
 
 def hand_soldered():

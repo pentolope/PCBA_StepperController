@@ -663,6 +663,67 @@ class Assembly(unittest.TestCase):
                 self.assertGreaterEqual(record["max_reflow_passes"],
                                         process["reflow_passes"], number)
 
+    def _courtyards(self):
+        """{reference: (x0, x1, y0, y1)} in the board file's own frame."""
+        import pcbnew
+        board = pcbnew.LoadBoard(layout.BOARD_PATH)
+        boxes = {}
+        for fp in board.GetFootprints():
+            if fp.IsDNP():
+                continue
+            shape = fp.GetCourtyard(pcbnew.F_CrtYd)
+            if not shape.OutlineCount():
+                continue
+            bb = shape.BBox()
+            boxes[fp.GetReference()] = (bb.GetLeft() / 1e6, bb.GetRight() / 1e6,
+                                        bb.GetTop() / 1e6, bb.GetBottom() / 1e6)
+        return boxes
+
+    def test_every_connector_declares_the_envelope_its_plug_needs(self):
+        with open(os.path.join(REPO_ROOT, "board", "manifest.json"),
+                  encoding="utf-8") as handle:
+            document = json.load(handle)
+        contracts = {entry["reference"]: entry
+                     for entry in document["connector_contracts"]}
+        self.assertEqual(sorted(contracts), sorted(assembly.MATING_KEEPOUT))
+        for reference, entry in sorted(contracts.items()):
+            keepout = entry["mating_keepout"]
+            self.assertIn(keepout["direction"], ("+x", "-x", "+y", "-y"))
+            self.assertGreater(keepout["extent_mm"], 0.0)
+
+    def test_each_extent_is_the_dimension_its_drawing_states(self):
+        """Every reserve traces to a number on a drawing, not to the gap
+        that happens to be there."""
+        declared = dict(assembly.MATING_KEEPOUT)
+        self.assertEqual(declared["J1"][1], libraries.KF128_BODY_DEPTH_MM)
+        self.assertAlmostEqual(
+            declared["J2"][1],
+            (assembly.VH_HOUSING_DEPTH_MM - assembly.VH_HEADER_DEPTH_MM) / 2.0)
+        for reference in ("J3", "J4", "J5"):
+            self.assertEqual(declared[reference][1],
+                             assembly.HEADER_INSULATOR_MM)
+
+    def test_nothing_stands_in_a_mating_envelope(self):
+        boxes = self._courtyards()
+        for reference, (direction, extent) in sorted(
+                assembly.MATING_KEEPOUT.items()):
+            x0, x1, y0, y1 = boxes[reference]
+            if direction == "+x":
+                zone = (x1, x1 + extent, y0, y1)
+            elif direction == "-x":
+                zone = (x0 - extent, x0, y0, y1)
+            elif direction == "+y":
+                zone = (x0, x1, y1, y1 + extent)
+            else:
+                zone = (x0, x1, y0 - extent, y0)
+            for other, (ox0, ox1, oy0, oy1) in sorted(boxes.items()):
+                if other == reference:
+                    continue
+                clear = (ox1 < zone[0] or ox0 > zone[1]
+                         or oy1 < zone[2] or oy0 > zone[3])
+                self.assertTrue(clear, "%s is in %s's mating envelope"
+                                % (other, reference))
+
     def test_the_declared_paste_floor_is_the_one_the_claim_holds(self):
         pads = self._spec()["paste"]["pads"]
         self.assertEqual(len(pads), 1)
