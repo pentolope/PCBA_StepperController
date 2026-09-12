@@ -1404,6 +1404,10 @@
         "reason": "this board routes no differential pair; every net on it is single-ended and there is no pair impedance to hold"
       },
       {
+        "domain": "flow_repeatability",
+        "reason": "the adopted copper came from KiCadRoutingTools 0.21.5 with grid_router 0.21.4 under KiCad 10.0.5, and this tree resolves 0.22.0, 0.22.0 and 10.0.6; a study run now would measure a different tool than the one that drew this board, which the gate itself refuses, and the search's input board was never committed so the distribution that produced this copper cannot be resampled. Re-running the declared search from the current sources refuses all 12 attempts on THERMAL.BOARD_RISE, so no acceptable candidate exists to sample until the board rise meets its budget"
+      },
+      {
         "domain": "lifecycle",
         "reason": "no lifecycle source has been frozen for this board; the committed JLCPCB library responses carry stock and an on-sale flag, which the toolkit's own freeze distinguishes from a lifecycle statement, and establishing a status is a reviewer's act on evidence nobody has retrieved yet - tracked as the jlcpcb-lifecycle-snapshot dependency"
       },

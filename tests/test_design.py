@@ -12,15 +12,15 @@ if REPO_ROOT not in sys.path:
     sys.path.insert(0, REPO_ROOT)
 
 from design import (assembly, build, cost, evidence,  # noqa: E402
-                    geometry, ksym, layout, libraries, manifest, models,
-                    netlist, orientation, physical, rules, simulation,
-                    stackup, thermal)
+                    geometry, governance, ksym, layout, libraries,
+                    manifest, models, netlist, orientation, physical,
+                    rules, simulation, stackup, thermal)
 
 TOOLKIT_ROOT = os.path.join(REPO_ROOT, "tooling", "PCBA_AutoDesignAndTest")
 if TOOLKIT_ROOT not in sys.path:
     sys.path.insert(0, TOOLKIT_ROOT)
 
-from pcbqa import claim  # noqa: E402
+from pcbqa import claim, core, policy  # noqa: E402
 from pcbqa.sim import model_registry, ngspice  # noqa: E402
 from pcbqa.sim import scenario as sim_scenario  # noqa: E402
 
@@ -730,6 +730,53 @@ class Assembly(unittest.TestCase):
         self.assertEqual(pads[0]["coverage"][0], libraries.MIN_PASTE_COVERAGE)
         self.assertGreaterEqual(libraries.paste_coverage_fraction(),
                                 libraries.MIN_PASTE_COVERAGE)
+
+
+class Governance(unittest.TestCase):
+    """Every evidence domain the installed toolkit implements is decided.
+
+    The toolkit grows domains; silence about a new one is the state its
+    own policy calls "not a decision". This holds the board's governance
+    to the installed DOMAINS table, so a toolkit that adds one fails
+    here instead of waiting to be noticed in a validation run.
+    """
+
+    @classmethod
+    def setUpClass(cls):
+        cls.manifest = core.load_manifest(
+            os.path.join(REPO_ROOT, "board", "manifest.json"))
+
+    def setUp(self):
+        self.implemented = set(policy.DOMAINS)
+        self.required = set(governance.REQUIRED_DOMAINS)
+        self.declined = {entry["domain"]
+                         for entry in governance.DECLINED_DOMAINS}
+        self.declared = {
+            name for name, spec in policy.DOMAINS.items()
+            if any(self.manifest.has(key) for key in spec["declared_by"])}
+
+    def test_every_implemented_domain_is_declared_or_declined(self):
+        self.assertEqual(sorted(self.implemented
+                                - self.declared - self.declined), [])
+
+    def test_no_domain_is_both_declared_and_declined(self):
+        self.assertEqual(sorted(self.declared & self.declined), [])
+
+    def test_every_domain_this_profile_requires_is_declared(self):
+        self.assertEqual(sorted(self.required - self.declared), [])
+
+    def test_nothing_is_decided_about_a_domain_that_does_not_exist(self):
+        self.assertEqual(
+            sorted((self.required | self.declined) - self.implemented), [])
+
+    def test_an_undeclinable_domain_is_never_declined(self):
+        for name in sorted(self.declined):
+            self.assertTrue(policy.DOMAINS[name]["declinable"], name)
+
+    def test_every_decline_states_a_reason(self):
+        for entry in governance.DECLINED_DOMAINS:
+            self.assertTrue(entry.get("reason", "").strip(),
+                            entry["domain"])
 
 
 class Orientation(unittest.TestCase):
